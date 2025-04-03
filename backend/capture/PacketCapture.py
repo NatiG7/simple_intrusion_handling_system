@@ -19,7 +19,6 @@ Use Case in IPS:
 
 import queue
 import threading
-from collections import defaultdict
 
 from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
