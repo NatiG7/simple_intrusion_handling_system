@@ -1,9 +1,7 @@
 from collections import defaultdict
 
-from PacketCapture import *
-
-from backend.utils.protocol_field_builder import (build_ip_fields,
-                                                  build_tcp_fields)
+from scapy.layers.inet import IP, TCP
+from scapy.packet import Packet
 
 
 class TrafficAnalysis:
@@ -36,7 +34,7 @@ class TrafficAnalysis:
         )
 
     def analyze_packet(self, packet: Packet):
-        if IP in packet and TCP in packet:
+        if packet is not None and IP in packet and TCP in packet:
             try:
 
                 # modular_structure #
