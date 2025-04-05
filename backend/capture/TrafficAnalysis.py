@@ -161,7 +161,8 @@ class TrafficAnalysis:
         try:
             duration = stats["flow_duration"]
             if duration == 0:
-                duration = 1e-6  # Avoid divide-by-zero
+                # Avoid divide-by-zero
+                duration = 1e-6
 
             features = {
                 # Basic features
