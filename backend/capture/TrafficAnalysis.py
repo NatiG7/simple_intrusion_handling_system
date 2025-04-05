@@ -2,6 +2,9 @@ from collections import defaultdict
 
 from PacketCapture import *
 
+from backend.utils.protocol_field_builder import (build_ip_fields,
+                                                  build_tcp_fields)
+
 
 class TrafficAnalysis:
     """ """
@@ -36,6 +39,12 @@ class TrafficAnalysis:
         if IP in packet and TCP in packet:
             try:
 
+                # modular_structure #
+                # ip_fields = build_ip_fields(packet)
+                # tcp_fields = build_tcp_fields(packet)
+                # flow_key = build_flow_key(ip_fields,tcp_fields)
+                # end modular_structure #
+
                 # TODO build functions. code too long
                 # IP fields for analysis
                 IP_version = packet[IP].version
@@ -57,7 +66,14 @@ class TrafficAnalysis:
                 tcp_window_size = packet[TCP].window
 
                 # Flow key
-                flow_key = (source_ip, destination_ip)
+                flow_key = (
+                    IP_version,
+                    source_ip,
+                    destination_ip,
+                    source_port,
+                    destination_port,
+                    "TCP",
+                )
 
                 # update stats
 
@@ -136,5 +152,67 @@ class TrafficAnalysis:
                 if tcp_checksum != 0:  # Simple checksum validation (basic example)
                     self.flow_stats[flow_key]["tcp_checksum_errors"] += 1
 
+                return self.extract_features(packet, self.flow_stats)
+
             except Exception as e:
                 print(f"Error has occured :{e}")  # TODO obviously.
+
+    def extract_features(self, packet: Packet, stats):
+        try:
+            duration = stats["flow_duration"]
+            if duration == 0:
+                duration = 1e-6  # Avoid divide-by-zero
+
+            features = {
+                # Basic features
+                "packet_size": len(packet),
+                "flow_duration": duration,
+                "packet_rate": stats["packet_count"] / duration,
+                "byte_rate": stats["byte_count"] / duration,
+                # TCP window size (last seen)
+                "latest_window_size": packet[TCP].window,
+                # Flag counts
+                "syn_count": stats["tcp_flags_count"].get("SYN", 0),
+                "ack_count": stats["tcp_flags_count"].get("ACK", 0),
+                "fin_count": stats["tcp_flags_count"].get("FIN", 0),
+                "rst_count": stats["tcp_flags_count"].get("RST", 0),
+                # Sequence and window statistics
+                "avg_sequence_number": (
+                    sum(stats["sequence_numbers"]) / len(stats["sequence_numbers"])
+                    if stats["sequence_numbers"]
+                    else 0
+                ),
+                "avg_window_size": (
+                    sum(stats["window_sizes"]) / len(stats["window_sizes"])
+                    if stats["window_sizes"]
+                    else 0
+                ),
+                # Header statistics
+                "avg_ip_header_length": (
+                    sum(stats["header_lengths"]) / len(stats["header_lengths"])
+                    if stats["header_lengths"]
+                    else 0
+                ),
+                "avg_tcp_header_size": (
+                    sum(stats["tcp_header_sizes"]) / len(stats["tcp_header_sizes"])
+                    if stats["tcp_header_sizes"]
+                    else 0
+                ),
+                # Port/IP diversity
+                "unique_src_ips": len(stats["source_ip_count"]),
+                "unique_dst_ips": len(stats["destination_ip_count"]),
+                "unique_src_ports": len(stats["source_port_count"]),
+                "unique_dst_ports": len(stats["destination_port_count"]),
+                # Errors
+                "ip_checksum_errors": stats["checksum_errors"],
+                "tcp_checksum_errors": stats["tcp_checksum_errors"],
+                # Reserved bits stats
+                "reserved_bit_set_count": sum(
+                    1 for b in stats["reserved_bits"] if b != 0
+                ),
+            }
+            return features
+
+        except Exception as e:
+            print(f"[Extract Error] {e}")
+            return {}
