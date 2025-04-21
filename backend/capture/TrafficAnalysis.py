@@ -17,10 +17,10 @@ class TrafficAnalysis:
                 "start_time": None,
                 "last_time": None,
                 "flow_duration": None,
-                "source_ip_count": {},
-                "destination_ip_count": {},
-                "source_port_count": {},
-                "destination_port_count": {},
+                "source_ip_count": defaultdict(int),
+                "destination_ip_count": defaultdict(int),
+                "source_port_count": defaultdict(int),
+                "destination_port_count": defaultdict(int),
                 "tcp_flags_count": {"SYN": 0, "ACK": 0, "FIN": 0, "RST": 0},
                 "sequence_numbers": [],
                 "window_sizes": [],
@@ -73,51 +73,31 @@ class TrafficAnalysis:
                     "TCP",
                 )
 
-                # update stats
-
-                # get packet time
-                current_packet_time = packet.time
+                flow_data = self.flow_stats[flow_key]
 
                 # check if start time is set or init
-                if not self.flow_stats[flow_key]["start_time"]:
-                    self.flow_stats[flow_key]["start_time"] = current_packet_time
+                if flow_data["start_time"] is None:
+                    flow_data["start_time"] = packet.time
 
-                # update last time
-                self.flow_stats[flow_key]["last_time"] = current_packet_time
+                # update last time and calculate flow
+                flow_data["last_time"] = packet.time
+                if flow_data["start_time"]:
+                    flow_data["flow_duration"] = (
+                        flow_data["last_time"] - flow_data["start_time"]
+                    )
 
-                # calc flow duration
-                self.flow_stats[flow_key]["flow_duration"] = (
-                    self.flow_stats[flow_key]["last_time"]
-                    - self.flow_stats[flow_key]["start_time"]
-                )
                 # count packets and size
-                self.flow_stats[flow_key]["packet_count"] += 1
-                self.flow_stats[flow_key]["byte_count"] += packet_length
+                flow_data["packet_count"] += 1
+                flow_data["byte_count"] += packet_length
 
                 # count src ip and dest ip
-                self.flow_stats[flow_key]["source_ip_count"][source_ip] = (
-                    self.flow_stats[flow_key]["source_ip_count"].get(source_ip, 0) + 1
-                )
-                self.flow_stats[flow_key]["destination_ip_count"][destination_ip] = (
-                    self.flow_stats[flow_key]["destination_ip_count"].get(
-                        destination_ip, 0
-                    )
-                    + 1
-                )
+                flow_data["source_ip_count"][source_ip] += 1
+                flow_data["destination_ip_count"][destination_ip] += 1
 
                 # count src port and dst port
-                self.flow_stats[flow_key]["source_port_count"][source_port] = (
-                    self.flow_stats[flow_key]["source_port_count"].get(source_port, 0)
-                    + 1
-                )
-                self.flow_stats[flow_key]["destination_port_count"][
-                    destination_port
-                ] = (
-                    self.flow_stats[flow_key]["destination_port_count"].get(
-                        destination_port, 0
-                    )
-                    + 1
-                )
+                flow_data["source_port_count"][source_port] += 1
+                flow_data["destination_port_count"][destination_port] += 1
+
                 # TCP flag count
                 # SYN
                 if tcp_flags & 0x02:
@@ -133,24 +113,21 @@ class TrafficAnalysis:
                     self.flow_stats[flow_key]["tcp_flags_count"]["RST"] += 1
 
                 # Sequence numbers and window sizes
-                self.flow_stats[flow_key]["sequence_numbers"].append(sequence_number)
-                self.flow_stats[flow_key]["window_sizes"].append(tcp_window_size)
+                flow_data["sequence_numbers"].append(sequence_number)
+                flow_data["window_sizes"].append(tcp_window_size)
 
                 # Track the IP header length, identification field, and checksum errors
-                self.flow_stats[flow_key]["header_lengths"].append(header_length)
-                if header_checksum != 0:  # Simple checksum validation (basic example)
-                    self.flow_stats[flow_key]["checksum_errors"] += 1
-                self.flow_stats[flow_key]["identification_fields"].append(
-                    identification_field
-                )
+                if header_checksum != 0:
+                    flow_data["checksum_errors"] += 1
+                    flow_data["identification_fields"].append(identification_field)
 
                 # Track TCP header size, reserved bits, and checksum errors
-                self.flow_stats[flow_key]["tcp_header_sizes"].append(tcp_header_size)
-                self.flow_stats[flow_key]["reserved_bits"].append(reserved_bits)
-                if tcp_checksum != 0:  # Simple checksum validation (basic example)
-                    self.flow_stats[flow_key]["tcp_checksum_errors"] += 1
+                flow_data["tcp_header_sizes"].append(tcp_header_size)
+                flow_data["reserved_bits"].append(reserved_bits)
+                if tcp_checksum != 0:
+                    flow_data["tcp_checksum_errors"] += 1
 
-                return self.extract_features(packet, self.flow_stats)
+                return self.extract_features(packet, flow_data)
 
             except Exception as e:
                 print(f"Error has occured :{e}")  # TODO obviously.
