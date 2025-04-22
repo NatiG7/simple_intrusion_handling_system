@@ -27,7 +27,7 @@ from scapy.sendrecv import sniff
 
 class PacketCapture:
     """
-    A class for capturing and analyzing network packets using Scapy.
+    A class for capturing and network packets using Scapy.
     """
 
     def __init__(self):
