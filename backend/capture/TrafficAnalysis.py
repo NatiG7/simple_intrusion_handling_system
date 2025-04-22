@@ -34,6 +34,24 @@ class TrafficAnalysis:
         )
 
     def analyze_packet(self, packet: Packet):
+        """
+        Analyze a single network packet and update flow statistics accordingly.
+
+        This function extracts key IP and TCP header fields from the packet,
+        constructs a unique flow key, and updates flow-related metrics such as
+        packet count, byte count, duration, TCP flag counts, sequence numbers,
+        and checksums.
+
+        Parameters:
+            packet (Packet): A Scapy Packet object containing IP and TCP layers.
+
+        Returns:
+            dict: A dictionary of extracted features based on the analyzed packet
+                    and current flow statistics.
+
+        Raises:
+            Exception: Logs any exception that occurs during packet analysis.
+        """
         if packet is not None and IP in packet and TCP in packet:
             try:
 
@@ -120,6 +138,7 @@ class TrafficAnalysis:
                 if header_checksum != 0:
                     flow_data["checksum_errors"] += 1
                     flow_data["identification_fields"].append(identification_field)
+                    flow_data["header_lengths"].append(header_length)
 
                 # Track TCP header size, reserved bits, and checksum errors
                 flow_data["tcp_header_sizes"].append(tcp_header_size)
@@ -133,6 +152,22 @@ class TrafficAnalysis:
                 print(f"Error has occured :{e}")  # TODO obviously.
 
     def extract_features(self, packet: Packet, stats):
+        """
+        Extract statistical and protocol-based features from a network packet and its flow data.
+
+        Computes various metrics such as packet and byte rates, TCP flag counts, average
+        sequence numbers, header sizes, IP/port diversity, and checksum or reserved bit errors.
+
+        Parameters:
+            packet (Packet): A Scapy Packet object containing IP and TCP layers.
+            stats (dict): A dictionary containing current statistics for the corresponding flow.
+
+        Returns:
+            dict: A dictionary of computed features for the given packet and flow.
+
+        Raises:
+            Exception: Logs any exception that occurs during feature extraction.
+        """
         try:
             duration = stats["flow_duration"]
             if duration == 0:
