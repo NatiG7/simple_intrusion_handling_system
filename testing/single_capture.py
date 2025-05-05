@@ -100,6 +100,5 @@ def packet_callback(packet):
 # Capture a single packet on the default interface
 sniff(count=1, prn=packet_callback)
 
-packet = sniff(count=1)
-
-print(f"Prnt packet : {packet}")
+# packet = sniff(count=1)
+# print(f"\nExample\n\tPrnt packet : {packet}")

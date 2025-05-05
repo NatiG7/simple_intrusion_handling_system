@@ -1,6 +1,20 @@
+from colorama import Fore, Style, init
 from scapy.all import sniff
 from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
+
+init(autoreset=True)
+# Global color dictionary
+COLORS = {
+    "title": Fore.CYAN + Style.BRIGHT,
+    "key": Fore.YELLOW,
+    "value": Fore.GREEN,
+    "ip": Fore.MAGENTA,
+    "port": Fore.BLUE,
+    "number": Fore.WHITE,
+    "proto": Fore.RED + Style.BRIGHT,
+    "reset": Style.RESET_ALL,
+}
 
 
 def analyze_packet(packet: Packet):
@@ -8,7 +22,7 @@ def analyze_packet(packet: Packet):
         try:
 
             # IP fields for analysis
-            IP_version:int = packet[IP].version
+            IP_version: int = packet[IP].version
             header_length = packet[IP].ihl * 4  # to bytes
             packet_length = packet[IP].len
             identification_field = packet[IP].id
@@ -56,7 +70,7 @@ def analyze_packet(packet: Packet):
                     "identification_fields": [],
                     "tcp_header_sizes": [],
                     "reserved_bits": [],
-                    "tcp_checksum_errors": 0
+                    "tcp_checksum_errors": 0,
                 }
             # get packet time
             current_packet_time = packet.time
@@ -70,8 +84,7 @@ def analyze_packet(packet: Packet):
 
             # calc flow duration
             features[flow_key]["flow_duration"] = (
-                features[flow_key]["last_time"]
-                - features[flow_key]["start_time"]
+                features[flow_key]["last_time"] - features[flow_key]["start_time"]
             )
             # count packets and size
             features[flow_key]["packet_count"] += 1
@@ -82,23 +95,15 @@ def analyze_packet(packet: Packet):
                 features[flow_key]["source_ip_count"].get(source_ip, 0) + 1
             )
             features[flow_key]["destination_ip_count"][destination_ip] = (
-                features[flow_key]["destination_ip_count"].get(
-                    destination_ip, 0
-                )
-                + 1
+                features[flow_key]["destination_ip_count"].get(destination_ip, 0) + 1
             )
 
             # count src port and dst port
             features[flow_key]["source_port_count"][source_port] = (
-                features[flow_key]["source_port_count"].get(source_port, 0)
-                + 1
+                features[flow_key]["source_port_count"].get(source_port, 0) + 1
             )
-            features[flow_key]["destination_port_count"][
-                destination_port
-            ] = (
-                features[flow_key]["destination_port_count"].get(
-                    destination_port, 0
-                )
+            features[flow_key]["destination_port_count"][destination_port] = (
+                features[flow_key]["destination_port_count"].get(destination_port, 0)
                 + 1
             )
             # TCP flag count
@@ -123,9 +128,7 @@ def analyze_packet(packet: Packet):
             features[flow_key]["header_lengths"].append(header_length)
             if header_checksum != 0:  # Simple checksum validation (basic example)
                 features[flow_key]["checksum_errors"] += 1
-            features[flow_key]["identification_fields"].append(
-                identification_field
-            )
+            features[flow_key]["identification_fields"].append(identification_field)
 
             # Track TCP header size, reserved bits, and checksum errors
             features[flow_key]["tcp_header_sizes"].append(tcp_header_size)
@@ -137,6 +140,29 @@ def analyze_packet(packet: Packet):
         except Exception as e:
             print(f"Error has occured :{e}")
 
+
+# Pretty printer
+def print_capture(data):
+    print(f"{COLORS['title']}Captured {len(data)} Flow(s):{COLORS['reset']}")
+    for key, stats in data.items():
+        print(f"{COLORS['key']}  Flow Key:{COLORS['reset']}")
+        print(f"    {COLORS['number']}Flow ID: {key[0]}")
+        print(f"    {COLORS['ip']}Source IP: {key[1]}")
+        print(f"    {COLORS['ip']}Dest IP  : {key[2]}")
+        print(f"    {COLORS['port']}Src Port : {key[3]}")
+        print(f"    {COLORS['port']}Dst Port : {key[4]}")
+        print(f"    {COLORS['proto']}Protocol: {key[5]}{COLORS['reset']}\n")
+        print(f"{COLORS['key']}  Flow Stats:{COLORS['reset']}")
+        for stat_key, stat_val in stats.items():
+            formatted_val = stat_val
+            if isinstance(stat_val, dict):
+                formatted_val = ", ".join(f"{k}: {v}" for k, v in stat_val.items())
+            elif isinstance(stat_val, list):
+                formatted_val = ", ".join(map(str, stat_val))
+            print(f"    {COLORS['key']}{stat_key}:{COLORS['value']} {formatted_val}")
+        print()
+
+
 features = {}
 # Capture and analyze a single packet
 single_packet = sniff(count=1)
@@ -144,4 +170,5 @@ print(f"Captured {len(single_packet)}")
 for packet in single_packet:
     analyze_packet(packet)
 
-print(features)
+if features:
+    print_capture(features)
