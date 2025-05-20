@@ -99,7 +99,7 @@ This project aims to develop an **Intrusion Prevention System (IPS)** that monit
 
 This project will provide a **practical and efficient IPS solution** with an **intuitive web dashboard**, allowing users to **monitor, analyze, and respond to network threats** effectively. The **modular design** will ensure **scalability and maintainability**, making it suitable for future enhancements.  
 
-### Next Steps:  
+### Next Steps
 
 - Finalize the technology stack.  
 - Create an initial prototype of the **packet capture module**.  
