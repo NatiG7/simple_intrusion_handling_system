@@ -1,146 +1,9 @@
 <mxfile host="65bd71144e">
     <diagram id="JKPN2PaHLNAHYvrWgLSi" name="Page-1">
-        <mxGraphModel dx="924" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1611" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="201" style="edgeStyle=entityRelationEdgeStyle;html=1;fontFamily=Helvetica;" parent="1" source="202" target="205" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="202" value="User" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="10" y="80" width="100" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="203" value="P1: User Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="324" width="180" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="204" style="edgeStyle=none;html=1;fontFamily=Helvetica;" parent="1" source="205" target="209" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="205" value="P1.1 Validate Credentials" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="220" y="170" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="206" value="&lt;span&gt;F1: &lt;/span&gt;User Login Cred" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=65;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="135" width="110" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="207" style="edgeStyle=none;html=1;fontFamily=Helvetica;" parent="1" source="209" target="205" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="208" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;" parent="1" source="209" target="213" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="740" y="65"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="209" value="&lt;b&gt;DB3: &lt;/b&gt;Users" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;fontFamily=Helvetica;fontSize=9;" parent="1" vertex="1">
-                    <mxGeometry x="230" y="50" width="100" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="210" value="User data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
-                    <mxGeometry x="280" y="85" width="70" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="211" style="edgeStyle=none;html=1;fontFamily=Helvetica;" parent="1" source="213" target="215" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="212" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" parent="1" source="213" target="209" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="740" y="65"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="213" value="P1.2 Check Acess Leve" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="170" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="214" style="edgeStyle=none;html=1;" parent="1" source="215" target="224" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="215" value="P1.3 Grant/Deny Access" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="420" y="360" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="216" value="Query[user info]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
-                    <mxGeometry x="285" y="110" width="90" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="217" value="" style="edgeStyle=none;html=1;fontFamily=Helvetica;" parent="1" source="205" target="219" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="350" y="230" as="sourcePoint"/>
-                        <mxPoint x="480" y="230" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="218" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="219" target="215" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="219" value="User Credentials Valid?" style="shape=rhombus;html=1;dashed=0;whiteSpace=wrap;perimeter=rhombusPerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="420" y="170" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="220" value="User data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
-                    <mxGeometry x="665" y="60" width="70" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="221" value="Query[user access level]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
-                    <mxGeometry x="600" y="40" width="130" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="222" value="" style="edgeStyle=none;html=1;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="219" target="213" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="534" y="230" as="sourcePoint"/>
-                        <mxPoint x="680" y="230" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="223" value="Valid Credentials" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="555" y="200" width="110" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="224" value="&lt;b&gt;DB6: &lt;/b&gt;Access Log" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;fontFamily=Times New Roman;fontSize=9;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="405" width="100" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="225" value="Log Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="295" y="390" width="80" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="226" value="Access Denied" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="375" y="320" width="100" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="227" value="Invalid Credentials" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="354" y="300" width="120" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="228" value="P2: Packet Capture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="293" y="520" width="230" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="229" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="230" target="232" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="230" value="&lt;b&gt;Network Interface&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="34" y="600" width="100" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="231" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="232" target="235" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="232" value="P2.1 Capture Packets with Scapy library" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="374" y="640" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="233" value="Raw Network Traffic" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=20;" parent="1" vertex="1">
-                    <mxGeometry x="194" y="630" width="130" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="234" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="235" target="237" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="235" value="P2.2 Filter IP/TCP Packets" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="674" y="720" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="236" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="237" target="238" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="237" value="P2.3 Queue Packets for Analysis" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="274" y="840" width="120" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="238" value="&lt;b&gt;DB5&lt;/b&gt;: Packet Queue" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="34" y="885" width="100" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="239" value="Filtered Packet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="144" y="880" width="100" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="240" value="Capture using sniff method" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=14;" parent="1" vertex="1">
-                    <mxGeometry x="504" y="685" width="170" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="241" value="FIltered Packet with statistics dictionary" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=342;" parent="1" vertex="1">
-                    <mxGeometry x="434" y="830" width="230" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="254" style="edgeStyle=none;html=1;" parent="1" source="255" target="258" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
@@ -328,6 +191,160 @@
                 </mxCell>
                 <mxCell id="315" value="Toggle Monitoring" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="440" y="3220" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="316" style="edgeStyle=entityRelationEdgeStyle;html=1;fontFamily=Helvetica;" edge="1" parent="1" source="317" target="320">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="317" value="User" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="318" value="P1: User Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="324" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="319" style="edgeStyle=none;html=1;fontFamily=Helvetica;" edge="1" parent="1" source="320" target="324">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="320" value="P1.1 Validate Credentials" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="170" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="321" value="&lt;span&gt;F1.1: &lt;/span&gt;User Login Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=81;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="115" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="322" style="edgeStyle=none;html=1;fontFamily=Helvetica;" edge="1" parent="1" source="324" target="320">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="323" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;" edge="1" parent="1" source="324" target="328">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="740" y="65"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="324" value="&lt;span&gt;DB3: &lt;/span&gt;Users" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;fontFamily=Helvetica;fontSize=9;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="230" y="50" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="325" value="User data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="85" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="326" style="edgeStyle=none;html=1;fontFamily=Helvetica;" edge="1" parent="1" source="328" target="330">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="327" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" edge="1" parent="1" source="328" target="324">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="740" y="65"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="328" value="P1.2 Check Acess Leve" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="170" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="329" style="edgeStyle=none;html=1;" edge="1" parent="1" source="330" target="336">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="330" value="P1.3 Grant/Deny Access" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="360" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="331" value="Query[user info]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="285" y="110" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="332" value="User data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="665" y="60" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="333" value="Query[user access level]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="40" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="334" value="" style="edgeStyle=none;html=1;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="320" target="328">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="540" y="230" as="sourcePoint"/>
+                        <mxPoint x="680" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="335" value="F1.2: Valid Credentials" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="200" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="336" value="&lt;span&gt;DB6: &lt;/span&gt;Access Log" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;fontFamily=Times New Roman;fontSize=9;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="120" y="405" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="337" value="F1.4 Log Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="285" y="390" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="338" value="F1.3: User Access Level" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-37;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="520" y="310" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="339" value="&lt;b&gt;Flow 1: User Login&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="155" width="140" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="340" value="&lt;span&gt;F1.1: User Login Data&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="339">
+                    <mxGeometry y="30" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="341" value="&lt;span&gt;F1.2: Valid Credentials&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="339">
+                    <mxGeometry y="60" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="342" value="&lt;span&gt;F1.3: User Access Level&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="339">
+                    <mxGeometry y="90" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="343" value="F1.4: Log Login" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="339">
+                    <mxGeometry y="120" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="372" value="P2: Packet Capture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="299" y="520" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="373" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="374" target="376">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="374" value="&lt;b&gt;Network Interface&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="600" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="375" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="376" target="379">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="376" value="P2.1 Capture Packets with Scapy library" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="640" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="377" value="F2.1: Raw Network Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=23;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="195" y="640" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="378" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="379" target="381">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="379" value="P2.2 Filter IP/TCP Packets" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="720" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="380" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="381" target="392">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="140" y="900" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="381" value="P2.3 Queue Packets for Analysis" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="840" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="383" value="F2.4 Filtered Packet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="180" y="880" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="384" value="F2.2: Packet Capture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=16;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="529" y="690" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="385" value="F2.3: IP &amp;amp;&amp;amp; TCP Packet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-22;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="485" y="840" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="386" value="&lt;b&gt;Flow 2: Packet Capture&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="680" width="140" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="387" value="&lt;span&gt;F2.1: Raw Network Data&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="386">
+                    <mxGeometry y="30" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="388" value="&lt;span&gt;F2.2: Packet Capture&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="386">
+                    <mxGeometry y="60" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="389" value="&lt;span&gt;F2.3: IP &amp;amp;&amp;amp; TCP Packet&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="386">
+                    <mxGeometry y="90" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="390" value="F2.4: Filtered Packet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="386">
+                    <mxGeometry y="120" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="392" value="&lt;b&gt;DB5: Packet Queue&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="860" width="120" height="80" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
