@@ -1,37 +1,37 @@
 <mxfile host="65bd71144e">
     <diagram id="FtUniPq34bn4Fs8Vb7rD" name="Page-1">
-        <mxGraphModel dx="1712" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1315" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="3" value="Intrusion Detection System" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fontSize=18;" vertex="1" parent="1">
+                <mxCell id="3" value="Intrusion Detection System" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fontSize=18;" parent="1" vertex="1">
                     <mxGeometry x="120" y="80" width="590" height="720" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="UC1: Real-time Packet Capture" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="20" value="UC1: Real-time Packet Capture" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="130" y="80" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="UC2: Packet Analysis and Classification" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="21" value="UC2: Packet Analysis and Classification" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="370" y="120" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="&lt;span&gt;UC3:Generate Reports&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="22" value="&lt;span&gt;UC3:Generate Reports&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="130" y="200" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="UC4: Control Network Monitoring" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="23" value="UC4: Control Network Monitoring" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="370" y="240" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="UC5: Generate Risk Report" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="24" value="UC5: Generate Risk Report" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="130" y="320" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="UC6: User Login" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="25" value="UC6: User Login" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="370" y="360" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="UC7: Account Lockout Management" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="26" value="UC7: Account Lockout Management" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="130" y="434" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="UC8: User Management&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="3">
+                <mxCell id="27" value="UC8: User Management&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" parent="3" vertex="1">
                     <mxGeometry x="370" y="480" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="146" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="3" target="25">
+                <mxCell id="146" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="3" target="25" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-40" y="175.02347826086972" as="sourcePoint"/>
                         <mxPoint x="440" y="360" as="targetPoint"/>
@@ -43,40 +43,40 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="154" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="3" source="20" target="21">
+                <mxCell id="154" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="3" source="20" target="21" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="214" y="190" as="sourcePoint"/>
                         <mxPoint x="374" y="190" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="166" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="3" source="21" target="22">
+                <mxCell id="166" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="3" source="21" target="22" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="280" y="125" as="sourcePoint"/>
                         <mxPoint x="380" y="165" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="168" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="3" source="22" target="24">
+                <mxCell id="168" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="3" source="22" target="24" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="210" y="270" as="sourcePoint"/>
                         <mxPoint x="90" y="325" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="170" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="3" source="27" target="26">
+                <mxCell id="170" value="&amp;lt;included&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="3" source="27" target="26" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="320" y="490" as="sourcePoint"/>
                         <mxPoint x="320" y="540" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="141" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="22">
+                <mxCell id="141" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4" target="22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="Security Analyst" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                <mxCell id="4" value="Security Analyst" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="390" width="40" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                <mxCell id="7" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="200" width="40" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="117" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="27">
+                <mxCell id="117" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="6" target="27" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="60" y="840"/>
@@ -84,7 +84,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="142" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="24">
+                <mxCell id="142" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6" target="24" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="200" y="600"/>
@@ -92,10 +92,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="6" value="System Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                <mxCell id="6" value="System Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="560" width="40" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="16" target="20">
+                <mxCell id="119" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="16" target="20" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="780" y="40"/>
@@ -104,196 +104,22 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="16" value="Network Interface" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                <mxCell id="16" value="Network Interface" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="760" y="160" width="40" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;UC1: Real-time Packet Capture&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="40" y="1200" width="240" height="578" as="geometry"/>
-                </mxCell>
-                <mxCell id="41" value="Related requirements:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="40" width="240" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="45" value="FR1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="40">
-                    <mxGeometry y="66" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="52" value="FR2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="40">
-                    <mxGeometry y="90" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="53" value="FR3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="40">
-                    <mxGeometry y="114" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="54" value="FR4" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="40">
-                    <mxGeometry y="138" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="42" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="40">
-                    <mxGeometry y="162" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="43" value="Scenarios:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="40">
-                    <mxGeometry y="170" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="49" value="1:System captures packets in real-time using SCAPY" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="190" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="55" value="2:System filters packets containing IP or TCP protocols" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="230" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="56" value="3:System queues filtered packets for analysis using threading" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="270" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="57" value="4:System separates capture process from analysis process" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="310" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="70" value="5:System maintains continuous packet capture without blocking" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="350" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="72" value="Extensions:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="40">
-                    <mxGeometry y="390" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="73" value="1a. Network interface unavailable: System logs error and retries connection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="410" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="74" value="2a. Non-IP/TCP packets: System discards packets silently" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="450" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="75" value="3a. Queue overflow: System applies back-pressure or drops oldest packets" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="490" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="76" value="4a. Threading error: System logs error and attempts to restart capture thread" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="40">
-                    <mxGeometry y="530" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="71" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="40">
-                    <mxGeometry y="570" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="97" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;UC2: Packet Analysis&lt;br&gt;and Classification&lt;/span&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="280" y="1200" width="240" height="602" as="geometry"/>
-                </mxCell>
-                <mxCell id="98" value="Related requirements:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="40" width="240" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="99" value="FR5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="66" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="100" value="FR6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="90" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="101" value="FR7" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="114" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="102" value="FR8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="138" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="116" value="FR10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="162" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="103" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="97">
-                    <mxGeometry y="186" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="104" value="Scenarios:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="194" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="105" value="1:System extracts essential information from each packet according to protocol fields" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="214" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="106" value="2:System filters packets containing IP or TCP protocols" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="254" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="107" value="3:System queues filtered packets for analysis using threading" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="294" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="108" value="4:System separates capture process from analysis process" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="334" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="109" value="5:System maintains continuous packet capture without blocking" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="374" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="110" value="Extensions:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="97">
-                    <mxGeometry y="414" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="111" value="1a. Network interface unavailable: System logs error and retries connection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="434" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="112" value="2a. Non-IP/TCP packets: System discards packets silently" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="474" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="113" value="3a. Queue overflow: System applies back-pressure or drops oldest packets" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="514" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="114" value="4a. Threading error: System logs error and attempts to restart capture thread" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="97">
-                    <mxGeometry y="554" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="115" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="97">
-                    <mxGeometry y="594" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="120" value="UC3: Generate Reports" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="520" y="1200" width="240" height="578" as="geometry"/>
-                </mxCell>
-                <mxCell id="121" value="Related requirements:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="40" width="240" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="122" value="FR9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="120">
-                    <mxGeometry y="66" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="123" value="FR10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="120">
-                    <mxGeometry y="90" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="124" value="FR11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="120">
-                    <mxGeometry y="114" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="125" value="FR12" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="120">
-                    <mxGeometry y="138" width="240" height="24" as="geometry"/>
-                </mxCell>
-                <mxCell id="127" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="120">
-                    <mxGeometry y="162" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="128" value="Scenarios:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="120">
-                    <mxGeometry y="170" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="129" value="1:System generates alert when suspicious packet is detected" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="190" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="130" value="2:System filters packets containing IP or TCP protocols" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="230" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="131" value="3:System queues filtered packets for analysis using threading" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="270" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="132" value="4:System separates capture process from analysis process" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="310" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="133" value="5:System maintains continuous packet capture without blocking" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="350" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="134" value="Extensions:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="120">
-                    <mxGeometry y="390" width="240" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="135" value="1a. Network interface unavailable: System logs error and retries connection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="410" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="136" value="2a. Non-IP/TCP packets: System discards packets silently" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="450" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="137" value="3a. Queue overflow: System applies back-pressure or drops oldest packets" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="490" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="138" value="4a. Threading error: System logs error and attempts to restart capture thread" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="120">
-                    <mxGeometry y="530" width="240" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="139" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="120">
-                    <mxGeometry y="570" width="240" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="143" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="7" target="4">
+                <mxCell id="143" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="7" target="4" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="320" y="410" as="sourcePoint"/>
                         <mxPoint x="480" y="410" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="145" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="4" target="6">
+                <mxCell id="145" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="4" target="6" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="70" y="250" as="sourcePoint"/>
                         <mxPoint x="70" y="400" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="4" target="23">
+                <mxCell id="152" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="4" target="23" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="90" y="440" as="sourcePoint"/>
                         <mxPoint x="260" y="325" as="targetPoint"/>

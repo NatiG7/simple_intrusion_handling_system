@@ -1,46 +1,46 @@
 <mxfile host="65bd71144e">
     <diagram id="JKPN2PaHLNAHYvrWgLSi" name="Page-1">
-        <mxGraphModel dx="300" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="911" dy="932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="254" style="edgeStyle=none;html=1;" parent="1" source="255" target="258" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="255" value="&lt;b&gt;DB5: Packet Queue&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="255" value="&lt;b&gt;DB5: תור פאקטות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="1080" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="256" value="P3: Traffic Analysis" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="299" y="1000" width="230" height="40" as="geometry"/>
+                <mxCell id="256" value="P3: ניתוח תעבורת רשת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="289" y="1000" width="250" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="257" style="edgeStyle=none;html=1;" parent="1" source="258" target="260" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="258" value="&lt;b&gt;P3.1 Extract Protocol Fields&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="258" value="&lt;b&gt;P3.1 חילוץ שדות מידע&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="40" y="1240" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="259" style="edgeStyle=none;html=1;" parent="1" source="260" target="262" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="260" value="&lt;b&gt;P3.2 Summarize Flow Data&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="260" value="&lt;b&gt;P3.2 סיכום נתוני זרימה&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="360" y="1240" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="261" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="262" target="264" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="262" value="&lt;b&gt;P3.3 Update Flow Stats&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="262" value="&lt;b&gt;P3.3 עדכון נתוני זרימה&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="680" y="1240" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="264" value="&lt;b&gt;DB7:Flow Stats&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="264" value="&lt;b&gt;DB7: נתוני זרימה&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="360" y="1440" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="266" value="P4: Threat Detection" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="328" y="1560" width="240" height="40" as="geometry"/>
+                <mxCell id="266" value="P4: זיהוי איומים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="363" y="1560" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="267" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="268" target="271" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="268" value="&lt;b&gt;P3 Traffic Analysis&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="268" value="&lt;b&gt;P3 ניתוח תעבורת רשת&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="74" y="1640" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="269" value="" style="edgeStyle=none;html=1;" parent="1" source="271" target="274" edge="1">
@@ -49,16 +49,16 @@
                 <mxCell id="270" style="edgeStyle=none;html=1;" parent="1" source="271" target="277" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="271" value="&lt;b&gt;P4.1 Analyze Packet&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
+                <mxCell id="271" value="&lt;b&gt;P4.1 ניתוח פאקטה&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
                     <mxGeometry x="330" y="1740" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="272" value="F4.1: Processed Packet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=52;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="272" value="F4.1: פאקטה מנותחת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=52;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="195" y="1724" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="273" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="274" target="271" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="274" value="&lt;b&gt;DB7:Flow Stats&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="274" value="&lt;b&gt;DB7: נתוני זרימה&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="330" y="1910" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="276" style="edgeStyle=none;html=1;" parent="1" source="277" target="280" edge="1">
@@ -72,7 +72,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="277" value="&lt;b&gt;P4.2 Classify Packet&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
+                <mxCell id="277" value="&lt;b&gt;P4.2 סיווג פאקטה&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
                     <mxGeometry x="634" y="1740" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="278" style="edgeStyle=entityRelationEdgeStyle;html=1;" parent="1" source="280" target="281" edge="1">
@@ -87,31 +87,31 @@
                 <mxCell id="279" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="280" target="282" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="280" value="&lt;b&gt;P4.3&lt;br&gt;Generate Alert&lt;br&gt;/&lt;br&gt;Log Threat&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
+                <mxCell id="280" value="&lt;b&gt;P4.3&lt;br&gt;ייצור התראה&amp;nbsp;&lt;br&gt;או&lt;br&gt;ייצור דוח&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
                     <mxGeometry x="634" y="1960" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="281" value="&lt;b&gt;DB1: Threat Packet&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="281" value="&lt;b&gt;DB1: פאקטות לכודות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="500" y="1830" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="282" value="User Interface" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="282" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="310" y="2040" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="284" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="285" target="288" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="285" value="&lt;b&gt;DB1: Threat Packet&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="285" value="&lt;b&gt;DB1: פאקטות לכודות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2200" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="286" value="P5: Data Generation" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="294" y="2160" width="240" height="40" as="geometry"/>
+                <mxCell id="286" value="P5: ממשק משתמש והצגת מידע" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="254" y="2160" width="320" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="287" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="288" target="292" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="288" value="P5.1 Aggregate Threat Data" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="288" value="P5.1 איגום נתוני איומים" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="340" y="2280" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="289" value="&lt;b&gt;DB7:Flow Stats&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="289" value="&lt;b&gt;DB7: נתוני זרימה&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2290" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="290" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="289" target="288" edge="1">
@@ -122,8 +122,8 @@
                 <mxCell id="291" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="292" target="295" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="292" value="P5.2 Format Report" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="640" y="2360" width="120" height="120" as="geometry"/>
+                <mxCell id="292" value="P5.2 עיצוב דוח" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="679" y="2370" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="293" style="edgeStyle=entityRelationEdgeStyle;html=1;" parent="1" source="295" target="297" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -131,94 +131,94 @@
                 <mxCell id="294" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="295" target="296" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="295" value="P5.3 Log / Save Report" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="295" value="P5.3 שמירה ורישום של דוח" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="403" y="2465" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="296" value="&lt;b&gt;DB4: Logging&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="296" value="&lt;b&gt;DB4: דוחות מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2440" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="297" value="&lt;b&gt;DB6: Access Log&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="297" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;DB6&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; color: rgb(0, 0, 0);&quot;&gt;דוחות גישה&lt;/span&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2560" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="298" value="User Interface" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="298" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="2680" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="299" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="295" target="298" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="300" value="P6: System Toggle" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="270" y="2770" width="220" height="40" as="geometry"/>
+                <mxCell id="300" value="P6: בורר מצבי ניטור" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="275" y="2770" width="210" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="301" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="302" target="304" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="302" value="User Interface" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="302" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="2810" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="303" style="edgeStyle=none;html=1;" parent="1" source="304" target="306" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="304" value="P6.1 Receive Toggle Command" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="304" value="P6.1 קבלת פקודת שינוי" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="365" y="2850" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="305" value="F8.1: Toggle Command from Admin" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=18;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="305" value="F8.1: פקודת שינוי מצב ממנהל" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=18;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="165" y="2840" width="210" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="306" value="P6.2&lt;br&gt;Enable / Disable Network Analysis" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="306" value="P6.2&lt;br&gt;הדלקה / כיבוי של ניטור המערכת" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="680" y="2850" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="307" value="F8.2: Command to Enable/Disable" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="307" value="F8.2: פקודת שינוי מצב מערכת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="484" y="2880" width="210" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="308" value="P7: Custom Rules" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="273" y="3120" width="220" height="40" as="geometry"/>
+                <mxCell id="308" value="P7: ניהול מודלים וסיכונים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="253" y="3120" width="260" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="309" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="310" target="312" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="310" value="User Interface" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="310" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="50" y="3160" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="311" style="edgeStyle=none;html=1;" parent="1" source="312" target="314" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="312" value="P7.1 Parse / Validate Rule" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="312" value="P7.1 קריאה ווידוא החוקים" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="330" y="3200" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-455" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="314" target="qN9if2dc-uwcOxi5FQeC-454" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="314" value="P7.2 Send Query to Threat DB" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="314" value="P7.2 שליחת שאילתה לעדכון חוקים" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="679" y="3200" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="315" value="F7.2: Update Query to Threat DB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="315" value="F7.2: שאילתת עדכון למאגר איומים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="620" y="3340" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="316" style="edgeStyle=entityRelationEdgeStyle;html=1;fontFamily=Helvetica;" parent="1" source="317" target="320" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="317" value="User" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="317" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E3: משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="40" width="100" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="318" value="P1: User Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="324" width="180" height="40" as="geometry"/>
+                <mxCell id="318" value="P1: התחברות למערכת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="294" width="240" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="396" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="320" target="395">
+                <mxCell id="396" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="320" target="395" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="320" value="P1.1 Validate Credentials" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="320" value="P1.1 אימות פרטי התחברות" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="220" y="170" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="321" value="&lt;span&gt;F1.1: &lt;/span&gt;User Login Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=81;" parent="1" vertex="1">
+                <mxCell id="321" value="&lt;span&gt;&lt;/span&gt;F1.1: פרטי חיבור משתמש" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=81;" parent="1" vertex="1">
                     <mxGeometry x="130" y="115" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="326" style="edgeStyle=none;html=1;fontFamily=Helvetica;" parent="1" source="328" target="330" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="401" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="328" target="395">
+                <mxCell id="401" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="328" target="395" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="328" value="P1.2 Check Acess Leve" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="328" value="P1.2 בדיקת רמת גישה" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="680" y="170" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="329" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="330" target="406" edge="1">
@@ -226,7 +226,7 @@
                         <mxPoint x="220" y="420" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="330" value="P1.3 Grant/Deny Access" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="330" value="P1.3 אישור/דחייה של התחברות" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="420" y="360" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="334" value="" style="edgeStyle=none;html=1;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="320" target="328" edge="1">
@@ -235,32 +235,32 @@
                         <mxPoint x="680" y="230" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="335" value="F1.2: Valid Credentials" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="335" value="F1.2: פרטי חיבור מאומתים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="520" y="200" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="337" value="F1.4 Log Login" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="337" value="F1.4 רישום התחברות בדו&amp;quot;ח" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="285" y="390" width="100" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="338" value="F1.3: User Access Level" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-37;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="338" value="F1.3: רמת גישה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-37;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="520" y="310" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="339" value="&lt;b&gt;Flow 1: User Login&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="339" value="&lt;b style=&quot;text-align: left;&quot;&gt;F1: התחברות למערכת&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="10" y="155" width="140" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="340" value="&lt;span&gt;F1.1: User Login Data&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
+                <mxCell id="340" value="&lt;span&gt;F1.1: פרטי חיבור משתמש&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="341" value="&lt;span&gt;F1.2: Valid Credentials&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
+                <mxCell id="341" value="&lt;span&gt;F1.2: פרטי חיבור מאומתים&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="342" value="&lt;span&gt;F1.3: User Access Level&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
+                <mxCell id="342" value="&lt;span&gt;F1.3: רמת גישה&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
                     <mxGeometry y="90" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="343" value="F1.4: Log Login" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
+                <mxCell id="343" value="F1.4: רישום התחברות בדו&amp;quot;ח" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="339" vertex="1">
                     <mxGeometry y="120" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="372" value="P2: Packet Capture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="299" y="520" width="230" height="40" as="geometry"/>
+                <mxCell id="372" value="P2: לכידת פאקטת רשת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="289" y="520" width="250" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="373" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="374" target="376" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -271,16 +271,16 @@
                 <mxCell id="375" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="376" target="379" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="376" value="P2.1 Capture Packets with Scapy library" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="376" value="P2.1 לכידת פאקטות באמצעות ספריית SCAPY" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="380" y="640" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="377" value="F2.1: Raw Network Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=23;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="377" value="F2.1: תעבורת רשת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=23;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="195" y="640" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="378" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="379" target="381" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="379" value="P2.2 Filter IP/TCP Packets" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="379" value="P2.2 מיון פאקטות לפי שדות&lt;div&gt;IP &amp;amp;&amp;amp; TCP&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="680" y="720" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="380" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="381" target="392" edge="1">
@@ -288,210 +288,210 @@
                         <mxPoint x="140" y="900" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="381" value="P2.3 Queue Packets for Analysis" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
+                <mxCell id="381" value="P2.3 העברה לתור פאקטות לניתוח" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="320" y="840" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="383" value="F2.4 Filtered Packet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="180" y="880" width="130" height="30" as="geometry"/>
+                <mxCell id="383" value="F2.4: פאקטה ממוינת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="185" y="880" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="384" value="F2.2: Packet Capture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=16;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="384" value="F2.2: לכידת פאקטה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=16;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="529" y="690" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="385" value="F2.3: IP &amp;amp;&amp;amp; TCP Packet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-22;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="485" y="840" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="386" value="&lt;b&gt;Flow 2: Packet Capture&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="386" value="&lt;b style=&quot;text-align: left;&quot;&gt;F2: פאקטה לכודה&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="40" y="680" width="140" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="387" value="&lt;span&gt;F2.1: Raw Network Data&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
+                <mxCell id="387" value="&lt;span&gt;F2.1: תעבורת רשת&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="388" value="&lt;span&gt;F2.2: Packet Capture&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
+                <mxCell id="388" value="&lt;span&gt;F2.2: לכידת פאקטה&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
                     <mxGeometry y="60" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="389" value="&lt;span&gt;F2.3: IP &amp;amp;&amp;amp; TCP Packet&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
                     <mxGeometry y="90" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="390" value="F2.4: Filtered Packet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
+                <mxCell id="390" value="F2.4: פאקטה ממוינת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="386" vertex="1">
                     <mxGeometry y="120" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="392" value="&lt;b&gt;DB5: Packet Queue&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="392" value="&lt;b&gt;DB5: תור פאקטות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="860" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-392" value="&lt;b&gt;Flow 3: Analysed Traffic&lt;br&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-392" value="&lt;b style=&quot;text-align: left;&quot;&gt;F3: תעבורה מנותחת&lt;/b&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="360" y="1080" width="206" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-393" value="&lt;span&gt;F3.1: Receive Packet From Queue&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-393" value="&lt;span&gt;F3.1: קבלת פאקטה מתוך התור&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-394" value="F3.2: Extracted Fields" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-394" value="F3.2: שדות שחולצו מהניתוח" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
                     <mxGeometry y="60" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-395" value="F3.3: Flow Data Summary" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-395" value="F3.3: סיכום נתוני זרימה" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
                     <mxGeometry y="90" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-396" value="F3.4: Flow Stat Update Query" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-396" value="F3.4: שאילתת עדכון לנתוני זרימה" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
                     <mxGeometry y="120" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-398" value="&lt;span&gt;F3.1: Receive Packet From Queue&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-398" value="&lt;span&gt;F3.1: קבלת פאקטה מתוך התור&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="29" y="1180" width="210" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-399" value="F3.2: Extracted Fields" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-399" value="F3.2: שדות שחולצו מהניתוח" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="180" y="1270" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-400" value="F3.3: Flow Data Summary" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-400" value="F3.3: סיכום נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="484" y="1270" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-401" value="F3.4: Flow Stat Update Query" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;rotation=-35;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-401" value="F3.4: שאילתת עדכון לנתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;rotation=-35;" parent="1" vertex="1">
                     <mxGeometry x="499" y="1370" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-402" value="&lt;b&gt;Flow 4: Detected Threat&lt;br&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-402" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F4: איום מזוהה&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="40" y="1800" width="206" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-403" value="F4.1: Processed Packet" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-403" value="F4.1: פאקטה מנותחת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-404" value="F4.2: Read Flow Stats" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-404" value="F4.2: קריאת נתוני זרימה" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="60" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-408" value="F4.2.1: Analyzed Flow Stats" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-408" value="F4.2.1: נתוני זרימה מנותחים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="90" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-405" value="F4.3: Threat Classification" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-405" value="F4.3: סיווג איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="120" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-406" value="F4.4: Threat Log Query" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-406" value="F4.4: שאילתת דוח איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="150" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-407" value="F4.5: Threat Packet Record" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-407" value="F4.5: רשומת פאקטה בעלת איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="180" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-410" value="F4.2: Read Flow Stats" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-410" value="F4.2: קריאת נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="345" y="1870" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-411" value="F4.2.1: Analyzed Flow Stats" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-411" value="F4.2.1: נתוני זרימה מנותחים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="474" y="1770" width="170" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-412" value="F4.3: Threat Classification" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-412" value="F4.3: סיווג איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="660" y="1880" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-413" value="F4.4: Threat Log Query" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-413" value="F4.4: שאילתת דוח איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="510" y="2090" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-414" value="F4.5: Threat Packet Record" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-414" value="F4.5: רשומת פאקטה בעלת איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="484" y="1920" width="170" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-415" value="&lt;b&gt;Flow 6: Generated Report&lt;br&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-415" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F6: דוח שנוצר&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="600" y="2550" width="206" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-416" value="F6.1: Threat Packet Data" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-416" value="F6.1: מידע איום בפאקטה" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-417" value="F6.2: Packet Flow Stats" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-417" value="F6.2: נתוני זרימה בפאקטה" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
                     <mxGeometry y="60" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-418" value="F6.3: Summarized Threat Data" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-418" value="F6.3: תמצית נתוני זרימה" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
                     <mxGeometry y="90" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-430" value="F6.4: Log Query to DB" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-430" value="F6.4: שאילתת דו&amp;quot;ח למסד נתונים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-415" vertex="1">
                     <mxGeometry y="120" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-422" value="F6.1: Threat Packet Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=39;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-422" value="F6.1: מידע איום בפאקטה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=39;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="185" y="2260" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-423" value="F6.2: Packet Flow Stats" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=5;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-423" value="F6.2: נתוני זרימה בפאקטה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=5;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="170.00148278230523" y="2338.0028207058417" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-424" value="F6.3: Summarized Threat Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=15;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-424" value="F6.3: תמצית נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=15;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="474.00148278230523" y="2330.0028207058417" width="190" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-427" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="qN9if2dc-uwcOxi5FQeC-426" target="310" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-426" value="System Admin" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-426" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="50" y="3330" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-429" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="qN9if2dc-uwcOxi5FQeC-428" target="302" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-428" value="System Admin" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-428" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="2950" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-431" value="&lt;b&gt;Flow 5 : Generated Alert&lt;br&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-431" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F5: התראה שנוצרה&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2030" width="206" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-432" value="F5.1: Generated Alert to GUI" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-431" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-432" value="F5.1: התראה לממשק משתמש" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-431" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-436" value="F5.1: Generated Alert to GUI" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-436" value="F5.1: התראה לממשק משתמש" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="465" y="2050" width="180" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-437" value="F6.4: Log Query to DB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-40;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="519.9952391739993" y="2464.9966966790757" width="140" height="30" as="geometry"/>
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-437" value="F6.4: שאילתת דו&amp;quot;ח למסד נתונים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-25;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="533.9952391739993" y="2459.9966966790757" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-444" value="&lt;b&gt;Flow 8: Emergency Toggle&lt;br&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-444" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F8: בקשת חירום&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="277" y="2990" width="206" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-445" value="F8.1: Toggle Command from Admin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-444" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-445" value="F8.1: פקודת שינוי מצב ממנהל" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-444" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-449" value="F8.2: Command to Enable/Disable" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-444" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-449" value="F8.2: פקודת שינוי מצב מערכת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-444" vertex="1">
                     <mxGeometry y="60" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-451" value="&lt;b&gt;Flow 7: Custom Ruleset&lt;br&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-451" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F7: חוקי גילוי מותאמים&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="290" y="3340" width="206" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-452" value="F7.1: New Ruleset from Admin" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-451" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-452" value="F7.1: חוקים חדשים ממנהל" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-451" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-453" value="F7.2: Update Query to Threat DB" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-451" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-453" value="F7.2: שאילתת עדכון למאגר איומים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-451" vertex="1">
                     <mxGeometry y="60" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-454" value="&lt;b&gt;DB2: Threat Rules&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-454" value="&lt;b&gt;DB2: חוקי איומים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="679" y="3400" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-462" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="qN9if2dc-uwcOxi5FQeC-459" target="277" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-459" value="&lt;b&gt;DB2: Threat Rules&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-459" value="&lt;b&gt;DB2: חוקי איומים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="440" y="1640" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-461" value="F4.3: Threat Classification" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=35;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-461" value="F4.3: סיווג איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=35;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="560" y="1665" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="393" value="&lt;span&gt;F1.1: &lt;/span&gt;User Login Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" vertex="1" parent="1">
+                <mxCell id="393" value="&lt;span&gt;&lt;/span&gt;F1.1: פרטי חיבור משתמש" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="225" y="50" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="394" value="&lt;span&gt;F1.1: &lt;/span&gt;User Login Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" vertex="1" parent="1">
+                <mxCell id="394" value="&lt;span&gt;&lt;/span&gt;F1.1: פרטי חיבור משתמש" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="549" y="50" width="120" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="400" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="328">
+                <mxCell id="400" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="328" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="480" y="80" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="395" value="&lt;b&gt;DB3: Users&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+                <mxCell id="395" value="&lt;b&gt;DB3: משתמשים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="354" y="40" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="398" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="395" target="320">
+                <mxCell id="398" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="395" target="320" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="300" y="110" as="sourcePoint"/>
                         <mxPoint x="364" y="90" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="406" value="&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700;&quot;&gt;DB6:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700;&quot;&gt;Access Log&lt;/span&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;fontSize=12;" vertex="1" parent="1">
+                <mxCell id="406" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;DB6&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;דוחות גישה&lt;/span&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="90" y="380" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="410" value="F6.4: Log Query to DB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=15;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="410" value="F6.4: שאילתת דו&amp;quot;ח למסד נתונים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=15;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="194.99523917399927" y="2464.9966966790757" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="411" value="F6.4: Log Query to DB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-22;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="411" value="F6.4: שאילתת דו&amp;quot;ח למסד נתונים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-22;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="187.99523917399927" y="2539.9966966790757" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="413" value="F6.3: Summarized Threat Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-47;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="413" value="F6.3: תמצית נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-47;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="210.00148278230523" y="2620.002820705842" width="190" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="414" value="F7.1: New Ruleset from Admin" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;rotation=30;" vertex="1" parent="1">
+                <mxCell id="414" value="F7.1: חוקים חדשים ממנהל" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;rotation=30;" parent="1" vertex="1">
                     <mxGeometry x="155" y="3185" width="190" height="30" as="geometry"/>
                 </mxCell>
             </root>
