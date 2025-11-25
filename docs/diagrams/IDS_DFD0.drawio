@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nZx23v7vAGJnNmozCvHh" name="Page-1">
-        <mxGraphModel dx="554" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="926" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -9,12 +9,6 @@
                 </mxCell>
                 <mxCell id="2" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E3: משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="40" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="51" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="14" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="3" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="520" y="160" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="DFD0" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;" parent="1" vertex="1">
                     <mxGeometry x="369" width="90" height="40" as="geometry"/>
@@ -28,9 +22,17 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="8" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap; background-color: rgb(251, 251, 251);&quot;&gt;F1: התחברות למערכת&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="7" vertex="1" connectable="0">
+                <mxCell id="8" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap; background-color: rgb(251, 251, 251);&quot;&gt;F1: פרטי התחברות&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="7" vertex="1" connectable="0">
                     <mxGeometry x="-0.0769" y="-3" relative="1" as="geometry">
                         <mxPoint x="-3" y="2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="139" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="138">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="320" y="160"/>
+                            <mxPoint x="600" y="160"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="5" value="&lt;b&gt;P1:&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; background-color: rgb(251, 251, 251);&quot;&gt;התחברות למערכת&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
@@ -47,41 +49,38 @@
                 <mxCell id="6" value="&lt;b&gt;DB3: משתמשים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="400" y="40" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="12" target="5" edge="1">
+                <mxCell id="19" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="12" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.018;entryY=0.589;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="12" target="14" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="20" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.018;entryY=0.589;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="12" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="310" y="260"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="12" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="160" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="&lt;b&gt;P6: בורר מצבי ניטור&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="160" width="80" height="80" as="geometry"/>
+                <mxCell id="114" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="22" edge="1">
+                <mxCell id="14" value="&lt;b&gt;P6: בורר מצבי ניטור&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="180" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" target="24" edge="1" source="21">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="318.9999999999968" y="320" as="sourcePoint"/>
-                        <mxPoint x="399" y="320" as="targetPoint"/>
+                        <mxPoint x="490" y="320" as="sourcePoint"/>
+                        <mxPoint x="460" y="320" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="55" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 12px; text-align: left; text-wrap-mode: wrap; background-color: rgb(251, 251, 251);&quot;&gt;F2: פאקטה לכודה&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="23" vertex="1" connectable="0">
                     <mxGeometry x="-0.3083" y="-2" relative="1" as="geometry">
-                        <mxPoint x="23" y="-2" as="offset"/>
+                        <mxPoint x="-2" y="23" as="offset"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="21" value="&lt;b&gt;P2: לכידת פאקטת רשת&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="280" width="80" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="22" target="24" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="480" y="412"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="22" value="&lt;b&gt;DB5: תור פאקטות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="460" y="280" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="318" y="280" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" style="edgeStyle=none;html=1;" parent="1" source="24" target="26" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -92,12 +91,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="24" value="&lt;b&gt;P3: ניתוח תעבורת רשת&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="400" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="374" y="400" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="26" target="28" edge="1">
+                <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="26" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="580" y="532"/>
+                            <mxPoint x="580" y="510"/>
+                            <mxPoint x="278" y="510"/>
                         </Array>
                         <mxPoint x="400" y="500" as="targetPoint"/>
                     </mxGeometry>
@@ -112,95 +112,95 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="&lt;b&gt;P4: זיהוי איומים&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="520" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="238" y="530" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="31" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="&lt;b&gt;DB1: פאקטות לכודות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="80" y="640" width="120" height="80" as="geometry"/>
+                <mxCell id="31" value="&lt;b&gt;DB1: פאקטות לכודות מסוכנות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                    <mxGeometry x="78" y="660" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="32" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="&lt;b&gt;DB4: דוחות מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="364" y="640" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="362" y="660" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="35" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="&lt;b&gt;DB2: חוקי איומים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="220" y="640" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="218" y="660" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="&lt;b&gt;P5: ממשק משתמש והצגת מידע&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="880" width="80" height="80" as="geometry"/>
+                <mxCell id="131" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="39" target="118">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="280" y="1030"/>
+                            <mxPoint x="100" y="1030"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="&lt;b&gt;P5: הצגת מידע וסטיסטיקה&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" parent="1" vertex="1">
+                    <mxGeometry x="238" y="890" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="44" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="43" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="43" value="&lt;b&gt;DB7: נתוני זרימה&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="220" y="760" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="218" y="760" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="49" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="46" target="47" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="46" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="40" y="1000" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="40" y="1070" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="47" target="48" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="47" value="&lt;b&gt;P7: ניהול מודלים וסיכונים&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontSize=10;" parent="1" vertex="1">
-                    <mxGeometry x="320" y="1000" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="320" y="1070" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="48" value="&lt;b&gt;DB2: חוקי איומים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
-                    <mxGeometry x="520" y="1000" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="52" value="F8 || F9" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="389" y="180" width="60" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="58" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 12px; text-align: left; text-wrap-mode: wrap; background-color: rgb(251, 251, 251);&quot;&gt;F2: פאקטה לכודה&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-                    <mxGeometry x="389.9999999999968" y="410" as="geometry">
-                        <mxPoint x="7" as="offset"/>
-                    </mxGeometry>
+                    <mxGeometry x="520" y="1070" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F7: חוקי גילוי מותאמים&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="175" y="1020" width="120" height="30" as="geometry"/>
+                    <mxGeometry x="175" y="1090" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="62" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F7: חוקי גילוי מותאמים&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="395" y="1020" width="120" height="30" as="geometry"/>
+                    <mxGeometry x="395" y="1090" width="120" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F6: דוח שנוצר&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="305" y="550" width="140" height="30" as="geometry"/>
+                    <mxGeometry x="310" y="560" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="64" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F7: חוקי גילוי מותאמים&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="185" y="600" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="188" y="610" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="65" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F4: איום מזוהה&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="95" y="528" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="100" y="560" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="66" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap;&quot;&gt;F3: תעבורה מנותחת&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="359" y="510" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="362" y="490" width="130" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="67" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap;&quot;&gt;F1: התחברות למערכת&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="185" y="60" width="120" height="30" as="geometry"/>
+                <mxCell id="67" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap;&quot;&gt;F1: פרטי התחברות&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="138" y="60" width="110" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F8: בקשת חירום&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="220" width="100" height="30" as="geometry"/>
+                    <mxGeometry x="398" y="200" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="70" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F6: דוח שנוצר&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="375" y="730" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="71" value="&lt;b style=&quot;text-wrap-mode: wrap; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;F3: תעבורה מנותחת&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="185" y="850" width="130" height="30" as="geometry"/>
+                    <mxGeometry x="180" y="850" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="72" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F5: התראה שנוצרה&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="45" y="730" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="73" value="זרימות נתונים" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="10" width="140" height="330" as="geometry"/>
+                    <mxGeometry x="680" y="10" width="140" height="390" as="geometry"/>
                 </mxCell>
-                <mxCell id="74" value="&lt;b&gt;F1: התחברות למערכת&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="73" vertex="1">
+                <mxCell id="74" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;F1: פרטי התחברות&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="73" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="75" value="&lt;b&gt;F2: פאקטה לכודה&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="73" vertex="1">
@@ -227,11 +227,81 @@
                 <mxCell id="82" value="F9: בקשת שינוי מצב&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="73" vertex="1">
                     <mxGeometry y="270" width="140" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="83" value="F10: ממשק רשת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="73" vertex="1">
+                <mxCell id="83" value="F10: תעבורת רשת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="73" vertex="1">
                     <mxGeometry y="300" width="140" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="116" value="F11: הודעת מצב מערכת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="73">
+                    <mxGeometry y="330" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="F12: פרטי בקשת דוח&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="73">
+                    <mxGeometry y="360" width="140" height="30" as="geometry"/>
+                </mxCell>
                 <mxCell id="97" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F9: בקשת שינוי מצב&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="240" width="120" height="30" as="geometry"/>
+                    <mxGeometry x="259" y="230" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" style="edgeStyle=none;html=1;" edge="1" parent="1" source="98" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 12px; font-weight: 700; text-align: left; text-wrap-mode: wrap; background-color: rgb(251, 251, 251);&quot;&gt;F10: תעבורת רשת&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="99">
+                    <mxGeometry x="0.025" y="3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="98" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E4: ממשק רשת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="40" y="280" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="12" target="14">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170" y="210" as="sourcePoint"/>
+                        <mxPoint x="327" y="237" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="330" y="270"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="117" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;F11: הודעת מצב מערכת&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="208" y="160" width="140" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="118" target="39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="40" y="920" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="120" target="39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E3: משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="440" y="920" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F12: פרטי בקשת דוח&amp;nbsp;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="323" y="940" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="130" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F12: פרטי בקשת דוח&amp;nbsp;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="940" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="132" style="edgeStyle=none;html=1;entryX=0.549;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="39" target="120">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="280" y="1030"/>
+                            <mxPoint x="506" y="1030"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="134" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F6: דוח שנוצר&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="1010" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="135" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F6: דוח שנוצר&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="148" y="1010" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap;&quot;&gt;F1: פרטי התחברות&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="110" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="138" value="&lt;b&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;DB6&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; color: rgb(0, 0, 0);&quot;&gt;דוחות גישה&lt;/span&gt;&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="40" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="142" value="&lt;b style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; text-wrap-mode: wrap; color: rgb(63, 63, 63);&quot;&gt;F1: פרטי התחברות&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="140" width="110" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
