@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #0e1a2b;
+    color: #e0e6ed;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4da6ff;
+}
+
+#controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#simulate {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #1f3b5c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#simulate:hover {
+    background: #29507c;
+}
+
+#logTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#logTable th,
+#logTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #2c3e50;
+}
+
+#logTable tr.alert td {
+    background: #8b0000;
+    color: white;
+}

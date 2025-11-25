@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDS Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- LEFT: Controls -->
+        <aside class="panel controls">
+            <h2>Controls</h2>
+
+            <div style="margin-top:8px">
+                <label>Mode</label>
+                <select id="modeSelect">
+                    <option value="simulate">Simulate (no backend)</option>
+                    <option value="live">Live websocket (needs backend)</option>
+                </select>
+            </div>
+
+            <div style="margin-top:10px">
+                <label>Filters</label>
+                <div class="row" style="margin-top:6px">
+                    <label style="flex:1"><input type="checkbox" id="filterIp" checked> IP</label>
+                    <label style="flex:1"><input type="checkbox" id="filterTcp" checked> TCP</label>
+                </div>
+
+                <label style="margin-top:10px">Source IP allow / suspicious list (comma separated)</label>
+                <input id="suspiciousInput" type="text" placeholder="e.g. 10.0.0.5, 192.168.1.10" />
+
+                <label style="margin-top:10px">TCP Flags to watch (comma)</label>
+                <input id="flagsInput" type="text" placeholder="e.g. SYN,FIN" value="SYN" />
+
+                <div style="display:flex;gap:8px;margin-top:12px">
+                    <button id="startBtn">Start</button>
+                    <button id="stopBtn" class="ghost">Stop</button>
+                </div>
+
+                <div style="display:flex;gap:8px;margin-top:10px">
+                    <button id="clearBtn" class="ghost">Clear Table</button>
+                    <button id="exportBtn">Export CSV</button>
+                </div>
+
+                <label style="margin-top:12px">Packet rate (simulator)</label>
+                <div class="row"><input id="rateInput" type="text" value="6" style="width:70px" /> pkts/s <span
+                        class="muted" style="margin-left:8px">(sim mode)</span></div>
+
+            </div>
+
+        </aside>
+
+        <!-- CENTER: Packet Table & Stats -->
+        <main class="center">
+            <div class="headerBar">
+                <div class="title">
+                    <h1>IDS Dashboard — IP & TCP</h1>
+                    <div class="muted">Lightweight visual inspector for learning/demo</div>
+                </div>
+                <div class="stats">
+                    <div class="stat"><small>Total</small>
+                        <div id="statTotal">0</div>
+                    </div>
+                    <div class="stat"><small>IP</small>
+                        <div id="statIp">0</div>
+                    </div>
+                    <div class="stat"><small>TCP</small>
+                        <div id="statTcp">0</div>
+                    </div>
+                    <div class="stat"><small>Alerts</small>
+                        <div id="statAlerts">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tableWrap">
+                <table id="packetsTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Src IP</th>
+                            <th>Dst IP</th>
+                            <th>Proto</th>
+                            <th>Src Port</th>
+                            <th>Dst Port</th>
+                            <th>Flags</th>
+                            <th>Len</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- RIGHT: Alerts & Details -->
+        <aside class="panel">
+            <h2>Alerts</h2>
+            <div class="alertsList" id="alertsList"></div>
+
+            <h2 style="margin-top:12px">Packet Details</h2>
+            <pre id="detailBox"
+                style="white-space:pre-wrap;background:rgba(0,0,0,0.08);padding:8px;border-radius:8px;min-height:120px">No packet selected</pre>
+        </aside>
+    </div>
+
+    <footer>Built for demo — shows IP and TCP detection, highlights suspicious sources and flagged TCP packets.</footer>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+
+</html>

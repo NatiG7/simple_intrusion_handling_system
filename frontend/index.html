@@ -1,1 +1,367 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDS Dashboard</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1724;
+      --accent:#fbbf24; /* yellow-orange */
+      --muted:#9aa6b2;
+      --good:#10b981;
+      --bad:#ef4444;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071021 0%, #081526 70%);color:#e6eef6}
+    .app{display:grid;grid-template-columns:320px 1fr 320px;gap:18px;padding:18px;height:100vh;box-sizing:border-box}
+
+    /* Left panel */
+    .panel{background:var(--panel);border-radius:12px;padding:14px;box-shadow:0 6px 20px rgba(2,6,23,0.6);}
+    .panel h2{margin:0 0 8px 0;font-size:16px}
+    .controls label{display:block;font-size:12px;color:var(--muted);margin-top:12px}
+    .controls .row{display:flex;gap:8px;align-items:center}
+    input[type="text"], select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:var(--glass);color:inherit}
+    button{background:linear-gradient(90deg,var(--accent),#fb923c);border:none;padding:8px 10px;border-radius:8px;color:#041016;cursor:pointer}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Center */
+    .center{display:flex;flex-direction:column}
+    .headerBar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .title{display:flex;align-items:center;gap:12px}
+    .title h1{margin:0;font-size:20px}
+    .stats{display:flex;gap:12px}
+    .stat{background:var(--glass);padding:8px 12px;border-radius:10px;min-width:100px;text-align:center}
+    .stat small{color:var(--muted);display:block}
+    .tableWrap{flex:1;overflow:auto;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:10px;padding:10px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    thead th{position:sticky;top:0;background:rgba(2,6,23,0.6);backdrop-filter:blur(4px);z-index:1;padding:8px;text-align:left;color:var(--muted)}
+    tbody td{padding:8px;border-top:1px solid rgba(255,255,255,0.02)}
+    tr.alert{background:linear-gradient(90deg, rgba(239,68,68,0.08), rgba(239,68,68,0.02));border-left:3px solid var(--bad)}
+    tr.warn{background:linear-gradient(90deg, rgba(251,191,36,0.06), rgba(251,191,36,0.01));border-left:3px solid var(--accent)}
+    .pill{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px}
+
+    /* Right panel */
+    .alertsList{display:flex;flex-direction:column;gap:8px}
+    .alertItem{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);display:flex;flex-direction:column}
+    .muted{color:var(--muted)}
+
+    footer{position:fixed;left:18px;right:18px;bottom:18px;color:var(--muted);font-size:12px;text-align:center}
+
+    @media (max-width:1100px){
+      .app{grid-template-columns:1fr;grid-template-rows:auto 1fr auto}
+      footer{left:12px;right:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- LEFT: Controls -->
+    <aside class="panel controls">
+      <h2>Controls</h2>
+
+      <div style="margin-top:8px">
+        <label>Mode</label>
+        <select id="modeSelect">
+          <option value="simulate">Simulate (no backend)</option>
+          <option value="live">Live websocket (needs backend)</option>
+        </select>
+      </div>
+
+      <div style="margin-top:10px">
+        <label>Filters</label>
+        <div class="row" style="margin-top:6px">
+          <label style="flex:1"><input type="checkbox" id="filterIp" checked> IP</label>
+          <label style="flex:1"><input type="checkbox" id="filterTcp" checked> TCP</label>
+        </div>
+
+        <label style="margin-top:10px">Source IP allow / suspicious list (comma separated)</label>
+        <input id="suspiciousInput" type="text" placeholder="e.g. 10.0.0.5, 192.168.1.10" />
+
+        <label style="margin-top:10px">TCP Flags to watch (comma)</label>
+        <input id="flagsInput" type="text" placeholder="e.g. SYN,FIN" value="SYN" />
+
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button id="startBtn">Start</button>
+          <button id="stopBtn" class="ghost">Stop</button>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button id="clearBtn" class="ghost">Clear Table</button>
+          <button id="exportBtn">Export CSV</button>
+        </div>
+
+        <label style="margin-top:12px">Packet rate (simulator)</label>
+        <div class="row"><input id="rateInput" type="text" value="6" style="width:70px"/> pkts/s <span class="muted" style="margin-left:8px">(sim mode)</span></div>
+
+      </div>
+
+    </aside>
+
+    <!-- CENTER: Packet Table & Stats -->
+    <main class="center">
+      <div class="headerBar">
+        <div class="title">
+          <h1>IDS Dashboard — IP & TCP</h1>
+          <div class="muted">Lightweight visual inspector for learning/demo</div>
+        </div>
+        <div class="stats">
+          <div class="stat"><small>Total</small><div id="statTotal">0</div></div>
+          <div class="stat"><small>IP</small><div id="statIp">0</div></div>
+          <div class="stat"><small>TCP</small><div id="statTcp">0</div></div>
+          <div class="stat"><small>Alerts</small><div id="statAlerts">0</div></div>
+        </div>
+      </div>
+
+      <div class="tableWrap">
+        <table id="packetsTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Src IP</th>
+              <th>Dst IP</th>
+              <th>Proto</th>
+              <th>Src Port</th>
+              <th>Dst Port</th>
+              <th>Flags</th>
+              <th>Len</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- RIGHT: Alerts & Details -->
+    <aside class="panel">
+      <h2>Alerts</h2>
+      <div class="alertsList" id="alertsList"></div>
+
+      <h2 style="margin-top:12px">Packet Details</h2>
+      <pre id="detailBox" style="white-space:pre-wrap;background:rgba(0,0,0,0.08);padding:8px;border-radius:8px;min-height:120px">No packet selected</pre>
+    </aside>
+  </div>
+
+  <footer>Built for demo — shows IP and TCP detection, highlights suspicious sources and flagged TCP packets.</footer>
+
+  <script>
+    // === Minimal in-browser IDS dashboard logic ===
+    // Variables (camelCase preference)
+    const packetsTableBody = document.querySelector('#packetsTable tbody');
+    const statTotal = document.getElementById('statTotal');
+    const statIp = document.getElementById('statIp');
+    const statTcp = document.getElementById('statTcp');
+    const statAlerts = document.getElementById('statAlerts');
+    const alertsList = document.getElementById('alertsList');
+    const detailBox = document.getElementById('detailBox');
+
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const exportBtn = document.getElementById('exportBtn');
+
+    let running = false;
+    let simInterval = null;
+    let stats = {total:0, ip:0, tcp:0, alerts:0};
+    let suspiciousSet = new Set();
+    let watchFlags = new Set(['SYN']);
+
+    // Simple helper - create random IPv4 for demo
+    function randomIPv4(){
+      return [10, Math.floor(Math.random()*256), Math.floor(Math.random()*256), Math.floor(Math.random()*256)].join('.');
+    }
+
+    // Build a demo packet (in real use this would come from backend / pcap parsing)
+    function makeRandomPacket(){
+      const proto = Math.random() < 0.6 ? 'TCP' : 'IP';
+      const src = randomIPv4();
+      const dst = '192.168.1.' + (1+Math.floor(Math.random()*200));
+      const srcPort = 1024 + Math.floor(Math.random()*50000);
+      const dstPort = [80,443,22,23,25,3389][Math.floor(Math.random()*6)];
+      const len = 20 + Math.floor(Math.random()*1400);
+      // Randomly include some flags
+      const flagsPool = ['SYN','ACK','FIN','RST','PSH','URG'];
+      const flags = [];
+      if (proto === 'TCP'){
+        if (Math.random() < 0.3) flags.push('SYN');
+        if (Math.random() < 0.4) flags.push('ACK');
+        if (Math.random() < 0.02) flags.push('RST');
+      }
+      return {time:new Date().toLocaleTimeString(), src,dst,proto,srcPort,dstPort,flags:flags.join(','),len};
+    }
+
+    function parseSuspiciousInput(){
+      const raw = document.getElementById('suspiciousInput').value.trim();
+      suspiciousSet.clear();
+      if (!raw) return;
+      raw.split(',').map(s=>s.trim()).filter(Boolean).forEach(ip=>suspiciousSet.add(ip));
+    }
+
+    function parseFlagsInput(){
+      const raw = document.getElementById('flagsInput').value.trim();
+      watchFlags.clear();
+      if (!raw) return;
+      raw.split(',').map(s=>s.trim().toUpperCase()).filter(Boolean).forEach(f=>watchFlags.add(f));
+    }
+
+    function addAlert(text, level='warn'){
+      stats.alerts++;
+      statAlerts.textContent = stats.alerts;
+      const it = document.createElement('div');
+      it.className = 'alertItem';
+      it.innerHTML = `<strong style="color:${level==='alert'? 'var(--bad)':'var(--accent)'}">${level.toUpperCase()}</strong><div class="muted">${new Date().toLocaleString()}</div><div style="margin-top:6px">${escapeHtml(text)}</div>`;
+      alertsList.prepend(it);
+      // keep only last 50
+      if (alertsList.children.length > 50) alertsList.removeChild(alertsList.lastChild);
+    }
+
+    function escapeHtml(s){return String(s).replace(/[&<>]/g, c=> ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+    function shouldShowPacket(pkt){
+      const filterIp = document.getElementById('filterIp').checked;
+      const filterTcp = document.getElementById('filterTcp').checked;
+      if (pkt.proto === 'TCP' && !filterTcp) return false;
+      if (pkt.proto === 'IP' && !filterIp) return false;
+      return true;
+    }
+
+    function inspectPacket(pkt){
+      let level = null;
+      // suspicious IP
+      if (suspiciousSet.has(pkt.src) || suspiciousSet.has(pkt.dst)){
+        level = 'alert';
+        addAlert(`Suspicious IP detected: ${pkt.src} → ${pkt.dst}`,'alert');
+      }
+      // check flags
+      if (pkt.flags){
+        const pktFlags = pkt.flags.split(',').filter(Boolean).map(s=>s.trim().toUpperCase());
+        for (const f of pktFlags){
+          if (watchFlags.has(f)){
+            if (!level) level = 'warn';
+            addAlert(`TCP flag ${f} seen from ${pkt.src} to ${pkt.dst}`,'warn');
+          }
+        }
+      }
+      return level;
+    }
+
+    function addPacketToTable(pkt){
+      if (!shouldShowPacket(pkt)) return;
+      stats.total++;
+      statTotal.textContent = stats.total;
+      if (pkt.proto === 'IP') {stats.ip++; statIp.textContent = stats.ip}
+      if (pkt.proto === 'TCP') {stats.tcp++; statTcp.textContent = stats.tcp}
+
+      const level = inspectPacket(pkt);
+      const tr = document.createElement('tr');
+      if (level === 'alert') tr.classList.add('alert');
+      if (level === 'warn') tr.classList.add('warn');
+
+      tr.innerHTML = `
+        <td>${escapeHtml(pkt.time)}</td>
+        <td><a href="#" class="muted" data-srcip>${escapeHtml(pkt.src)}</a></td>
+        <td>${escapeHtml(pkt.dst)}</td>
+        <td>${escapeHtml(pkt.proto)}</td>
+        <td>${pkt.srcPort || ''}</td>
+        <td>${pkt.dstPort || ''}</td>
+        <td>${escapeHtml(pkt.flags)}</td>
+        <td>${pkt.len}</td>
+      `;
+
+      // click to show details
+      tr.addEventListener('click', ()=>{
+        detailBox.textContent = JSON.stringify(pkt,null,2);
+      });
+
+      // clicking source IP will populate suspicious input quickly
+      tr.querySelector('[data-srcip]').addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        const ip = pkt.src;
+        const cur = document.getElementById('suspiciousInput').value.split(',').map(s=>s.trim()).filter(Boolean);
+        if (!cur.includes(ip)) cur.unshift(ip);
+        document.getElementById('suspiciousInput').value = cur.join(', ');
+        parseSuspiciousInput();
+      });
+
+      packetsTableBody.prepend(tr);
+
+      // limit rows
+      if (packetsTableBody.children.length > 500) packetsTableBody.removeChild(packetsTableBody.lastChild);
+    }
+
+    // === Simulation control ===
+    function startSim(){
+      if (running) return;
+      running = true;
+      parseSuspiciousInput();
+      parseFlagsInput();
+      const rate = Math.max(1, Number(document.getElementById('rateInput').value) || 6);
+      simInterval = setInterval(()=>{
+        const pkt = makeRandomPacket();
+        addPacketToTable(pkt);
+      }, 1000/Math.min(rate,60));
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+    }
+    function stopSim(){
+      running = false;
+      if (simInterval) clearInterval(simInterval);
+      simInterval = null;
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+    }
+
+    // Clear table and stats
+    function clearAll(){
+      packetsTableBody.innerHTML = '';
+      alertsList.innerHTML = '';
+      stats = {total:0, ip:0, tcp:0, alerts:0};
+      statTotal.textContent = statIp.textContent = statTcp.textContent = statAlerts.textContent = 0;
+      detailBox.textContent = 'No packet selected';
+    }
+
+    // Export CSV helper (very simple)
+    function exportCsv(){
+      const rows = [];
+      rows.push(['Time','Src','Dst','Proto','SrcPort','DstPort','Flags','Len'].join(','));
+      for (const tr of packetsTableBody.children){
+        const cols = Array.from(tr.children).map(td=>`"${td.textContent.replace(/"/g,'""')}"`);
+        rows.push(cols.join(','));
+      }
+      const csv = rows.join('\n');
+      const blob = new Blob([csv], {type:'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'ids_packets.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Event wiring
+    startBtn.addEventListener('click', startSim);
+    stopBtn.addEventListener('click', stopSim);
+    clearBtn.addEventListener('click', clearAll);
+    exportBtn.addEventListener('click', exportCsv);
+    document.getElementById('suspiciousInput').addEventListener('input', parseSuspiciousInput);
+    document.getElementById('flagsInput').addEventListener('input', parseFlagsInput);
+
+    // Mode select (placeholder for live websocket)
+    document.getElementById('modeSelect').addEventListener('change', (ev)=>{
+      if (ev.target.value === 'live'){
+        alert('Switching to live mode requires a backend websocket that sends parsed packet JSON. This demo stays in simulate mode unless you implement a backend.');
+      }
+    });
+
+    // Initialize
+    parseFlagsInput();
+    stopBtn.disabled = true;
+
+    // Optional: simple demonstration seed
+    for (let i=0;i<6;i++) addPacketToTable(makeRandomPacket());
+
+  </script>
+</body>
+</html>
