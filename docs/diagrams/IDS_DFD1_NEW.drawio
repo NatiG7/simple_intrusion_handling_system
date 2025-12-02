@@ -1,28 +1,31 @@
 <mxfile host="65bd71144e">
     <diagram id="JKPN2PaHLNAHYvrWgLSi" name="Page-1">
-        <mxGraphModel dx="926" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="784" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="254" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="418" target="258" edge="1">
+                <mxCell id="254" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="418" target="258" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="100.00000000000011" y="1159.9999999999998" as="sourcePoint"/>
+                        <mxPoint x="50" y="1210" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="256" value="P3: ניתוח תעבורת רשת" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="289" y="1000" width="250" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="257" style="edgeStyle=none;html=1;" parent="1" source="258" target="260" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="257" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="258" target="260" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="1300" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="258" value="&lt;b&gt;P3.1 חילוץ שדות מידע&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="1240" width="120" height="120" as="geometry"/>
+                    <mxGeometry x="169" y="1240" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="259" style="edgeStyle=none;html=1;" parent="1" source="260" target="262" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="260" value="&lt;b&gt;P3.2 סיכום נתוני זרימה&lt;/b&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1240" width="120" height="120" as="geometry"/>
+                    <mxGeometry x="429" y="1240" width="120" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="261" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="262" target="264" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -63,14 +66,6 @@
                 <mxCell id="276" style="edgeStyle=none;html=1;" parent="1" source="277" target="280" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-460" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="277" target="qN9if2dc-uwcOxi5FQeC-459" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="750" y="1660"/>
-                            <mxPoint x="730" y="1680"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="277" value="&lt;b&gt;P4.2 סיווג פאקטה&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
                     <mxGeometry x="634" y="1740" width="120" height="120" as="geometry"/>
                 </mxCell>
@@ -83,17 +78,11 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="279" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="280" target="282" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="280" value="&lt;b&gt;P4.3&lt;br&gt;ייצור התראה&amp;nbsp;&lt;br&gt;או&lt;br&gt;ייצור דוח&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;dashed=0;" parent="1" vertex="1">
                     <mxGeometry x="634" y="1960" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="281" value="&lt;b&gt;DB1: פאקטות לכודות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
+                <mxCell id="281" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;DB1: פאקטות לכודות מסוכנות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="500" y="1830" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="282" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="310" y="2040" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="284" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="285" target="288" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -101,8 +90,8 @@
                 <mxCell id="285" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;DB1: פאקטות לכודות מסוכנות&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2200" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="286" value="P5: ממשק משתמש והצגת מידע" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
-                    <mxGeometry x="254" y="2160" width="320" height="40" as="geometry"/>
+                <mxCell id="286" value="P5: הצגת מידע וסטטיסטיקה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
+                    <mxGeometry x="269" y="2160" width="290" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="287" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="288" target="292" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -139,7 +128,7 @@
                 <mxCell id="297" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;DB6&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; color: rgb(0, 0, 0);&quot;&gt;דוחות גישה&lt;/span&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2560" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="298" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="298" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="2680" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="299" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="295" target="298" edge="1">
@@ -148,11 +137,10 @@
                 <mxCell id="300" value="P6: בורר מצבי ניטור" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="275" y="2770" width="210" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="301" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="302" target="304" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="302" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="40" y="2810" width="120" height="80" as="geometry"/>
+                <mxCell id="301" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="qN9if2dc-uwcOxi5FQeC-428" target="304" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="160.0000000000001" y="2850" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="303" style="edgeStyle=none;html=1;" parent="1" source="304" target="306" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -172,11 +160,10 @@
                 <mxCell id="308" value="P7: ניהול מודלים וסיכונים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=2;fontSize=24;fontFamily=Helvetica;" parent="1" vertex="1">
                     <mxGeometry x="253" y="3120" width="260" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="309" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="310" target="312" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="310" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E5: ממשק משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="50" y="3160" width="120" height="80" as="geometry"/>
+                <mxCell id="309" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="qN9if2dc-uwcOxi5FQeC-426" target="312" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170.0000000000001" y="3200" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="311" style="edgeStyle=none;html=1;" parent="1" source="312" target="314" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -264,7 +251,7 @@
                 <mxCell id="373" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="374" target="376" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="374" value="&lt;b&gt;Network Interface&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
+                <mxCell id="374" value="&lt;span style=&quot;color: rgb(63, 63, 63); font-weight: 700;&quot;&gt;E4: ממשק רשת&lt;/span&gt;" style="html=1;dashed=0;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="40" y="600" width="100" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="375" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="376" target="379" edge="1">
@@ -315,7 +302,7 @@
                     <mxGeometry y="120" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-392" value="&lt;b style=&quot;text-align: left;&quot;&gt;F3: תעבורה מנותחת&lt;/b&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="1080" width="206" height="150" as="geometry"/>
+                    <mxGeometry x="311" y="1050" width="206" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-393" value="&lt;span&gt;F3.1: פאקטה לכודה ממויינת מתהליך קודם&lt;br&gt;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-392" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
@@ -333,16 +320,16 @@
                     <mxGeometry x="25" y="1169" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-399" value="F3.2: שדות שחולצו מהניתוח" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="180" y="1270" width="140" height="30" as="geometry"/>
+                    <mxGeometry x="289" y="1260" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-400" value="F3.3: סיכום נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="484" y="1270" width="160" height="30" as="geometry"/>
+                    <mxGeometry x="534" y="1270" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-401" value="F3.4: שאילתת עדכון לנתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;rotation=-35;" parent="1" vertex="1">
                     <mxGeometry x="499" y="1370" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-402" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F4: איום מזוהה&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="1800" width="206" height="210" as="geometry"/>
+                    <mxGeometry x="40" y="1800" width="206" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-403" value="F4.1: פאקטה מנותחת" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
@@ -353,14 +340,11 @@
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-408" value="F4.2.1: נתוני זרימה מנותחים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="90" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-405" value="F4.3: סיווג איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-405" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; text-align: center; text-wrap-mode: nowrap;&quot;&gt;F4.3: מידע לזיהוי איום&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="120" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-406" value="F4.4: שאילתת דוח איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-407" value="F4.4: רשומת פאקטה בעלת איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
                     <mxGeometry y="150" width="206" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-407" value="F4.5: רשומת פאקטה בעלת איום" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-402" vertex="1">
-                    <mxGeometry y="180" width="206" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-410" value="F4.2: קריאת נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="345" y="1870" width="140" height="30" as="geometry"/>
@@ -371,11 +355,8 @@
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-412" value="F4.3: סיווג איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="660" y="1880" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-413" value="F4.4: שאילתת דוח איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="510" y="2090" width="150" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-414" value="F4.5: רשומת פאקטה בעלת איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="484" y="1920" width="170" height="30" as="geometry"/>
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-414" value="F4.4: רשומת פאקטה בעלת איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="479" y="1920" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-415" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F6: דוח שנוצר&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="600" y="2550" width="206" height="150" as="geometry"/>
@@ -401,17 +382,11 @@
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-424" value="F6.3: תמצית נתוני זרימה" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=15;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="474.00148278230523" y="2330.0028207058417" width="190" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-427" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="qN9if2dc-uwcOxi5FQeC-426" target="310" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-426" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="50" y="3330" width="120" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-429" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="qN9if2dc-uwcOxi5FQeC-428" target="302" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry x="35" y="3160" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-428" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E1: מנהל מערכת&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="40" y="2950" width="120" height="80" as="geometry"/>
+                    <mxGeometry x="35" y="2810" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-431" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F5: התראה שנוצרה&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2030" width="206" height="60" as="geometry"/>
@@ -419,14 +394,11 @@
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-432" value="F5.1: התראה לממשק משתמש" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-431" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-436" value="F5.1: התראה לממשק משתמש" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="465" y="2050" width="180" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-437" value="F6.4: שאילתת דו&amp;quot;ח למסד נתונים" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=-25;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="533.9952391739993" y="2459.9966966790757" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-444" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-weight: 700; text-align: left;&quot;&gt;F8: בקשת חירום&lt;/span&gt;&lt;b&gt;&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="277" y="2990" width="206" height="90" as="geometry"/>
+                    <mxGeometry x="35" y="2923" width="206" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-445" value="F8.1: פקודת שינוי מצב ממנהל" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-444" vertex="1">
                     <mxGeometry y="30" width="206" height="30" as="geometry"/>
@@ -443,20 +415,20 @@
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-453" value="F7.2: שאילתת עדכון למאגר איומים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-451" vertex="1">
                     <mxGeometry y="60" width="206" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="415" value="F7.3: אישור תקינות עדכון חוקים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" vertex="1" parent="qN9if2dc-uwcOxi5FQeC-451">
+                <mxCell id="415" value="F7.3: אישור תקינות עדכון חוקים" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;swimlaneFillColor=default;fontStyle=1" parent="qN9if2dc-uwcOxi5FQeC-451" vertex="1">
                     <mxGeometry y="90" width="206" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-454" value="&lt;b&gt;DB2: חוקי איומים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="679" y="3400" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-462" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;" parent="1" source="qN9if2dc-uwcOxi5FQeC-459" target="277" edge="1">
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-462" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;startSize=14;endArrow=open;endSize=14;sourcePerimeterSpacing=8;targetPerimeterSpacing=8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="qN9if2dc-uwcOxi5FQeC-459" target="277" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="qN9if2dc-uwcOxi5FQeC-459" value="&lt;b&gt;DB2: חוקי איומים&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="440" y="1640" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="qN9if2dc-uwcOxi5FQeC-461" value="F4.3: סיווג איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=35;fontStyle=1" parent="1" vertex="1">
-                    <mxGeometry x="560" y="1665" width="160" height="30" as="geometry"/>
+                <mxCell id="qN9if2dc-uwcOxi5FQeC-461" value="F4.3: מידע לזיהוי איום" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=35;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="575" y="1665" width="130" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="393" value="&lt;span&gt;&lt;/span&gt;F1.1: פרטי חיבור משתמש" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontFamily=Helvetica;fontStyle=1;rotation=0;" parent="1" vertex="1">
                     <mxGeometry x="225" y="50" width="120" height="30" as="geometry"/>
@@ -493,14 +465,23 @@
                 <mxCell id="414" value="F7.1: חוקים חדשים ממנהל" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;rotation=30;" parent="1" vertex="1">
                     <mxGeometry x="155" y="3185" width="190" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="416" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F7.3: אישור תקינות עדכון חוקים&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="416" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-weight: 700; text-align: left; text-wrap-mode: wrap;&quot;&gt;F7.3: אישור תקינות עדכון חוקים&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="470" y="3240" width="170" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="417" value="P3: ניתוח תעבורת רשת" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="417" value="P3: ניתוח תעבורת רשת" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="840" width="120" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="418" value="P3: ניתוח תעבורת רשת" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" vertex="1" parent="1">
+                <mxCell id="418" value="P3: ניתוח תעבורת רשת" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="1010" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="421" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="420" target="258">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="420" value="&lt;b&gt;DB7: נתוני זרימה&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1440" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="422" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-wrap-mode: wrap; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;F13: נתוני זרימה&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="1410" width="100" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
