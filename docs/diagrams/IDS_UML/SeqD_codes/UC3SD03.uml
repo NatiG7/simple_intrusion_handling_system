@@ -1,0 +1,38 @@
+@startuml
+' UC3: הפקת דוחות אבטחה וסטטיסטיקות
+
+actor "Operator\n(משתמש/מערכת קריאה)" as Operator
+
+participant "DataCollector\n(רכז מידע רלוונטי\nממודולי ניתוח/זיהוי)" as Collector
+participant "ReportBuilder\n(צור תבנית דוח)" as Builder
+participant "GraphEngine\n(צור גרפים/טבלאות\nוהטמיע בתבנית)" as Graphs
+participant "Storage\n(שמור בפורמט מערכת\nלאחסון נתונים)" as Storage
+participant "Notifier\n(הודעת סיום/התראה)" as Notifier
+
+Operator -> Collector : בקשה להפקת דוח / טלגרם נתונים
+activate Collector
+Collector -> Collector : אסוף פלט מנותחים, אירועים, סטטיסטיקות
+Collector -> Builder : שלח נתונים ליצירת תבנית דוח
+deactivate Collector
+
+activate Builder
+Builder -> Builder : בנה תבנית דוח (מבנה, מטא, כותרות)
+Builder -> Graphs : בקש יצירת גרפים וטבלאות ממקורות הנתונים
+deactivate Builder
+
+activate Graphs
+Graphs -> Graphs : יצור גרפים, טבלאות, מצגות ויזואליות
+Graphs --> Builder : החזר תוצרים מוטמעים (embedded charts)
+deactivate Graphs
+
+activate Builder
+Builder -> Storage : המיר ושמור דוח בפורמט מערכת (PDF/JSON/DB)
+Storage --> Builder : ack (נשמר בהצלחה)
+deactivate Builder
+
+Storage -> Notifier : טריגר הודעת סיום עם קישור לדוח/מיקום
+activate Notifier
+Notifier --> Operator : שלח הודעת סיום/קישור לדוח
+deactivate Notifier
+
+@enduml

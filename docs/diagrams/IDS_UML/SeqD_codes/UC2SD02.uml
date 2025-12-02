@@ -1,0 +1,38 @@
+@startuml
+' UC2: ניתוח וסיווג פאקטות רשת
+
+actor "תור מנות\n(Packet Queue)" as Queue
+
+participant "Analyzer\n(מנתח / קורא נתונים של המנה)" as Analyzer
+participant "ThreatDetector\n(זיהוי איומים / חוקים)" as Detector
+participant "RiskModel\n(דוח/עדכון מודל סיכון)" as RiskModel
+participant "Notifier\n(התראות למשתמש)" as Notifier
+
+== continuous analysis ==
+loop עיבוד רציף של מנות
+    Queue -> Analyzer : שלוף מנה מהתור לניתוח
+    Analyzer -> Analyzer : קרא נתוני המנה (headers, payload, meta)
+    Analyzer -> Detector : העבר נתונים לזיהוי איומים\n(השוואה מול הגדרות מנה וחוקי איום)
+    Detector -> Detector : בדיקת חוקים / חישוב ציון סיכון
+
+    alt זוהה איום או חריגה [זיהוי איום או חריגה]
+        Detector -> Analyzer : תוצאה: מסוכן + score
+        Analyzer -> Analyzer : סיווג מנה כמסוכנת
+
+        alt סיכון גבוה [סיכון גבוה]
+            Analyzer -> Notifier : יצירת התראת חירום למשתמש המחובר
+            Notifier --> Analyzer : ack
+        else סיכון לא גבוה [סיכון נמוך/בינוני]
+            Analyzer -> RiskModel : שלח בקשה לעדכון דוח סיכונים\n(הוספת דוגמית/מקרה למודל)
+            RiskModel --> Analyzer : ack
+        end
+
+    else לא זוהה איום [לא זוהה איום]
+        Detector -> Analyzer : תוצאה: לא מסוכן
+        Analyzer -> Queue : סווג מנה ללא מסוכנת (החזר/הסרה)
+    end
+
+    Analyzer --> Queue : עיבוד הושלם (מוכן למנה הבאה)
+end
+
+@enduml

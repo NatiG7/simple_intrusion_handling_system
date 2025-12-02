@@ -1,0 +1,40 @@
+@startuml
+' UC1: Real-time packet capture (לכידת פאקטות בזמן אמת)
+
+actor "Network\n(מקור חבילות)" as Network
+
+participant "PacketCapture\n(קרא תעבורת רשת\nלכידת מנה)" as Capture
+participant "PacketParser\n(סמן לפי שדות\nIP & TCP)" as Parser
+participant "ThreatHandler\n(לכוד מנה / שמור מנה)" as ThreatHandler
+participant "ThreatDB\n(שמור לתור/DB)" as ThreatDB
+
+== continuous capture ==
+loop Continuous capture
+    Network -> Capture : send packet
+    activate Capture
+    Capture -> Parser : deliver raw packet / parse headers
+    deactivate Capture
+    activate Parser
+    Parser -> Parser : extract fields (IP, TCP, others)
+
+    alt IP && TCP present [יש שדות IP TCP]
+        Parser -> ThreatHandler : forward TCP/IP packet
+        deactivate Parser
+        activate ThreatHandler
+        ThreatHandler -> ThreatDB : save packet / enqueue for inspection
+        activate ThreatDB
+        ThreatDB --> ThreatHandler : ack saved
+        deactivate ThreatDB
+        ThreatHandler -> ThreatHandler : mark for inspection / pass to next ThreatHandler
+        ThreatHandler --> Capture : processed (ready for next packet)
+        activate Capture
+        deactivate Capture
+    else Not IP/TCP [אין שדות IP TCP]
+        deactivate ThreatHandler
+        Parser -> Parser : Drop packet
+        activate Parser
+        deactivate Parser
+    end
+end
+
+@enduml
