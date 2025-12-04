@@ -1,0 +1,14 @@
+@startuml
+' שליטה במצב ניטור רשת '
+
+actor Network
+participant SysAdmin
+participant Toggle as MonitorToggle
+
+== Continuous Capture ==
+SysAdmin -> MonitorToggle : request toggle
+activate MonitorToggle
+MonitorToggle -> Network : turns off network monitoring
+deactivate MonitorToggle
+
+@enduml

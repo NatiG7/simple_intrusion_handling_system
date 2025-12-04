@@ -1,0 +1,36 @@
+@startuml
+' UC5: Generate Risk Report
+
+actor "Operator\n(משתמש/מערכת קריאה)" as Operator
+participant "RiskAnalyzer\n(חשב סיכונים\nמנתוני IDS)" as Analyzer
+participant "RiskReportBuilder\n(צור תבנית דוח סיכונים)" as Builder
+participant "GraphEngine\n(צור גרפים/טבלאות סיכונים)" as Graphs
+participant "Storage\n(שמור דוח סיכונים)" as Storage
+participant "Notifier\n(שלח התראה על סיום)" as Notifier
+
+Operator -> Analyzer : בקשה להפקת דוח סיכונים
+activate Analyzer
+Analyzer -> Analyzer : ניתוח אירועים ומודולי IDS לסטטיסטיקות סיכונים
+Analyzer -> Builder : שלח נתונים ליצירת דוח סיכונים
+deactivate Analyzer
+
+activate Builder
+Builder -> Builder : בנה תבנית דוח סיכונים
+Builder -> Graphs : בקש יצירת גרפים/טבלאות סיכונים
+deactivate Builder
+
+activate Graphs
+Graphs -> Graphs : יצור גרפים/טבלאות
+Graphs --> Builder : החזר תוצרים מוטמעים
+deactivate Graphs
+
+activate Builder
+Builder -> Storage : שמור דוח סיכונים בפורמט מערכת (PDF/JSON/DB)
+Storage --> Builder : ack (נשמר בהצלחה)
+deactivate Builder
+
+Storage -> Notifier : טריגר הודעת סיום/קישור לדוח
+activate Notifier
+Notifier --> Operator : שלח הודעת סיום/קישור לדוח סיכונים
+deactivate Notifier
+@enduml
