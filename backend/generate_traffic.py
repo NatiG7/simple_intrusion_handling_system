@@ -16,6 +16,7 @@ import urllib.error
 DURATION = 28800  # 8 hours (match overnight training)
 MIN_WAIT = 30     # Minimum seconds between activities
 MAX_WAIT = 180    # Maximum seconds between activities
+USE_HEADLESS = True  # Use headless requests instead of browser (recommended)
 
 # Diverse website categories
 WEBSITES = {
@@ -80,13 +81,22 @@ def log(message):
     print(f"[{timestamp}] {message}")
 
 def visit_website(url):
-    """Open website in default browser"""
+    """Open website - either in browser or headless"""
     try:
-        log(f"Opening: {url}")
-        webbrowser.open(url, new=0, autoraise=False)
-        return True
+        if USE_HEADLESS:
+            # Headless mode - just fetch the page
+            log(f"Fetching (headless): {url}")
+            with urllib.request.urlopen(url, timeout=15) as response:
+                data = response.read()
+                log(f"  Loaded: {len(data)} bytes")
+            return True
+        else:
+            # Browser mode - opens tabs
+            log(f"Opening in browser: {url}")
+            webbrowser.open(url, new=2, autoraise=False)  # new=2 opens new tab
+            return True
     except Exception as e:
-        log(f"ERROR opening {url}: {e}")
+        log(f"ERROR visiting {url}: {e}")
         return False
 
 def make_api_request(url):
@@ -191,6 +201,7 @@ def generate_traffic():
     print("="*70)
     print(f"Duration: {DURATION//3600} hours")
     print(f"Activity interval: {MIN_WAIT}-{MAX_WAIT} seconds")
+    print(f"Mode: {'HEADLESS (no browser tabs)' if USE_HEADLESS else 'BROWSER (opens tabs)'}")
     print()
     print("This will simulate realistic web browsing and network activity.")
     print("Run this alongside train_baseline_overnight.py")
@@ -202,8 +213,11 @@ def generate_traffic():
     print("  - Ping various hosts")
     print("  - Download small files")
     print()
-    print("NOTE: Tabs will open in your default browser.")
-    print("You can minimize/ignore them - don't close the browser!")
+    if not USE_HEADLESS:
+        print("WARNING: Browser mode will open many tabs!")
+        print("Consider setting USE_HEADLESS = True in the script")
+    else:
+        print("HEADLESS MODE: No browser tabs will open (network traffic only)")
     print("="*70 + "\n")
     
     response = input("Press ENTER to start generating traffic (Ctrl+C to stop): ")
