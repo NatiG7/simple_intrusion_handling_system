@@ -135,15 +135,16 @@ class TrafficAnalysis:
                 flow_data["window_sizes"].append(tcp_window_size)
 
                 # Track the IP header length, identification field, and checksum errors
-                if header_checksum != 0:
+                flow_data["identification_fields"].append(identification_field)
+                flow_data["header_lengths"].append(header_length)
+                if header_checksum == 0:
                     flow_data["checksum_errors"] += 1
-                    flow_data["identification_fields"].append(identification_field)
-                    flow_data["header_lengths"].append(header_length)
+
 
                 # Track TCP header size, reserved bits, and checksum errors
                 flow_data["tcp_header_sizes"].append(tcp_header_size)
                 flow_data["reserved_bits"].append(reserved_bits)
-                if tcp_checksum != 0:
+                if tcp_checksum == 0:
                     flow_data["tcp_checksum_errors"] += 1
 
                 return self.extract_features(packet, flow_data)
@@ -170,16 +171,20 @@ class TrafficAnalysis:
         """
         try:
             duration = stats["flow_duration"]
-            if duration == 0:
+            if not duration or duration <= 0:
                 # Avoid divide-by-zero
                 duration = 1e-6
-
+            packet_rate = stats["packet_count"] / duration
+            byte_rate = stats["byte_count"] / duration
+            
             features = {
                 # Basic features
                 "packet_size": len(packet),
                 "flow_duration": duration,
-                "packet_rate": stats["packet_count"] / duration,
-                "byte_rate": stats["byte_count"] / duration,
+
+                # Normalized counters
+                "packet_rate": packet_rate,
+                "byte_rate": byte_rate,
                 # TCP window size (last seen)
                 "latest_window_size": packet[TCP].window,
                 # Flag counts
