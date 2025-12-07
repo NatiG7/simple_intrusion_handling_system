@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# pkl training data
+models/*.pkl
+models/*.joblib
+models/*.h5
+
 # C extensions
 *.so
 

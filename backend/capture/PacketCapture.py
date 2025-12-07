@@ -58,7 +58,7 @@ class PacketCapture:
             self.packet_queue.put(packet)
         # TODO more packet interception.
 
-    def start_capture(self, interface: str = "eth0") -> None:
+    def start_capture(self, interface: str = "eth0", timeout: int = None) -> None:
         """
         Method to capture packets on a specified interface
         eth0 being the default on most systems as the
@@ -76,15 +76,19 @@ class PacketCapture:
             the interface for packets.
             """
 
-            sniff(
+            try:
+                sniff(
                 iface=interface,
                 # procces, defined as func to handle packets
                 prn=self.packet_callback,
                 # no store in memory
                 store=0,
+                timeout=timeout,
                 # stop when stop event set
                 stop_filter=lambda _: self.stop_capture.is_set(),
             )
+            except Exception as e:
+                print(f"Capture thread error : {e}")
 
         # spawn a separate thread for continuous action
         self.capture_thread = threading.Thread(target=capture_thread)
