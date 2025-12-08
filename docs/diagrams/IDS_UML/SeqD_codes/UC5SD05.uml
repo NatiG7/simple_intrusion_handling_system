@@ -16,20 +16,16 @@ deactivate Analyzer
 
 activate Builder
 Builder -> Builder : בנה תבנית דוח סיכונים
-Builder -> Graphs : בקש יצירת גרפים/טבלאות סיכונים
-deactivate Builder
+Builder -> Builder : צור גרפים והרכב דוח בתבנית
 
-activate Graphs
-Graphs -> Graphs : יצור גרפים/טבלאות
-Graphs --> Builder : החזר תוצרים מוטמעים
-deactivate Graphs
 
-activate Builder
 Builder -> Storage : שמור דוח סיכונים בפורמט מערכת (PDF/JSON/DB)
+activate Storage
 Storage --> Builder : ack (נשמר בהצלחה)
 deactivate Builder
 
 Storage -> Notifier : טריגר הודעת סיום/קישור לדוח
+deactivate Storage
 activate Notifier
 Notifier --> Operator : שלח הודעת סיום/קישור לדוח סיכונים
 deactivate Notifier

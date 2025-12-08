@@ -1,0 +1,30 @@
+@startuml
+' UC6: User Login
+
+actor "User\n(משתמש)" as User
+participant "LoginUI\n(מסך הזדהות)" as UI
+participant "AuthController\n(בקר אימות)" as Auth
+participant "UserDB\n(מאגר משתמשים)" as DB
+
+User -> UI : הזן שם משתמש/סיסמה
+activate UI
+UI -> Auth : שליחת פרטי הזדהות
+deactivate UI
+
+activate Auth
+Auth -> DB : בדיקת זהות משתמש
+
+DB --> Auth : תוצאות אימות (קיים/לא קיים, סיסמה תקינה)
+
+Auth -> Auth : בדיקת תוקף, חוקים, ניסיונות קודמים
+
+alt אימות הצליח
+    Auth --> User : התחברות הצליחה / גישה למערכת
+    deactivate Auth
+
+else אימות נכשל
+    Auth -> User : התחברות לא הצליחה
+    deactivate Auth
+
+end
+@enduml
