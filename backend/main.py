@@ -171,10 +171,12 @@ def main():
         
         # Show top anomalies
         if anomalies:
+            anomaly_percentage = len(anomalies) / len(predictions) * 100
             print("\nTop anomalies (lowest scores):")
             anomalies.sort(key=lambda x: x[1])
             for idx, score in anomalies[:5]:
                 print(f"  Packet {idx+1}: Score {score:.3f}")
+            print(f"Anomaly percentage : {anomaly_percentage:.2f}%")
         
     except PermissionError:
         print("ERROR: Administrator privileges required")
