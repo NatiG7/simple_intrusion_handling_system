@@ -1,242 +1,335 @@
 """
 Baseline training script for the IDS.
+
 Captures normal network traffic and trains the anomaly detection model.
-Run this once to establish a baseline, then use main.py for real-time detection.
+Run this once to establish a baseline. After that, use main.py for
+real-time intrusion detection.
 """
 
+from __future__ import annotations
+
+import ipaddress
 import os
+import subprocess
 import sys
 import time
-import subprocess
+from typing import List, Optional, Dict, Any
 
-# Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scapy.all import get_if_list, IFACES
+
+# Local imports: add parent directory to path
+sys.path.insert(
+    0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+)
+
 from backend.detection.FlowML import FlowMLModel
 from backend.capture.PacketCapture import PacketCapture
 from backend.capture.TrafficAnalysis import TrafficAnalysis
-from scapy.all import get_if_list, IFACES
 
+
+# ----------------------------------------------------------------------
 # Configuration
-TARGET_PACKETS = 5000
-CAPTURE_TIMEOUT = 120  # 2 minutes max
-CONTAMINATION = 0.05   # Expected anomaly rate (5%)
+# ----------------------------------------------------------------------
 
-def select_interface():
-    """Select the best active network interface"""
-    available_interfaces = get_if_list()
-    
+TARGET_PACKETS = 50_000
+CAPTURE_TIMEOUT = 3600  # 30 minutes
+CONTAMINATION = 0.01    # Expected anomaly percentage in baseline data
+
+
+# ----------------------------------------------------------------------
+# Helpers
+# ----------------------------------------------------------------------
+
+def is_apipa(ip: str) -> bool:
+    """
+    Detect whether an IPv4 address is link-local (APIPA 169.254.x.x).
+
+    Args:
+        ip (str): IP string.
+
+    Returns:
+        bool: True if APIPA or invalid.
+    """
+    try:
+        return ipaddress.ip_address(ip).is_link_local
+    except ValueError:
+        return True
+
+
+def select_interface() -> Optional[str]:
+    """
+    Select an active interface that actually has internet traffic.
+
+    Returns:
+        Optional[str]: Interface name or None if none found.
+    """
+    available = get_if_list()
     print("Available interfaces:")
-    for name in available_interfaces:
-        if name in IFACES:
-            print(f"  {name}")
-            print(f"    Description: {IFACES[name].description}")
-            print(f"    IP: {IFACES[name].ip}\n")
-    
-    # Find interface with valid IP (not loopback or WAN Miniport)
-    for name in available_interfaces:
+
+    for name in available:
         if name in IFACES:
             iface = IFACES[name]
-            desc = iface.description.lower()
-            
-            if 'loopback' in desc or 'wan miniport' in desc:
-                continue
-            
-            if iface.ip and iface.ip != '0.0.0.0' and iface.ip != '':
-                print(f"Selected interface: {iface.description}")
-                print(f"IP: {iface.ip}\n")
-                return name
-    
-    print("ERROR: No active network interface found!")
+            print(f"  {name}")
+            print(f"    Description: {iface.description}")
+            print(f"    IP: {iface.ip}\n")
+
+    # Prefer physical Wi-Fi or Ethernet
+    for name in available:
+        if name not in IFACES:
+            continue
+
+        iface = IFACES[name]
+        desc = iface.description.lower()
+        ip = iface.ip
+
+        if (
+            any(k in desc for k in ("wi-fi", "wireless", "ethernet", "realtek"))
+            and ip
+            and ip != "0.0.0.0"
+            and not is_apipa(ip)
+        ):
+            print(f"Selected interface: {iface.description}\n")
+            return name
+
+    # Fallback: any non-loopback, non-WAN
+    for name in available:
+        if name not in IFACES:
+            continue
+
+        iface = IFACES[name]
+        desc = iface.description.lower()
+        ip = iface.ip
+
+        if "loopback" in desc or "wan miniport" in desc:
+            continue
+
+        if ip and ip != "0.0.0.0" and not is_apipa(ip):
+            print(f"Selected interface: {iface.description}\n")
+            return name
+
+    print("ERROR: No suitable active interface found.")
     return None
 
-def generate_traffic():
-    """Start background ping processes to generate network traffic"""
+
+def generate_background_traffic() -> List[subprocess.Popen]:
+    """
+    Launch minimal background traffic to ensure packets exist.
+
+    Returns:
+        List[subprocess.Popen]: Processes to terminate after capture.
+    """
+    print("Generating minimal baseline traffic (ping)...")
+
     processes = []
-    targets = ['8.8.8.8', '1.1.1.1', 'google.com']
-    
+    targets = ["1.1.1.1", "8.8.8.8", "google.com"]
+
     for target in targets:
         p = subprocess.Popen(
-            ['ping', '-n', '100', '-w', '1000', target],
+            ["ping", "-n", "100", "-w", "1000", target],
             stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
+            stderr=subprocess.DEVNULL,
         )
         processes.append(p)
-    
+
     return processes
 
-def capture_baseline(interface, target_packets, timeout):
-    """Capture baseline network traffic"""
-    sniffer = PacketCapture()
-    
-    print(f"Capturing up to {target_packets} packets (timeout: {timeout}s)...")
-    print("NOTE: This requires Administrator privileges on Windows!")
-    print("TIP: Browse the web or stream videos to generate diverse traffic\n")
-    
-    try:
-        start_time = time.time()
-        sniffer.start_capture(interface, timeout=timeout)
-        
-        # Monitor progress
-        last_count = 0
-        while time.time() - start_time < timeout:
-            time.sleep(2)
-            current_count = sniffer.packet_queue.qsize()
-            
-            if current_count > last_count:
-                print(f"Captured: {current_count}/{target_packets} packets...")
-                last_count = current_count
-            
-            if current_count >= target_packets:
-                print(f"\nTarget reached: {current_count} packets!")
-                break
-        
-        sniffer.stop_capture_event()
-        elapsed = time.time() - start_time
-        print(f"Capture completed in {elapsed:.1f}s\n")
-        
-        return list(sniffer.packet_queue.queue)
-        
-    except PermissionError:
-        print("ERROR: Administrator privileges required")
-        raise
-    except Exception as e:
-        print(f"ERROR: {e}")
-        raise
 
-def extract_features(packets, analyser):
-    """Extract features from captured packets"""
-    print("Analyzing packets and extracting features...")
-    
-    flow_features = []
-    progress_interval = max(1, len(packets) // 20)
-    
+def capture_baseline(
+    interface: str,
+    target_packets: int,
+    timeout: int
+) -> List[Any]:
+    """
+    Capture raw packets until limit or timeout.
+
+    Args:
+        interface (str): Network interface name.
+        target_packets (int): Stop after capturing this many packets.
+        timeout (int): Timeout in seconds.
+
+    Returns:
+        List[Any]: Raw Scapy packets.
+    """
+    sniffer = PacketCapture()
+
+    print(
+        f"Capturing up to {target_packets} packets "
+        f"(timeout: {timeout}s)..."
+    )
+    print("This requires Administrator permissions!\n")
+    print("TIP: Please browse websites, watch YouTube, use Discord/Steam, etc.\n")
+
+    sniffer.start_capture(interface, timeout=timeout)
+    start_time = time.time()
+    last_count = 0
+
+    while time.time() - start_time < timeout:
+        time.sleep(2)
+
+        count = sniffer.packet_queue.qsize()
+        if count > last_count:
+            print(f"Captured: {count}/{target_packets} packets...")
+            last_count = count
+
+        if count >= target_packets:
+            print("\nTarget reached.\n")
+            break
+
+    sniffer.stop_capture_event()
+    elapsed = time.time() - start_time
+    print(f"Capture completed in {elapsed:.1f}s\n")
+
+    return list(sniffer.packet_queue.queue)
+
+
+def extract_features(
+    packets: List[Any],
+    analyser: TrafficAnalysis
+) -> List[Dict[str, Any]]:
+    """
+    Extract flow-level ML features from captured packets.
+
+    Args:
+        packets (List[Any]): Raw packets.
+        analyser (TrafficAnalysis): Analyzer instance.
+
+    Returns:
+        List[Dict[str, Any]]: List of flow feature dicts.
+    """
+    print("Extracting flow features...")
+
+    results: List[Dict[str, Any]] = []
+    interval = max(1, len(packets) // 20)
+
     for i, pkt in enumerate(packets):
         features = analyser.analyze_packet(pkt)
-        
-        if features:
-            flow_features.append(features)
-        
-        if (i + 1) % progress_interval == 0 or (i + 1) == len(packets):
-            percentage = ((i + 1) / len(packets)) * 100
-            print(f"  Progress: {i + 1}/{len(packets)} ({percentage:.1f}%)")
-    
-    return flow_features
 
-def train_model(flow_features, contamination):
-    """Train the Isolation Forest model"""
-    print(f"\nTraining Isolation Forest on {len(flow_features)} samples...")
-    
-    ml_model = FlowMLModel(contamination=contamination)
-    
-    train_start = time.time()
-    ml_model.train(flow_features)
-    train_time = time.time() - train_start
-    
-    print(f"Model training complete ({train_time:.2f}s)\n")
-    
-    return ml_model
+        # Reject empty or zero-variance flows
+        if features and sum(features.values()) != 0:
+            results.append(features)
 
-def validate_model(ml_model, flow_features):
-    """Validate the trained model on baseline data"""
-    print("Validating model on baseline data...")
-    
-    predictions = ml_model.predict(flow_features)
-    scores = ml_model.anomaly_score(flow_features)
-    
-    anomaly_count = sum(1 for p in predictions if p == -1)
-    normal_count = len(predictions) - anomaly_count
-    anomaly_percentage = (anomaly_count / len(predictions)) * 100
-    
-    min_score = min(scores)
-    max_score = max(scores)
-    avg_score = sum(scores) / len(scores)
-    
-    print("\n" + "="*60)
-    print("BASELINE MODEL STATISTICS")
-    print("="*60)
-    print(f"Total samples: {len(flow_features)}")
-    print(f"Normal traffic: {normal_count} ({100-anomaly_percentage:.1f}%)")
-    print(f"Flagged anomalies: {anomaly_count} ({anomaly_percentage:.1f}%)")
-    print(f"\nAnomaly Score Range:")
-    print(f"  Minimum: {min_score:.3f}")
-    print(f"  Average: {avg_score:.3f}")
-    print(f"  Maximum: {max_score:.3f}")
-    print("="*60)
-    
-    if anomaly_count > 0:
-        print(f"\nTop 5 anomalies detected in baseline:")
-        anomaly_indices = [(i, s) for i, (p, s) in enumerate(zip(predictions, scores)) if p == -1]
-        anomaly_indices.sort(key=lambda x: x[1])
-        
-        for idx, score in anomaly_indices[:5]:
-            print(f"  Packet {idx+1}: Score {score:.3f}")
-    
-    return ml_model
+        if (i + 1) % interval == 0:
+            pct = (i + 1) / len(packets) * 100
+            print(f"  Progress: {i + 1}/{len(packets)} ({pct:.1f}%)")
 
-def main():
-    print("="*60)
-    print("BASELINE TRAINING MODE")
-    print("="*60)
-    print(f"Target: {TARGET_PACKETS} packets")
-    print(f"Contamination rate: {CONTAMINATION*100}%")
-    print("="*60 + "\n")
-    
-    # Select interface
+    return results
+
+
+def train_model(
+    flow_features: List[Dict[str, Any]],
+    contamination: float
+) -> FlowMLModel:
+    """
+    Train the IsolationForest model.
+
+    Args:
+        flow_features (List[Dict[str, Any]]): Training feature list.
+        contamination (float): Expected anomaly proportion.
+
+    Returns:
+        FlowMLModel: Trained model.
+    """
+    print(f"Training IsolationForest on {len(flow_features)} flows...")
+
+    model = FlowMLModel(contamination=contamination)
+    start = time.time()
+    model.train(flow_features)
+    elapsed = time.time() - start
+
+    print(f"Training done ({elapsed:.2f}s)\n")
+    return model
+
+
+def validate_model(
+    model: FlowMLModel,
+    flow_features: List[Dict[str, Any]]
+) -> None:
+    """
+    Validate the trained model by checking anomaly ratios on baseline data
+    and reporting anomaly scores.
+    """
+    print("Validating baseline...")
+
+    predictions = model.predict(flow_features)
+    scores = model.anomaly_score(flow_features)
+
+    anomalies = [(i, s) for i, (p, s) in enumerate(zip(predictions, scores)) if p == -1]
+    normals = len(predictions) - len(anomalies)
+    pct = len(anomalies) / len(predictions) * 100
+
+    print("\n" + "=" * 60)
+    print("BASELINE VALIDATION")
+    print("=" * 60)
+    print(f"Total flows: {len(flow_features)}")
+    print(f"Normal: {normals}")
+    print(f"Anomalies flagged: {len(anomalies)} ({pct:.2f}%)")
+    if anomalies:
+        print("\nTop 5 anomalies by score:")
+        for idx, score in sorted(anomalies, key=lambda x: x[1])[:5]:
+            print(f"  Flow {idx + 1}: Score {score:.3f}")
+    print("=" * 60 + "\n")
+
+def main() -> None:
+    """Execute baseline capture, training, validation, and saving."""
+    print("=" * 60)
+    print(" IDS BASELINE TRAINING ")
+    print("=" * 60)
+    print(f"Target packets: {TARGET_PACKETS}")
+    print(f"Contamination: {CONTAMINATION}\n")
+
     interface = select_interface()
     if not interface:
         sys.exit(1)
-    
-    # Initialize components
+
     analyser = TrafficAnalysis()
-    ping_processes = []
-    
+    processes: List[subprocess.Popen] = []
+
     try:
-        # Generate background traffic
-        print("Starting background traffic generation...")
-        ping_processes = generate_traffic()
-        
-        # Capture packets
+        # Generate minimal background traffic
+        processes = generate_background_traffic()
+
+        # Capture
         packets = capture_baseline(interface, TARGET_PACKETS, CAPTURE_TIMEOUT)
-        print(f"Total captured: {len(packets)} packets\n")
-        
+        print(f"Captured packets: {len(packets)}\n")
+
         if len(packets) < 100:
-            print("WARNING: Less than 100 packets captured!")
-            print("Try browsing websites or streaming videos for more traffic")
+            print("ERROR: Not enough packets captured.")
+            print("Move around online during capture (YouTube/Discord/etc).")
             sys.exit(1)
-        
+
         # Extract features
-        flow_features = extract_features(packets, analyser)
-        
-        if not flow_features:
-            print("\nERROR: No features extracted")
+        features = extract_features(packets, analyser)
+        print(f"Extracted flow features: {len(features)}\n")
+
+        if not features:
+            print("ERROR: No feature vectors extracted.")
             sys.exit(1)
-        
-        print(f"\nExtracted features from {len(flow_features)} packets")
-        print(f"Feature extraction rate: {len(flow_features)/len(packets)*100:.1f}%\n")
-        
-        # Train model
-        ml_model = train_model(flow_features, CONTAMINATION)
-        
-        # Validate model
-        validate_model(ml_model, flow_features)
-        
-        # Save the trained model
-        model_path = "models/baseline_model.pkl"
-        print(f"\nSaving trained model to {model_path}...")
-        ml_model.save(model_path)
-        
-        print("\nBASELINE TRAINING COMPLETE!")
-        print("Run main.py for real-time anomaly detection")
-        
-    except Exception as e:
-        print(f"\nERROR: {e}")
+
+        # Train & validate
+        model = train_model(features, CONTAMINATION)
+        validate_model(model, features)
+
+        # Save
+        path = "models/baseline_model.pkl"
+        print(f"Saving model to {path} ...")
+        model.save(path)
+
+        print("\nBaseline training completed successfully.")
+        print("Next: run main.py for real-time detection.\n")
+
+    except KeyboardInterrupt:
+        print("\nTraining interrupted by user. Cleaning up...")
+
+    except Exception as exc:
+        print(f"ERROR: {exc}")
         import traceback
         traceback.print_exc()
         sys.exit(1)
+
     finally:
-        # Clean up
-        for p in ping_processes:
+        for p in processes:
             p.terminate()
+
 
 if __name__ == "__main__":
     main()
