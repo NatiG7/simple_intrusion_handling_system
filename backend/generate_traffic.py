@@ -74,6 +74,14 @@ PING_TARGETS = [
     '8.8.8.8',
     '1.1.1.1',
 ]
+HEADERS = {
+    'User-Agent': (
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/120.0.0.0 Safari/537.36'
+    )
+}
+
 
 def log(message):
     """Log with timestamp"""
@@ -86,7 +94,8 @@ def visit_website(url):
         if USE_HEADLESS:
             # Headless mode - just fetch the page
             log(f"Fetching (headless): {url}")
-            with urllib.request.urlopen(url, timeout=15) as response:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=15) as response:
                 data = response.read()
                 log(f"  Loaded: {len(data)} bytes")
             return True
@@ -140,6 +149,18 @@ def dns_lookup(domain):
     except Exception as e:
         log(f"  ERROR: {e}")
         return False
+    
+def send_udp_packet():
+    """Generate lightweight UDP traffic."""
+    import socket
+    log("Sending UDP packet")
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        sock.sendto(b'hello', ("8.8.8.8", 53))  # DNS-style packet
+    except Exception as e:
+        log(f"UDP ERROR: {e}")
+    finally:
+        sock.close()
 
 def download_small_file():
     """Download a small file"""
@@ -159,6 +180,45 @@ def download_small_file():
     except Exception as e:
         log(f"  ERROR: {e}")
         return False
+    
+def download_large_file():
+    """Download a medium-sized file to generate real TCP bursts."""
+    url = "https://speed.hetzner.de/10MB.bin"  # safe test file
+    try:
+        log("Large download start (10MB)")
+        with urllib.request.urlopen(url, timeout=30) as r:
+            while r.read(1024 * 64):
+                pass  # stream in chunks
+        log("Large download complete")
+    except Exception as e:
+        log(f"Large download error: {e}")
+
+def random_tcp_handshake():
+    """Open a short-lived TCP connection on random common ports."""
+    import socket
+    host = "example.com"
+    port = random.choice([80, 443, 22, 25, 8080])
+    log(f"TCP handshake to {host}:{port}")
+    try:
+        s = socket.socket()
+        s.settimeout(5)
+        s.connect((host, port))
+    except Exception as e:
+        log(f"TCP ERROR: {e}")
+    finally:
+        s.close()
+
+def simulate_streaming():
+    """Hold a connection open for a bit to mimic streaming/video."""
+    url = "https://www.youtube.com"
+    log("Simulating streaming session")
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            for _ in range(50):  # ~50 small chunks
+                r.read(1024 * 32)
+                time.sleep(0.1)
+    except Exception as e:
+        log(f"STREAM ERROR: {e}")
 
 def background_activity():
     """Simulate background network activity"""
@@ -167,6 +227,10 @@ def background_activity():
         ('dns', dns_lookup, ['google.com', 'github.com', 'wikipedia.org']),
         ('api', make_api_request, API_ENDPOINTS),
         ('download', download_small_file, [None]),
+        ('udp', send_udp_packet, [None]),
+        ('large_download', download_large_file, [None]),
+        ('tcp', random_tcp_handshake, [None]),
+        ('stream', simulate_streaming, [None]),
     ]
     
     activity_type, func, targets = random.choice(activities)
