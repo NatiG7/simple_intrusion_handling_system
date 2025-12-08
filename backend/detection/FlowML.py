@@ -1,20 +1,38 @@
-# backend/detection/FlowML.py
-from typing import List, Dict
+"""
+FlowML: IsolationForest-based anomaly detection for TCP/IP flow features.
+"""
+
+from typing import List, Dict, Any
 import numpy as np
 import pickle
 import os
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
+
 class FlowMLModel:
     """
-    ML model for detecting anomalous TCP/IP flows using IsolationForest.
+    Machine learning model for detecting anomalous TCP/IP flows using IsolationForest.
+
+    Attributes:
+        model (IsolationForest): IsolationForest instance used for anomaly detection.
+        scaler (StandardScaler): Normalization scaler for input features.
+        is_trained (bool): Indicates whether the model has been trained.
+        feature_names (List[str]): Ordered list of expected flow feature names.
     """
-    def __init__(self, contamination: float = 0.1):
+
+    def __init__(self, contamination: float = 0.1) -> None:
+        """
+        Initialize the FlowMLModel.
+
+        Args:
+            contamination (float): Expected fraction of anomalies in the training data.
+        """
         self.model = IsolationForest(contamination=contamination, random_state=42)
-        self.scaler = StandardScaler()  # Add scaler for better normalization
+        self.scaler = StandardScaler()
         self.is_trained = False
-        self.feature_names = [
+
+        self.feature_names: List[str] = [
             "packet_size",
             "flow_duration",
             "packet_rate",
@@ -36,111 +54,155 @@ class FlowMLModel:
             "tcp_checksum_errors",
             "reserved_bit_set_count",
         ]
-    
-    def prepare_training_data(self, flow_features: List[Dict]) -> np.ndarray:
+
+    # ----------------------------------------------------------------------
+
+    def prepare_training_data(self, flow_features: List[Dict[str, Any]]) -> np.ndarray:
         """
-        Convert a list of flow feature dictionaries to a numpy array
-        suitable for training the IsolationForest.
+        Convert flow feature dictionaries into a numeric 2D NumPy array.
+
+        Args:
+            flow_features (List[Dict[str, Any]]): A list of flow feature mappings.
+
+        Returns:
+            np.ndarray: 2D array of shape (n_samples, n_features).
         """
-        X = []
-        for f in flow_features:
-            row = [f.get(name, 0) for name in self.feature_names]
-            X.append(row)
-        return np.array(X)
-    
-    def train(self, flow_features: List[Dict]):
+        rows = [
+            [features.get(name, 0) for name in self.feature_names]
+            for features in flow_features
+        ]
+        return np.array(rows)
+
+    # ----------------------------------------------------------------------
+
+    def train(self, flow_features: List[Dict[str, Any]]) -> None:
         """
-        Train the IsolationForest model on normal traffic feature vectors.
+        Train the IsolationForest model using normalized flow features.
+
+        Args:
+            flow_features (List[Dict[str, Any]]): A list of flow feature mappings.
+
+        Raises:
+            ValueError: If no flow features are provided.
         """
+        if not flow_features:
+            raise ValueError("Training data cannot be empty.")
+
         X_train = self.prepare_training_data(flow_features)
-        
-        # Fit scaler and transform data
+
+        # Fit normalization
         self.scaler.fit(X_train)
         X_scaled = self.scaler.transform(X_train)
-        
+
         # Train model
         self.model.fit(X_scaled)
         self.is_trained = True
-    
-    def predict(self, flow_features: List[Dict]) -> List[int]:
+
+    # ----------------------------------------------------------------------
+
+    def predict(self, flow_features: List[Dict[str, Any]]) -> List[int]:
         """
-        Predict anomalies for a list of flow feature dicts.
+        Predict anomalies in the given flows.
+
+        Args:
+            flow_features (List[Dict[str, Any]]): List of flow feature dictionaries.
+
         Returns:
-            -1 for anomaly, 1 for normal
+            List[int]: 1 for normal, -1 for anomaly.
+
+        Raises:
+            ValueError: If the model has not been trained.
         """
         if not self.is_trained:
             raise ValueError("Model not trained. Call train() or load() first.")
-        
+
         X_test = self.prepare_training_data(flow_features)
         X_scaled = self.scaler.transform(X_test)
-        return self.model.predict(X_scaled)
-    
-    def anomaly_score(self, flow_features: List[Dict]) -> np.ndarray:
+        return self.model.predict(X_scaled).tolist()
+
+    # ----------------------------------------------------------------------
+
+    def anomaly_score(self, flow_features: List[Dict[str, Any]]) -> np.ndarray:
         """
-        Returns the anomaly score (higher = normal, lower = anomaly)
+        Compute anomaly scores for flows.
+
+        Args:
+            flow_features (List[Dict[str, Any]]): A list of flow feature mappings.
+
+        Returns:
+            np.ndarray: Score per flow (higher = more normal).
+
+        Raises:
+            ValueError: If the model has not been trained.
         """
         if not self.is_trained:
             raise ValueError("Model not trained. Call train() or load() first.")
-        
+
         X_test = self.prepare_training_data(flow_features)
         X_scaled = self.scaler.transform(X_test)
         return self.model.score_samples(X_scaled)
-    
-    def save(self, filepath: str = "models/baseline_model.pkl"):
+
+    # ----------------------------------------------------------------------
+
+    def save(self, filepath: str = "models/baseline_model.pkl") -> None:
         """
-        Save the trained model and scaler to disk.
-        
+        Save the trained model, scaler, and metadata to disk.
+
         Args:
-            filepath: Path where the model will be saved
+            filepath (str): Location where the model should be stored.
+
+        Raises:
+            ValueError: If the model has not been trained.
         """
         if not self.is_trained:
-            raise ValueError("Cannot save untrained model. Call train() first.")
-        
-        # Create directory if it doesn't exist
+            raise ValueError("Cannot save an untrained model.")
+
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
-        
-        # Save model, scaler, and metadata
-        model_data = {
-            'model': self.model,
-            'scaler': self.scaler,
-            'feature_names': self.feature_names,
-            'is_trained': self.is_trained
+
+        data = {
+            "model": self.model,
+            "scaler": self.scaler,
+            "feature_names": self.feature_names,
+            "is_trained": self.is_trained,
         }
-        
-        with open(filepath, 'wb') as f:
-            pickle.dump(model_data, f)
-        
-        print(f"Model saved to {filepath}")
-    
-    def load(self, filepath: str = "models/baseline_model.pkl"):
+
+        with open(filepath, "wb") as f:
+            pickle.dump(data, f)
+
+    # ----------------------------------------------------------------------
+
+    def load(self, filepath: str = "models/baseline_model.pkl") -> None:
         """
-        Load a trained model and scaler from disk.
-        
+        Load a trained model from disk.
+
         Args:
-            filepath: Path to the saved model
+            filepath (str): Path to the serialized model file.
+
+        Raises:
+            FileNotFoundError: If the file does not exist.
         """
         if not os.path.exists(filepath):
             raise FileNotFoundError(f"Model file not found: {filepath}")
-        
-        with open(filepath, 'rb') as f:
-            model_data = pickle.load(f)
-        
-        self.model = model_data['model']
-        self.scaler = model_data['scaler']
-        self.feature_names = model_data['feature_names']
-        self.is_trained = model_data['is_trained']
-        
-        print(f"Model loaded from {filepath}")
-    
+
+        with open(filepath, "rb") as f:
+            data = pickle.load(f)
+
+        self.model = data["model"]
+        self.scaler = data["scaler"]
+        self.feature_names = data["feature_names"]
+        self.is_trained = data["is_trained"]
+
+    # ----------------------------------------------------------------------
+
     @staticmethod
     def model_exists(filepath: str = "models/baseline_model.pkl") -> bool:
         """
-        Check if a saved model exists.
-        
+        Check if a model file exists.
+
         Args:
-            filepath: Path to check for model
-            
+            filepath (str): File path to check.
+
         Returns:
-            True if model file exists, False otherwise
+            bool: True if the model exists, False otherwise.
         """
         return os.path.exists(filepath)
