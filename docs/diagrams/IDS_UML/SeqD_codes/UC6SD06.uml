@@ -20,10 +20,11 @@ Auth -> Auth : בדיקת תוקף, חוקים, ניסיונות קודמים
 
 alt אימות הצליח
     Auth --> User : התחברות הצליחה / גישה למערכת
-    deactivate Auth
+    Auth -> DB: Reset Failure Count
 
 else אימות נכשל
     Auth -> User : התחברות לא הצליחה
+    Auth -> DB: Reset Failure Count
     deactivate Auth
 
 end

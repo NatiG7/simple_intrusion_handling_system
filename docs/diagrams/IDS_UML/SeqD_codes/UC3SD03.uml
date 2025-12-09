@@ -1,7 +1,7 @@
 @startuml
 ' UC3: הפקת דוחות אבטחה וסטטיסטיקות
 
-actor "Operator\n(משתמש/מערכת קריאה)" as Operator
+actor "SysAdmin\n(משתמש/מערכת קריאה)" as SysAdmin
 
 participant "DataCollector\n(רכז מידע רלוונטי\nממודולי ניתוח/זיהוי)" as Collector
 participant "ReportBuilder\n(צור תבנית דוח)" as Builder
@@ -9,7 +9,7 @@ participant "GraphEngine\n(צור גרפים/טבלאות\nוהטמיע בתבנ
 participant "Storage\n(שמור בפורמט מערכת\nלאחסון נתונים)" as Storage
 participant "Notifier\n(הודעת סיום/התראה)" as Notifier
 
-Operator -> Collector : בקשה להפקת דוח / טלגרם נתונים
+SysAdmin -> Collector : בקשה להפקת דוח / טלגרם נתונים
 activate Collector
 Collector -> Collector : אסוף פלט מנותחים, אירועים, סטטיסטיקות
 Collector -> Builder : שלח נתונים ליצירת תבנית דוח
@@ -32,7 +32,7 @@ deactivate Builder
 
 Storage -> Notifier : טריגר הודעת סיום עם קישור לדוח/מיקום
 activate Notifier
-Notifier --> Operator : שלח הודעת סיום/קישור לדוח
+Notifier --> SysAdmin : שלח הודעת סיום/קישור לדוח
 deactivate Notifier
 
 @enduml

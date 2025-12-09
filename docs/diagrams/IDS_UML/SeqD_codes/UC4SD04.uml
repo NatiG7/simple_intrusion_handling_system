@@ -8,7 +8,13 @@ participant Toggle as MonitorToggle
 == Continuous Capture ==
 SysAdmin -> MonitorToggle : request toggle
 activate MonitorToggle
-MonitorToggle -> Network : turns off network monitoring
+alt Request == Enable
+    MonitorToggle -> Network : Start Monitoring
+    MonitorToggle --> SysAdmin: Monitoring Enabled
+else Request == Disable
+    MonitorToggle -> Network : Stop Monitoring
+    MonitorToggle --> SysAdmin: Monitoring Disabled
+end
 deactivate MonitorToggle
 
 @enduml
