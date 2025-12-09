@@ -1,0 +1,80 @@
+@startuml
+'UC7: User Management
+actor "SysAdmin\n(מנהל מערכת)" as Admin
+participant "UserMgmtUI\n(ממשק ניהול)" as UI
+participant "UserManager\n(בקר הרשאות)" as Manager
+participant "UserDB\n(מאגר משתמשים)" as DB
+
+Admin -> UI: View user list
+activate UI
+UI -> Manager: GetAllUsers()
+activate Manager
+Manager -> DB: SELECT * FROM users
+activate DB
+Manager --> UI: Return data
+deactivate Manager
+UI --> Admin: Display users
+deactivate UI
+
+Admin -> UI: Choose action
+
+alt Add User
+    Admin -> UI: Enter User credentials
+    activate UI
+    UI -> Manager: CreateUser(credentials)
+    activate Manager
+    Manager -> DB: CheckUsernameUnique(username)
+    activate DB
+
+    alt Username exists
+        DB --> Manager: True(exists)
+        Manager --> UI: Error (username exists)
+        UI --> Admin: Display error
+    else Username unique
+        DB --> Manager: False(unique)
+        deactivate DB
+        Manager -> DB: InsertUser(credentials)
+        activate DB
+        DB --> Success
+        deactivate DB
+        Manager --> UI: User created
+        UI --> Admin: Show success
+    end
+    deactivate Manager
+    deactivate UI
+
+else Edit User
+    Admin -> UI: Update User Details
+    activate UI
+    UI -> Manager: UpdateUser(UserID, newData)
+    activate Manager
+    Manager -> DB: UpdateRecord(UserID)
+    activate DB
+    DB -> Manager: Success
+    deactivate DB
+    Manager -> UI: Update complete
+    deactivate Manager
+    UI --> Admin: Show Success
+    deactivate UI
+
+else Delete User
+    Admin -> UI: Request Delete
+    activate UI
+    UI -> Admin: Request confirm delete
+    
+    opt Confirmed
+        Admin -> UI: Confirm
+        UI -> Manager: DeleteUser(UserID)
+        activate Manager
+        Manager -> DB: RemoveRecord(UserID)
+        activate DB
+        DB --> Manager: Success
+        deactivate DB
+        Manager --> UI: User deleted
+        deactivate Manager
+        UI --> Admin: Show success
+    end
+    deactivate UI
+end
+
+@enduml

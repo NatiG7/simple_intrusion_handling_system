@@ -1,0 +1,49 @@
+@startuml
+'UC7: Account Lockout Management
+actor "SysAdmin\n(מנהל מערכת)" as Admin
+participant "AdminUI\n(ממשק ניהול)" as UI
+participant "AuthManager\n(בקר הרשאות)" as System
+participant "UserDB\n(מאגר משתמשים)" as DB
+
+Admin -> UI: View Locked Accounts
+activate UI
+UI -> System: GetLockedUsers()
+activate System
+System -> DB: Query(Status='Locked')
+activate DB
+DB --> System: List of Locked Users
+deactivate DB
+System --> UI: Return List
+deactivate System
+UI --> Admin: Display List
+deactivate UI
+Admin -> UI: Select Account to unlock
+activate UI
+UI -> Admin: Confirm?
+deactivate UI
+alt Confirm Unlock
+    Admin -> UI: Confirm
+    activate UI
+    UI -> System: UnlockUser(UserID)
+    activate System
+    System -> DB: ReseFailureCount(UserID)
+    activate DB
+    DB --> System: Success
+    deactivate DB
+    System -> DB: UpdateStatus(UserID,'Active')
+    activate DB
+    DB --> System: Success
+    deactivate DB
+
+    System -> System: Log Action(Unlock event)
+    System --> UI: Action Complete
+    deactivate System
+    UI --> Admin: Show Success Msg
+    deactivate UI
+else Cancel
+    Admin -> UI: Cancel
+    activate UI
+    UI --> Admin: Return to view
+    deactivate UI
+end
+@enduml
