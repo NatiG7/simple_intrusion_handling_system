@@ -1,0 +1,4 @@
+convert pwer_user / analyst promotoe to manager ! ALL #TODO
+
+# implement data manager CLASS
+
