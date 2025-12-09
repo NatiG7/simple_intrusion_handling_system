@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam componentStyle uml2
+
+node "Admin Workstation" {
+    [Admin Console] as Console
+}
+
+node "IDS Host Server (Linux)" {
+    
+    component "Network Interface" as NIC
+    
+    package "Python Runtime" {
+        file "main.py" as App
+        file "Scapy Library" as Scapy
+        file "Model.pkl" as Model
+    }
+    
+    database "SQLite DB" as DB
+}
+
+cloud "Internet" as Net
+
+' Basic Connections
+Net -- NIC
+NIC -- Scapy
+Scapy -- App
+App -- Model
+App -- DB
+Console -- App
+
+@enduml

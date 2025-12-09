@@ -1,0 +1,65 @@
+@startuml
+title Class Diagram - Intrusion Detection System
+
+class SystemController {
+    - interface: str
+    - is_running: bool
+    + start_monitoring()
+    + stop_monitoring()
+    + run_loop()
+}
+
+class PacketCapture {
+    - packet_queue: Queue
+    - stop_event: Event
+    + start_capture(interface: str)
+    + stop_capture_event()
+    + packet_callback(packet: Packet)
+}
+
+class TrafficAnalysis {
+    - connections: dict
+    - flow_stats: dict
+    + analyze_packet(packet: Packet) : dict
+    + extract_features(packet: Packet, stats: dict) : dict
+}
+
+class ThreatDetector {
+    - signature_rules: dict
+    - ai_model: FlowMLModel
+    + analyze(features: dict) : list
+    + load_signature_rules() : dict
+}
+
+class FlowMLModel {
+    - model: IsolationForest
+    - scaler: StandardScaler
+    - is_trained: bool
+    + train(features: list)
+    + predict(features: list) : int
+    + anomaly_score(features: list) : float
+    + save(path: str)
+    + load(path: str)
+}
+
+class Packet {
+    + src_ip: str
+    + dst_ip: str
+    + src_port: int
+    + dst_port: int
+    + protocol: str
+    + flags: str
+    + size: int
+}
+
+' Relationships
+SystemController *-- PacketCapture : manages >
+SystemController *-- TrafficAnalysis : manages >
+SystemController *-- ThreatDetector : manages >
+
+PacketCapture ..> Packet : creates >
+TrafficAnalysis ..> Packet : reads >
+TrafficAnalysis --> ThreatDetector : sends features >
+
+ThreatDetector *-- FlowMLModel : contains >
+@enduml

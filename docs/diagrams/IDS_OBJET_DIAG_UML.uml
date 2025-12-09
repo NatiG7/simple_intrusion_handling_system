@@ -1,0 +1,57 @@
+@startuml
+title Object Diagram - Snapshot during SYN Flood Attack
+
+object "main_app : SystemController" as Controller {
+    interface = "eth0"
+    is_running = True
+}
+
+object "sniffer : PacketCapture" as Sniffer {
+    packet_queue = [Size: 45]
+    stop_event = False
+}
+
+object "packet_105 : Packet" as Pkt {
+    src_ip = "192.168.1.50"
+    dst_ip = "10.0.0.1"
+    flags = "S" (SYN)
+    size = 64
+}
+
+object "analyser : TrafficAnalysis" as Analyser {
+    flow_stats = {Key: (192.168.1.50 -> 10.0.0.1)}
+}
+
+object "current_flow : FlowStats" as Flow {
+    packet_count = 500
+    syn_count = 498
+    ack_count = 0
+    duration = 2.5s
+}
+
+object "detector : ThreatDetector" as Detector {
+    signature_rules = Loaded
+}
+
+object "ml_model : FlowMLModel" as AI {
+    is_trained = True
+    contamination = 0.01
+}
+
+' Links showing the active state
+Controller -- Sniffer
+Controller -- Analyser
+Controller -- Detector
+
+Sniffer ..> Pkt : just_captured
+Analyser ..> Pkt : processing
+Analyser -- Flow : updates
+Detector -- AI : queries
+
+note right of Flow
+  Suspicious State:
+  High SYN count
+  Low ACK count
+end note
+
+@enduml
