@@ -4,9 +4,21 @@ title Class Diagram - Intrusion Detection System
 class SystemController {
     - interface: str
     - is_running: bool
+    - db_manager: DatabaseManager
     + start_monitoring()
     + stop_monitoring()
     + run_loop()
+}
+
+class DatabaseManager {
+    - connection: SQLiteConnection
+    - db_path: str
+    + connect()
+    + save_packet(packet: Packet)
+    + log_alert(alert: dict)
+    + fetch_rules() : dict
+    + log_flow_stats(stats: dict)
+    + close()
 }
 
 class PacketCapture {
@@ -27,6 +39,7 @@ class TrafficAnalysis {
 class ThreatDetector {
     - signature_rules: dict
     - ai_model: FlowMLModel
+    - db: DatabaseManager
     + analyze(features: dict) : list
     + load_signature_rules() : dict
 }
@@ -53,6 +66,7 @@ class Packet {
 }
 
 ' Relationships
+SystemController *-- DatabaseManager : owns >
 SystemController *-- PacketCapture : manages >
 SystemController *-- TrafficAnalysis : manages >
 SystemController *-- ThreatDetector : manages >
@@ -61,5 +75,6 @@ PacketCapture ..> Packet : creates >
 TrafficAnalysis ..> Packet : reads >
 TrafficAnalysis --> ThreatDetector : sends features >
 
+ThreatDetector o-- DatabaseManager : uses >
 ThreatDetector *-- FlowMLModel : contains >
 @enduml

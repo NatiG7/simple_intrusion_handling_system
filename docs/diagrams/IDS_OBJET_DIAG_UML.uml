@@ -6,6 +6,11 @@ object "main_app : SystemController" as Controller {
     is_running = True
 }
 
+object "db_handler : DatabaseManager" as DB {
+    db_path = "ids_logs.db"
+    connection = "Open"
+}
+
 object "sniffer : PacketCapture" as Sniffer {
     packet_queue = [Size: 45]
     stop_event = False
@@ -39,10 +44,12 @@ object "ml_model : FlowMLModel" as AI {
 }
 
 ' Links showing the active state
+Controller -- DB
 Controller -- Sniffer
 Controller -- Analyser
 Controller -- Detector
 
+Detector -- DB : saves_alert
 Sniffer ..> Pkt : just_captured
 Analyser ..> Pkt : processing
 Analyser -- Flow : updates
