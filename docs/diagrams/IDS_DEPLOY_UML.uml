@@ -33,7 +33,7 @@ Scapy --> App : Feed Packet Data
 App --> Detector : Analyze Features
 Detector --> Model : Predict (Anomaly?)
 
-' --- Data Persistence (The Ms. Teach Requirement) ---
+' --- Data Persistence ---
 App --> DBMgr : Log System Events
 Detector ..> DBMgr : Log Alerts
 DBMgr --> DB : Read/Write (SQL)

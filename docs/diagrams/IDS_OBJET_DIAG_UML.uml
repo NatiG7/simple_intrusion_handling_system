@@ -1,5 +1,11 @@
 @startuml
-title Object Diagram - Snapshot during SYN Flood Attack
+title Object Diagram - Snapshot during SYN Flood Attack (With DB Detail)
+
+' Style tweaking to make the DB section distinct
+skinparam object {
+    BackgroundColor<<BSON>> Wheat
+    BorderColor<<BSON>> Tomato
+}
 
 object "main_app : SystemController" as Controller {
     interface = "eth0"
@@ -7,8 +13,37 @@ object "main_app : SystemController" as Controller {
 }
 
 object "db_handler : DatabaseManager" as DB {
-    db_path = "ids_logs.db"
-    connection = "Open"
+    packet = {PktA}
+}
+
+' --- NEW: Packet A (Standard) ---
+object "packetA : BSON_Document" as PktA <<BSON>> {
+    _id = "60d5ec49..."
+    timestamp = "10:30:00Z"
+    -- Flow Stats --
+    {
+    "packet_size" : 4,
+    "flow_duraton" : 123,
+    "packet_rate": 12,
+    "byte_rate": 2,
+    "latest_window_size": 1003
+    "syn_count": 1,
+    "ack_count": 3,
+    "fin_count": 0,
+    "rst_count": 0,
+    "avg_sequence_num": 3252351,
+    "avg_window_size": 1004,
+    "avg_ip_header_size": 18,
+    "avg_tcp_header_size": 2,
+    "unique_src_ips":1,
+    "unique_dst_ips":1,
+    "unique_src_ports":3,
+    "unique_dst_ports":1,
+    "ip_checksum_errors": {"ip_checksum_errors"},
+    "tcp_checksum_errors": {"tcp_checksum_errors"},
+    "reserved_bit_set_count": 4}
+
+
 }
 
 object "sniffer : PacketCapture" as Sniffer {
@@ -43,11 +78,14 @@ object "ml_model : FlowMLModel" as AI {
     contamination = 0.01
 }
 
-' Links showing the active state
+' Links
 Controller -- DB
 Controller -- Sniffer
 Controller -- Analyser
 Controller -- Detector
+
+' Composition links showing these packets are INSIDE the DB
+DB *-- PktA : stored_item_1
 
 Detector -- DB : saves_alert
 Sniffer ..> Pkt : just_captured
