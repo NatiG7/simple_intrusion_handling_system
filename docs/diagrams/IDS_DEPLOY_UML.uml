@@ -1,0 +1,43 @@
+@startuml
+title Deployment Diagram - Intrusion Detection System
+left to right direction
+skinparam componentStyle uml2
+
+node "Admin Workstation" as AdminPC {
+    component "Admin Console\n(SSH / Web Dashboard)" as Console
+}
+
+node "IDS Host Server (Linux)" as Server {
+    
+    component "Network Interface\n(Promiscuous Mode)" as NIC
+    
+    node "Python Runtime Environment" {
+        artifact "IDS Core\n(main.py)" as App
+        artifact "ThreatDetector\n(Detection Logic)" as Detector
+        artifact "DatabaseManager\n(Storage Handler)" as DBMgr
+        artifact "Scapy Library" as Scapy
+        artifact "ML Model\n(isolation_forest.pkl)" as Model
+    }
+    
+    database "Local Storage\n(SQLite: ids_logs.db)" as DB
+}
+
+cloud "Internet / Traffic Source" as Net
+
+' --- Traffic Flow ---
+Net .right.> NIC : Raw Traffic (F10)
+NIC --> Scapy : Capture Packet
+Scapy --> App : Feed Packet Data
+
+' --- Internal Logic ---
+App --> Detector : Analyze Features
+Detector --> Model : Predict (Anomaly?)
+
+' --- Data Persistence (The Ms. Teach Requirement) ---
+App --> DBMgr : Log System Events
+Detector ..> DBMgr : Log Alerts
+DBMgr --> DB : Read/Write (SQL)
+
+' --- Management ---
+Console <--> App : Management & Alerts (TCP/IP)
+@enduml
