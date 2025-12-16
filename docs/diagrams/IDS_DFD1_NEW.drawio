@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="JKPN2PaHLNAHYvrWgLSi" name="Page-1">
-        <mxGraphModel dx="1550" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="549" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -149,7 +149,7 @@
                 <mxCell id="297" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left;&quot;&gt;DB6&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: left; color: rgb(0, 0, 0);&quot;&gt;דוחות גישה&lt;/span&gt;" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" parent="1" vertex="1">
                     <mxGeometry x="40" y="2560" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="298" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E3: משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="298" value="&lt;b style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;E2: משתמש&lt;/b&gt;" style="html=1;dashed=0;whiteSpace=wrap;fontFamily=Helvetica;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="40" y="2680" width="120" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="299" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="295" target="298" edge="1">
