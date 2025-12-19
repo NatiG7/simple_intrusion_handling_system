@@ -63,7 +63,7 @@ class PacketCapture:
         except queue.Full:
                 logging.warning("Packet queue is full. Dropping packet.")
 
-    def start_capture(self, interface: None, timeout: int = None) -> None:
+    def start_capture(self, interface = None, timeout: int = None) -> None:
         """
         Starts the packet capture in a background daemon thread.
         
