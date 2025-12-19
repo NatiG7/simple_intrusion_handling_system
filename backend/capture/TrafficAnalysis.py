@@ -1,6 +1,7 @@
 from collections import defaultdict
 import statistics
 import time
+import traceback
 from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
 
@@ -77,8 +78,8 @@ class TrafficAnalysis:
                 if flow_data["last_time"] is not None:
                 # Calculate time since previous packet in this flow
                     delta = float(current_time - flow_data["last_time"])
-                if delta >= 0:
-                    flow_data["iat"].append(delta)
+                    if delta >= 0:
+                        flow_data["iat"].append(delta)
 
                 # Update Timings
                 if flow_data["start_time"] is None:
@@ -131,8 +132,8 @@ class TrafficAnalysis:
 
                 return self.extract_features(packet, flow_data)
 
-            except Exception as e:
-                print(f"Error has occured :{e}")  # TODO obviously.
+            except Exception:
+                traceback.print_exc()
 
     def extract_features(self, packet: Packet, stats):
         """

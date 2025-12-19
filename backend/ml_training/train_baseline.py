@@ -12,7 +12,7 @@ from backend.capture.PacketCapture import PacketCapture
 from backend.capture.TrafficAnalysis import TrafficAnalysis
 
 # --- Configuration ---
-TARGET_PACKETS = 5000     # Packets needed for a solid baseline
+TARGET_PACKETS = 15000     # Packets needed for a solid baseline
 TIMEOUT = 1200            # Max capture time in seconds (20 mins)
 CONTAMINATION = 0.01      # Estimated anomaly rate in baseline (1%)
 
