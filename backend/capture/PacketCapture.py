@@ -24,6 +24,8 @@ import logging
 from scapy.packet import Packet
 from scapy.sendrecv import sniff
 
+from backend.utils.interface_detect import select_interface
+
 
 class PacketCapture:
     """
@@ -61,7 +63,7 @@ class PacketCapture:
         except queue.Full:
                 logging.warning("Packet queue is full. Dropping packet.")
 
-    def start_capture(self, interface: str = "eth0", timeout: int = None) -> None:
+    def start_capture(self, interface: None, timeout: int = None) -> None:
         """
         Starts the packet capture in a background daemon thread.
         
@@ -74,7 +76,10 @@ class PacketCapture:
                                      Defaults to "eth0".
             timeout (int, optional): Auto-stop capture after N seconds. Defaults to None (run forever).
         """
-        
+        if interface is None:
+            self.interface = select_interface()
+        else:
+            self.interface = interface
         def capture_thread():
             """
             Method to run Scapy's sniff function
@@ -84,7 +89,7 @@ class PacketCapture:
 
             try:
                 sniff(
-                iface=interface,
+                iface=self.interface,
                 # procces, defined as func to handle packets
                 prn=self.packet_callback,
                 # no store in memory
