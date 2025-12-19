@@ -16,10 +16,10 @@ def build_ip_fields(packet: Packet) -> Dict[str, int]:
                         and their corresponding values from the packet.
     """
     return {
-        "IP_version": packet[IP].version,
+        "version": packet[IP].version,
         "header_length": packet[IP].ihl * 4,  # to bytes (32bit word)
         "packet_length": packet[IP].len,
-        "identification_field": packet[IP].id,
+        "identification": packet[IP].id,
         "header_checksum": packet[IP].chksum,
         "source_ip": packet[IP].src,
         "destination_ip": packet[IP].dst,
@@ -45,5 +45,5 @@ def build_tcp_fields(packet: Packet) -> Dict[str, int]:
         "reserved_bits": packet[TCP].reserved,
         "tcp_flags": packet[TCP].flags,
         "tcp_checksum": packet[TCP].chksum,
-        "tcp_window_size": packet[TCP].window,
+        "window_size": packet[TCP].window,
     }

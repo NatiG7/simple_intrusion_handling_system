@@ -27,10 +27,10 @@ def initialize_flow_stats():
 def build_flow_key(ip_fields: dict, tcp_fields: dict) -> tuple:
     return (
         ip_fields["version"],
-        ip_fields["src"],
-        ip_fields["dst"],
-        tcp_fields["sport"],
-        tcp_fields["dport"],
+        ip_fields["source_ip"],
+        ip_fields["destination_ip"],
+        tcp_fields["source_port"],
+        tcp_fields["destination_port"],
         "TCP",
     )
 
