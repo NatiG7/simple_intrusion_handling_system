@@ -19,6 +19,7 @@ Use Case in IPS:
 
 import queue
 import threading
+import logging
 
 from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
@@ -30,45 +31,51 @@ class PacketCapture:
     A class for capturing and network packets using Scapy.
     """
 
-    def __init__(self):
+    def __init__(self, max_queue_size: int = 10000) -> None:
         """
         CTOR for the PacketCapture instance.
         """
 
         # create a queue to store captured packets
-        self.packet_queue = queue.Queue()
-        # TODO different capture queues
+        # max size to prevent OOM
+        self.packet_queue = queue.Queue(maxsize=max_queue_size)
 
         # threading event controls when to stop capture
         self.stop_capture = threading.Event()
 
     def packet_callback(self, packet: Packet) -> None:
         """
-        Method that acts as a handler for each
-        captured packet and checks if it contains
-        both IP and TCP layers and adds it to the queue.
+        Handler for each captured packet. 
+        Attempts to push the packet to the queue immediately.
+        
+        Note: We rely on the BPF filter in start_capture() to ensure 
+        only TCP traffic reaches this callback, avoiding expensive 
+        Python-side layer checks.
 
         Args:
-            packet (Packet): The incoming packet that may contain
-                                                IP and TCP layers.
+            packet (Packet): The raw Scapy packet object.
         """
 
-        # check packet for ip and tcp layers and add to queue
-        if IP in packet and TCP in packet:
-            self.packet_queue.put(packet)
-        # TODO more packet interception.
+        # instantly add packet to the queue for process
+        try:
+            self.packet_queue.put_nowait(packet)
+        except queue.Full:
+                logging.warning("Packet queue is full. Dropping packet.")
 
     def start_capture(self, interface: str = "eth0", timeout: int = None) -> None:
         """
-        Method to capture packets on a specified interface
-        eth0 being the default on most systems as the
-        default Ethernet interface. #TODO interfaces dict.
+        Starts the packet capture in a background daemon thread.
+        
+        Uses BPF (Berkeley Packet Filters) to strictly filter for TCP traffic 
+        at the kernel level, optimizing performance by discarding UDP/ICMP 
+        before they reach user-space.
 
         Args:
-            interface (str, optional): The selected interface.
-                                            >:Defaults to "eth0".
+            interface (str, optional): The network interface to sniff (e.g., 'eth0', 'wlan0'). 
+                                     Defaults to "eth0".
+            timeout (int, optional): Auto-stop capture after N seconds. Defaults to None (run forever).
         """
-
+        
         def capture_thread():
             """
             Method to run Scapy's sniff function
@@ -84,6 +91,8 @@ class PacketCapture:
                 # no store in memory
                 store=0,
                 timeout=timeout,
+                # filter packets at kernel level with eBPF
+                filter="tcp",
                 # stop when stop event set
                 stop_filter=lambda _: self.stop_capture.is_set(),
             )
@@ -91,7 +100,7 @@ class PacketCapture:
                 print(f"Capture thread error : {e}")
 
         # spawn a separate thread for continuous action
-        self.capture_thread = threading.Thread(target=capture_thread)
+        self.capture_thread = threading.Thread(target=capture_thread, daemon=True)
         self.capture_thread.start()
 
     def stop_capture_event(self) -> None:
