@@ -53,6 +53,10 @@ class FlowMLModel:
             "ip_checksum_errors",
             "tcp_checksum_errors",
             "reserved_bit_set_count",
+            "min_iat",
+            "max_iat",
+            "avg_iat",
+            "std_iat",
         ]
 
     # ----------------------------------------------------------------------
