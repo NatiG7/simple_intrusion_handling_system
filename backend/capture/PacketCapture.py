@@ -21,7 +21,6 @@ import queue
 import threading
 import logging
 
-from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
 from scapy.sendrecv import sniff
 
@@ -31,7 +30,7 @@ class PacketCapture:
     A class for capturing and network packets using Scapy.
     """
 
-    def __init__(self, max_queue_size: int = 10000) -> None:
+    def __init__(self, max_queue_size: int = 100000) -> None:
         """
         CTOR for the PacketCapture instance.
         """

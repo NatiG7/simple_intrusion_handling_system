@@ -158,7 +158,16 @@ class TrafficAnalysis:
                 duration = 1e-6
             packet_rate = stats["packet_count"] / duration
             byte_rate = stats["byte_count"] / duration
-            
+
+            iat_list = stats["iat"]
+            if iat_list:
+                min_iat = min(iat_list)
+                max_iat = max(iat_list)
+                avg_iat = sum(iat_list) / len(iat_list)
+                std_iat = statistics.stdev(iat_list) if len(iat_list) > 1 else 0.0
+            else:
+                min_iat = max_iat = avg_iat = std_iat = 0.0
+                
             features = {
                 # Basic features
                 "packet_size": len(packet),
@@ -174,6 +183,11 @@ class TrafficAnalysis:
                 "ack_count": stats["tcp_flags_count"].get("ACK", 0),
                 "fin_count": stats["tcp_flags_count"].get("FIN", 0),
                 "rst_count": stats["tcp_flags_count"].get("RST", 0),
+                # IAT stats
+                "min_iat": min_iat,
+                "max_iat": max_iat,
+                "avg_iat": avg_iat,
+                "std_iat": std_iat,
                 # Sequence and window statistics
                 "avg_sequence_number": (
                     sum(stats["sequence_numbers"]) / len(stats["sequence_numbers"])
