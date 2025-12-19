@@ -154,11 +154,12 @@ class TrafficAnalysis:
         """
         try:
             duration = stats["flow_duration"]
-            if not duration or duration <= 0:
-                # Avoid divide-by-zero
-                duration = 1e-6
-            packet_rate = stats["packet_count"] / duration
-            byte_rate = stats["byte_count"] / duration
+            if duration > 0.000001:
+                packet_rate = stats["packet_count"] / duration
+                byte_rate = stats["byte_count"] / duration
+            else:
+                packet_rate = 0.0
+                byte_rate = 0.0
 
             iat_list = stats["iat"]
             if iat_list:
@@ -171,6 +172,7 @@ class TrafficAnalysis:
                 
             features = {
                 # Basic features
+                "packet_count": stats["packet_count"],
                 "packet_size": len(packet),
                 "flow_duration": duration,
 

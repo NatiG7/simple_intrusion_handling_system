@@ -2,8 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.venv*
 
+# virtual env
+.venv*
+attacks/*
+attacks/
 # pkl training data
 models/*.pkl
 models/*.joblib
