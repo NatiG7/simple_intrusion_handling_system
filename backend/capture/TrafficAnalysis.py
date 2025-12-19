@@ -154,7 +154,7 @@ class TrafficAnalysis:
         """
         try:
             duration = stats["flow_duration"]
-            if duration > 0.000001:
+            if duration and duration > 0.000001:
                 packet_rate = stats["packet_count"] / duration
                 byte_rate = stats["byte_count"] / duration
             else:
@@ -169,18 +169,24 @@ class TrafficAnalysis:
                 std_iat = statistics.stdev(iat_list) if len(iat_list) > 1 else 0.0
             else:
                 min_iat = max_iat = avg_iat = std_iat = 0.0
-                
+            if packet:
+                current_pkt_size = len(packet)
+                current_win_size = packet[TCP].window if packet.haslayer(TCP) else 0
+            else:
+                current_pkt_size = stats["byte_count"] / stats["packet_count"] if stats["packet_count"] else 0
+                current_win_size = stats["window_sizes"][-1] if stats["window_sizes"] else 0
+
             features = {
                 # Basic features
                 "packet_count": stats["packet_count"],
-                "packet_size": len(packet),
+                "packet_size": current_pkt_size,
                 "flow_duration": duration,
 
                 # Normalized counters
                 "packet_rate": packet_rate,
                 "byte_rate": byte_rate,
                 # TCP window size (last seen)
-                "latest_window_size": packet[TCP].window,
+                "latest_window_size": current_win_size,
                 # Flag counts
                 "syn_count": stats["tcp_flags_count"].get("SYN", 0),
                 "ack_count": stats["tcp_flags_count"].get("ACK", 0),

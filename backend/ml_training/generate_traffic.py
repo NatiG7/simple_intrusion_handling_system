@@ -18,10 +18,26 @@ THREADS = 4       # Max parallel threads for asset simulation
 
 # Categories of websites to visit
 WEBSITES = {
-    'news': ['https://www.bbc.com', 'https://www.reuters.com', 'https://www.npr.org'],
-    'tech': ['https://news.ycombinator.com', 'https://github.com', 'https://stackoverflow.com'],
-    'social': ['https://www.reddit.com', 'https://twitter.com', 'https://www.linkedin.com'],
-    'video': ['https://www.youtube.com', 'https://vimeo.com']
+    'news': [
+        'https://www.bbc.com', 'https://www.reuters.com', 'https://www.npr.org',
+        'https://www.cnn.com', 'https://www.nytimes.com', 'https://www.foxnews.com'
+    ],
+    'tech': [
+        'https://news.ycombinator.com', 'https://github.com', 'https://stackoverflow.com',
+        'https://www.theverge.com', 'https://techcrunch.com', 'https://arstechnica.com'
+    ],
+    'social': [
+        'https://www.reddit.com', 'https://twitter.com', 'https://www.linkedin.com',
+        'https://www.pinterest.com', 'https://www.instagram.com', 'https://www.quora.com'
+    ],
+    'video': [
+        'https://www.youtube.com', 'https://vimeo.com', 'https://www.twitch.tv',
+        'https://www.netflix.com', 'https://www.hulu.com'
+    ],
+    'shopping': [
+        'https://www.amazon.com', 'https://www.ebay.com', 'https://www.bestbuy.com',
+        'https://www.walmart.com', 'https://www.target.com', 'https://www.etsy.com'
+    ]
 }
 
 # Static assets to request in parallel (simulating images, scripts, CSS)

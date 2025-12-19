@@ -33,6 +33,7 @@ class FlowMLModel:
         self.is_trained = False
 
         self.feature_names: List[str] = [
+            "packet_count",
             "packet_size",
             "flow_duration",
             "packet_rate",
