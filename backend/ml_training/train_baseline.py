@@ -12,17 +12,13 @@ from backend.capture.PacketCapture import PacketCapture
 from backend.capture.TrafficAnalysis import TrafficAnalysis
 
 # --- Configuration ---
-TARGET_PACKETS = 15000     # Packets needed for a solid baseline
+TARGET_PACKETS = 15000    # Packets needed for a solid baseline
 TIMEOUT = 1200            # Max capture time in seconds (20 mins)
 CONTAMINATION = 0.01      # Estimated anomaly rate in baseline (1%)
 
 def check_data_health(features: List[Dict[str, Any]]) -> bool:
     """
     Validates extracted features to prevent training on bad data.
-    
-    Checks for:
-    1. Zero Inter-Arrival Time (IAT) -> Indicates broken packet timestamping.
-    2. Zero TCP Flags -> Indicates broken BPF filters or extraction logic.
     """
     print("\n--- Data Health Check ---")
     if not features:
@@ -30,14 +26,16 @@ def check_data_health(features: List[Dict[str, Any]]) -> bool:
         return False
         
     # Check 1: Global Average IAT
-    # If this is exactly 0.0, the sniffer isn't recording time deltas correctly.
     avg_iats = [f['avg_iat'] for f in features]
+    if not avg_iats:
+        print("FAIL: No IAT data found.")
+        return False
+
     if sum(avg_iats) / len(avg_iats) == 0:
         print("CRITICAL: IAT is 0.0. Timing logic broken.")
         return False
 
     # Check 2: TCP Flags
-    # We expect at least *some* SYN or ACK flags in normal traffic.
     syn = sum(f['syn_count'] for f in features)
     ack = sum(f['ack_count'] for f in features)
     if syn == 0 and ack == 0:
@@ -58,13 +56,17 @@ def main() -> None:
     # --- Phase 1: Capture ---
     print(f"Capturing ~{TARGET_PACKETS} packets... (Ensure generator is running)")
     capture.start_capture()
+    start_time = time.time()
     
     try:
         # Loop until target count reached or timeout
         while capture.packet_queue.qsize() < TARGET_PACKETS:
             time.sleep(1)
             print(f"Packets: {capture.packet_queue.qsize()}/{TARGET_PACKETS}", end='\r')
-            if time.time() > time.time() + TIMEOUT:
+            
+            # Compare current time against start_time + timeout
+            if time.time() > start_time + TIMEOUT:
+                print("\nTimeout reached.")
                 break
     except KeyboardInterrupt:
         print("\nStopping capture early...")
@@ -75,8 +77,11 @@ def main() -> None:
     
     # --- Phase 2: Analysis ---
     print("\nExtracting features...")
-    # List comprehension to analyze packets, filtering out None returns
-    features = [analyzer.analyze_packet(p) for p in packets if analyzer.analyze_packet(p)]
+    features = []
+    for p in packets:
+        result = analyzer.analyze_packet(p)
+        if result is not None:
+            features.append(result)
             
     # Abort if data is garbage
     if not check_data_health(features):
