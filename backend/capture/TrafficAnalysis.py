@@ -4,8 +4,8 @@ import time
 from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
 
-from utils.flow_utilities import *
-from utils.protocol_field_builder import *
+from backend.utils.flow_utilities import *
+from backend.utils.protocol_field_builder import *
 
 class TrafficAnalysis:
     """ """
