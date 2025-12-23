@@ -10,7 +10,7 @@ from backend.capture.TrafficAnalysis import TrafficAnalysis
 
 # --- Configuration ---
 TARGET_UNIQUE_FLOWS = 1000  
-TIMEOUT = 1200  
+TIMEOUT = 3600  
 CONTAMINATION = 0.01
 
 def check_data_health(features: List[Dict[str, Any]]) -> bool:
