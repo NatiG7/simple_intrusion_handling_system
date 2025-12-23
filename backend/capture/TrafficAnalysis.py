@@ -2,11 +2,13 @@ from collections import defaultdict
 import statistics
 import time
 import traceback
+from collections import deque
 from scapy.layers.inet import IP, TCP
 from scapy.packet import Packet
 from backend.utils.validate_ip_chksum import *
 from backend.utils.flow_utilities import *
 from backend.utils.protocol_field_builder import *
+from backend.utils.fast_packet_parse import parse_packet_fast
 
 class TrafficAnalysis:
     """ """
@@ -26,19 +28,19 @@ class TrafficAnalysis:
             "start_time": None,
             "last_time": None,
             "flow_duration": None,
-            "iat": [],
+            "iat": deque(maxlen=50),
             "source_ip_count": defaultdict(int),
             "destination_ip_count": defaultdict(int),
             "source_port_count": defaultdict(int),
             "destination_port_count": defaultdict(int),
             "tcp_flags_count": {"SYN": 0, "ACK": 0, "FIN": 0, "RST": 0},
-            "sequence_numbers": [],
-            "window_sizes": [],
-            "header_lengths": [],
+            "sequence_numbers": deque(maxlen=50),
+            "window_sizes": deque(maxlen=50),
+            "header_lengths": deque(maxlen=50),
             "checksum_errors": 0,
             "identification_fields": [],
-            "tcp_header_sizes": [],
-            "reserved_bits": [],
+            "tcp_header_sizes": deque(maxlen=50),
+            "reserved_bits": deque(maxlen=50),
             "tcp_checksum_errors": 0,
         }
     
@@ -68,93 +70,129 @@ class TrafficAnalysis:
             
         return len(keys_to_delete)
 
-    def analyze_packet(self, packet: Packet):
+    def analyze_packet(self, packet_data, timestamp=None):
         """
-        Analyze a single network packet and update flow statistics accordingly.
-
-        This function extracts key IP and TCP header fields from the packet,
-        constructs a unique flow key, and updates flow-related metrics such as
-        packet count, byte count, duration, TCP flag counts, sequence numbers,
-        and checksums.
-
-        Parameters:
-            packet (Packet): A Scapy Packet object containing IP and TCP layers.
-
-        Returns:
-            dict: A dictionary of extracted features based on the analyzed packet
-                    and current flow statistics.
-
-        Raises:
-            Exception: Logs any exception that occurs during packet analysis.
+        Modified to support FAST MODE (Raw Bytes) and LEGACY MODE (Scapy Objects).
         """
-        if packet is not None and packet.haslayer(IP) and packet.haslayer(TCP):
-            try:
-                ip_layer = packet[IP]
-                tcp_layer = packet[TCP]
+        ip_fields = None
+        tcp_fields = None
+        packet_obj = None # Will be None in Fast Mode
+
+        try:
+            # ==========================================
+            #  BRANCH 1: FAST PATH (Raw Bytes)
+            # ==========================================
+            if isinstance(packet_data, bytes):
+                current_time = timestamp if timestamp else time.time()
                 
-                ip_fields = build_ip_fields(packet)
-                tcp_fields = build_tcp_fields(packet)
+                # 1. Use Fast Parser
+                ip_fields, tcp_fields, proto, ip_start = parse_packet_fast(packet_data)
                 
-                conn_key = build_flow_key(ip_fields, tcp_fields)
-                dst_key = build_dst_flow_key(ip_fields, tcp_fields,timestamp=packet.time)
+                if ip_fields is None or tcp_fields is None:
+                    return None 
 
-                conn_flow = self.flow_stats[conn_key]
-                dst_flow = self.flow_stats_dst[dst_key]
-                current_time = packet.time
+                # 2. Slice Raw Bytes for Checksum (Fast)
+                # Standard IP header check covers 20 bytes
+                raw_ip_bytes = packet_data[ip_start : ip_start + 20] 
                 
-                raw_ip_bytes = bytes(packet[IP])[:20]
-                is_chksum_valid = validate_ip_checksum(raw_ip_bytes)
-
-                for flow_data in (conn_flow, dst_flow):
-                    # Time Updates
-                    if flow_data["start_time"] is None:
-                        flow_data["start_time"] = current_time
-                    
-                    if flow_data["last_time"] is not None:
-                        delta = float(current_time - flow_data["last_time"])
-                        if delta >= 0:
-                            flow_data["iat"].append(delta)
-
-                    flow_data["last_time"] = current_time
-                    flow_data["flow_duration"] = float(current_time - flow_data["start_time"])
-                    
-                    # Volume Updates
-                    flow_data["packet_count"] += 1
-                    flow_data["byte_count"] += ip_fields["packet_length"]
-                    
-                    # Diversity Updates
-                    flow_data["source_ip_count"][ip_fields["source_ip"]] += 1
-                    flow_data["destination_ip_count"][ip_fields["destination_ip"]] += 1
-                    flow_data["source_port_count"][tcp_fields["source_port"]] += 1
-                    flow_data["destination_port_count"][tcp_fields["destination_port"]] += 1
-                    
-                    if not is_chksum_valid:
-                        flow_data["checksum_errors"] += 1
-                    
-                    # Flag Updates (Critical for SYN Flood detection)
-                    flags = tcp_fields["tcp_flags"]
-                    if flags & 0x02: flow_data["tcp_flags_count"]["SYN"] += 1
-                    if flags & 0x10: flow_data["tcp_flags_count"]["ACK"] += 1
-                    if flags & 0x01: flow_data["tcp_flags_count"]["FIN"] += 1
-                    if flags & 0x04: flow_data["tcp_flags_count"]["RST"] += 1
-
-                # Track Sequence/Window only for the specific pair to detect hijacking/confusion
-                conn_flow["sequence_numbers"].append(tcp_layer.seq)
-                conn_flow["window_sizes"].append(tcp_layer.window)
-                conn_flow["header_lengths"].append(ip_layer.ihl * 4)
-                conn_flow["tcp_header_sizes"].append(tcp_layer.dataofs * 4)
-                conn_flow["reserved_bits"].append(tcp_layer.reserved)
-
-                micro_feat = self.extract_features(packet,conn_flow)
-                macro_feat = self.extract_features(packet, dst_flow)
+                # 3. Set Micro-Feature Variables directly from dict
+                seq_num = tcp_fields['seq']
+                win_size = tcp_fields['window']
+                ip_ihl_bytes = ip_fields['header_length']
+                tcp_dataofs_bytes = tcp_fields['dataofs']
+                reserved = tcp_fields['reserved']
                 
-                return {
-                    "micro": micro_feat,
-                    "macro": macro_feat
-                }
+            # ==========================================
+            #  BRANCH 2: SLOW PATH (Scapy Object)
+            # ==========================================
+            elif hasattr(packet_data, 'haslayer'):
+                if not (packet_data.haslayer(IP) and packet_data.haslayer(TCP)):
+                    return None
+                
+                current_time = packet_data.time
+                packet_obj = packet_data # Keep reference for legacy extract
+                
+                # Use existing Scapy builders
+                ip_fields = build_ip_fields(packet_data)
+                tcp_fields = build_tcp_fields(packet_data)
+                
+                raw_ip_bytes = bytes(packet_data[IP])[:20]
+                
+                # Set variables from Scapy layers
+                seq_num = packet_data[TCP].seq
+                win_size = packet_data[TCP].window
+                ip_ihl_bytes = packet_data[IP].ihl * 4
+                tcp_dataofs_bytes = packet_data[TCP].dataofs * 4
+                reserved = packet_data[TCP].reserved
+            else:
+                return None
 
-            except Exception:
-                traceback.print_exc()
+            # ==========================================
+            #  COMMON LOGIC (Shared by both)
+            # ==========================================
+            
+            # 1. Build Keys
+            conn_key = build_flow_key(ip_fields, tcp_fields)
+            # Ensure we pass the timestamp so offline analysis works
+            dst_key = build_dst_flow_key(ip_fields, tcp_fields, timestamp=current_time)
+
+            conn_flow = self.flow_stats[conn_key]
+            dst_flow = self.flow_stats_dst[dst_key]
+            
+            is_chksum_valid = True
+
+            # 2. Update Flows
+            for flow_data in (conn_flow, dst_flow):
+                if flow_data["start_time"] is None:
+                    flow_data["start_time"] = current_time
+                
+                if flow_data["last_time"] is not None:
+                    delta = float(current_time - flow_data["last_time"])
+                    if delta >= 0:
+                        flow_data["iat"].append(delta)
+
+                flow_data["last_time"] = current_time
+                flow_data["flow_duration"] = float(current_time - flow_data["start_time"])
+                
+                flow_data["packet_count"] += 1
+                flow_data["byte_count"] += ip_fields["packet_length"]
+                
+                flow_data["source_ip_count"][ip_fields["source_ip"]] += 1
+                flow_data["destination_ip_count"][ip_fields["destination_ip"]] += 1
+                flow_data["source_port_count"][tcp_fields["source_port"]] += 1
+                flow_data["destination_port_count"][tcp_fields["destination_port"]] += 1
+                
+                if not is_chksum_valid:
+                    flow_data["checksum_errors"] += 1
+                
+                # Flag Updates
+                flags = tcp_fields["tcp_flags"]
+                if flags & 0x02: flow_data["tcp_flags_count"]["SYN"] += 1
+                if flags & 0x10: flow_data["tcp_flags_count"]["ACK"] += 1
+                if flags & 0x01: flow_data["tcp_flags_count"]["FIN"] += 1
+                if flags & 0x04: flow_data["tcp_flags_count"]["RST"] += 1
+
+            # 3. Micro-Only Updates (Using the variables we set in the Branches)
+            conn_flow["sequence_numbers"].append(seq_num)
+            conn_flow["window_sizes"].append(win_size)
+            conn_flow["header_lengths"].append(ip_ihl_bytes)
+            conn_flow["tcp_header_sizes"].append(tcp_dataofs_bytes)
+            conn_flow["reserved_bits"].append(reserved)
+
+            # 4. Extract Features
+            # Note: packet_obj will be None in Fast Mode.
+            # Your extract_features function ALREADY handles None gracefully.
+            micro_features = self.extract_features(packet_obj, conn_flow)
+            macro_features = self.extract_features(packet_obj, dst_flow)
+
+            return {
+                "micro": micro_features,
+                "macro": macro_features
+            }
+
+        except Exception:
+            traceback.print_exc()
+            return None
 
     def extract_features(self, packet: Packet, stats):
         """
@@ -183,11 +221,12 @@ class TrafficAnalysis:
                 byte_rate = 0.0
 
             iat_list = stats["iat"]
-            if iat_list:
+            len_iat = len(iat_list)
+            if len_iat > 1:
                 min_iat = min(iat_list)
                 max_iat = max(iat_list)
                 avg_iat = sum(iat_list) / len(iat_list)
-                std_iat = statistics.stdev(iat_list) if len(iat_list) > 1 else 0.0
+                std_iat = statistics.stdev(iat_list)
             else:
                 min_iat = max_iat = avg_iat = std_iat = 0.0
             if packet:
@@ -196,7 +235,8 @@ class TrafficAnalysis:
             else:
                 current_pkt_size = stats["byte_count"] / stats["packet_count"] if stats["packet_count"] else 0
                 current_win_size = stats["window_sizes"][-1] if stats["window_sizes"] else 0
-
+            def safe_avg(deque_obj):
+                return sum(deque_obj) / len(deque_obj) if deque_obj else 0
             features = {
                 # Basic features
                 "packet_count": stats["packet_count"],
@@ -219,27 +259,11 @@ class TrafficAnalysis:
                 "avg_iat": avg_iat,
                 "std_iat": std_iat,
                 # Sequence and window statistics
-                "avg_sequence_number": (
-                    sum(stats["sequence_numbers"]) / len(stats["sequence_numbers"])
-                    if stats["sequence_numbers"]
-                    else 0
-                ),
-                "avg_window_size": (
-                    sum(stats["window_sizes"]) / len(stats["window_sizes"])
-                    if stats["window_sizes"]
-                    else 0
-                ),
-                # Header statistics
-                "avg_ip_header_length": (
-                    sum(stats["header_lengths"]) / len(stats["header_lengths"])
-                    if stats["header_lengths"]
-                    else 0
-                ),
-                "avg_tcp_header_size": (
-                    sum(stats["tcp_header_sizes"]) / len(stats["tcp_header_sizes"])
-                    if stats["tcp_header_sizes"]
-                    else 0
-                ),
+                "avg_sequence_number": safe_avg(stats["sequence_numbers"]),
+                "avg_window_size": safe_avg(stats["window_sizes"]),
+                # Header statistics1
+                "avg_ip_header_length": safe_avg(stats["header_lengths"]),
+                "avg_tcp_header_size": safe_avg(stats["tcp_header_sizes"]),
                 # Port/IP diversity
                 "unique_src_ips": len(stats["source_ip_count"]),
                 "unique_dst_ips": len(stats["destination_ip_count"]),
