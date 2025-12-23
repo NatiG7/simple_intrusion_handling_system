@@ -7,7 +7,7 @@ import numpy as np
 import pickle
 import os
 from sklearn.ensemble import IsolationForest
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import RobustScaler
 
 
 class FlowMLModel:
@@ -28,8 +28,11 @@ class FlowMLModel:
         Args:
             contamination (float): Expected fraction of anomalies in the training data.
         """
-        self.model = IsolationForest(contamination=contamination, random_state=42)
-        self.scaler = StandardScaler()
+        self.model = IsolationForest(contamination=contamination,
+                                     random_state=42,
+                                     bootstrap=True,
+                                     max_samples=256)
+        self.scaler = RobustScaler()
         self.is_trained = False
 
         self.feature_names: List[str] = [

@@ -59,7 +59,10 @@ class PacketCapture:
 
         # instantly add packet to the queue for process
         try:
-            self.packet_queue.put_nowait(packet)
+            raw_bytes = bytes(packet)
+            timestamp = float(packet.time)
+            bytes_fmt = (raw_bytes,timestamp)
+            self.packet_queue.put_nowait(bytes_fmt)
         except queue.Full:
                 logging.warning("Packet queue is full. Dropping packet.")
 

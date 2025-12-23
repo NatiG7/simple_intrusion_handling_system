@@ -14,7 +14,7 @@ from datetime import datetime
 DURATION = 3600   # Total runtime in seconds (1 hour)
 MIN_WAIT = 2      # Minimum wait between simulated user actions
 MAX_WAIT = 15     # Maximum wait between simulated user actions
-THREADS = 4       # Max parallel threads for asset simulation
+THREADS = 8       # Max parallel threads for asset simulation
 
 # Categories of websites to visit
 WEBSITES = {

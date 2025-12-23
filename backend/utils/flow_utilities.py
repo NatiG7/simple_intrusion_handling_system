@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+import time
 
 def initialize_flow_stats():
     return {
@@ -34,6 +34,19 @@ def build_flow_key(ip_fields: dict, tcp_fields: dict) -> tuple:
         "TCP",
     )
 
+def build_dst_flow_key(ip_fields: dict, tcp_fields: dict, window: int = 1) -> tuple:
+    """
+    Aggregate traffic per destination in fixed time windows.
+    """
+    time_bucket = int(time.time() // window)
+
+    return (
+        ip_fields["version"],
+        ip_fields["destination_ip"],
+        tcp_fields["destination_port"],
+        "TCP",
+        time_bucket,
+    )
 
 def update_flow_duration(flow_entry, current_time):
     if flow_entry["start_time"] is None:

@@ -1,86 +1,65 @@
-"""
-Script to evaluate the trained FlowML model against a PCAP file.
-Calculates the Detection Rate (Percentage of anomalies detected).
-"""
-
-import os
 import sys
 from scapy.utils import PcapReader
-from scapy.layers.inet import IP, TCP
-from backend.detection.FlowML import FlowMLModel
+from scapy.layers.inet import IP, TCP, Ether
+from backend.detection.UnifiedThreatDetection import UnifiedThreatDetection
 from backend.capture.TrafficAnalysis import TrafficAnalysis
 
-# config
+# temp enable logging info
+import logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+
 PCAP_FILE = "backend/attacks/attack_test_1.pcap" 
-MODEL_PATH = "models/baseline_model.pkl"
 
 def main():
-    print("=== Model Evaluation ===")
+    print("=== System Evaluation (Signatures + ML) ===")
 
-    # Load Model
-    print(f"Loading model from {MODEL_PATH}...")
-    model = FlowMLModel()
-    try:
-        model.load(MODEL_PATH)
-    except FileNotFoundError:
-        sys.exit("Error: Model file not found. Train the baseline first.")
-
-    # Setup Analyzer
+    # 1. Initialize the Full Engine
+    detector = UnifiedThreatDetection()
     analyzer = TrafficAnalysis()
     
-    # Process PCAP
-    if not os.path.exists(PCAP_FILE):
-        sys.exit(f"Error: PCAP file not found: {PCAP_FILE}")
-
     print(f"Reading {PCAP_FILE}...")
     
-    features_list = []
-    packet_count = 0
+    stats = {"Total": 0, "Normal": 0, "Signatures": 0, "ML_Anomalies": 0}
     
-    # Use PcapReader for memory efficiency with large files
     with PcapReader(PCAP_FILE) as pcap_reader:
         for packet in pcap_reader:
-            packet_count += 1
-            if packet_count % 1000 == 0:
-                print(f"Processed {packet_count} packets...", end='\r')
+            stats["Total"] += 1
             
-            # Extract features exactly as we did during training
             if packet.haslayer(IP) and packet.haslayer(TCP):
-                features = analyzer.analyze_packet(packet)
-                if features:
-                    features_list.append(features)
+                # 2. micro + macro
+                combined_features = analyzer.analyze_packet(packet)
+                
+                if combined_features:
+                    # detect
+                    result = detector.detect(combined_features)
+                    
+                    if result["is_threat"]:
+                        if result["engine"] == "Signature":
+                            stats["Signatures"] += 1
+                        else:
+                            stats["ML_Anomalies"] += 1
+                        
+                        # print first few alerts
+                        if (stats["Signatures"] + stats["ML_Anomalies"]) <= 5:
+                            print(f"[!] {result['threat_type']} detected! (Packet #{stats['Total']})")
+                    else:
+                        stats["Normal"] += 1
+            
+            if stats["Total"] % 1000 == 0:
+                print(f"Processed {stats['Total']} packets...", end='\r')
 
-    print(f"\nExtraction complete. Analyzed {len(features_list)} flows from {packet_count} packets.")
-
-    if not features_list:
-        sys.exit("No TCP/IP features extracted. Is the PCAP empty or non-TCP?")
-
-    # Predict
-    print("Running inference...")
-    predictions = model.predict(features_list)
+    # 4. Final Report
+    print(f"\n\n{'='*30}")
+    print(f"FINAL REPORT")
+    print(f"{'='*30}")
+    print(f"Total Packets:      {stats['Total']}")
+    print(f"Flood Detections:   {stats['Signatures']} (Signature Engine)")
+    print(f"Content Anomalies:  {stats['ML_Anomalies']} (ML Engine)")
     
-    # Calculate Metrics
-    # IsolationForest: 1 = Normal, -1 = Anomaly
-    total = len(predictions)
-    anomalies = predictions.count(-1)
-    normals = predictions.count(1)
-    
-    detection_rate = (anomalies / total) * 100
-    
-    print("-" * 30)
-    print(f"Total Flows Checked: {total}")
-    print(f"Normal Flags (1):    {normals}")
-    print(f"Anomalies Found (-1):{anomalies}")
-    print("-" * 30)
-    print(f"DETECTION RATE:      {detection_rate:.2f}%")
-    print("-" * 30)
-
-    if detection_rate > 90:
-        print("RESULT: EXCELLENT detection capability.")
-    elif detection_rate > 50:
-        print("RESULT: MODERATE detection. Consider tuning contamination.")
-    else:
-        print("RESULT: POOR detection. Model may be overfitted to baseline.")
+    threat_count = stats['Signatures'] + stats['ML_Anomalies']
+    rate = (threat_count / stats['Total']) * 100 if stats['Total'] else 0
+    print(f"Overall Detection:  {rate:.2f}%")
+    print(f"{'='*30}")
 
 if __name__ == "__main__":
     main()
