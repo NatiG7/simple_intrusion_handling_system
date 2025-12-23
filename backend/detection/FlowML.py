@@ -21,7 +21,7 @@ class FlowMLModel:
         feature_names (List[str]): Ordered list of expected flow feature names.
     """
 
-    def __init__(self, contamination: float = 0.1) -> None:
+    def __init__(self, contamination: float = 0.001) -> None:
         """
         Initialize the FlowMLModel.
 
