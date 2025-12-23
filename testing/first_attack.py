@@ -17,3 +17,7 @@ def get_local_ip():
 
 target = "192.168.1.15"
 send(IP(dst=target)/TCP(dport=80, flags="S"), count=250,inter=0.001)
+
+for i in range(4):
+    payload = f"GET / HTTP/1.1\r\nHost: {target}\r\nUser-Agent: Mozilla/5.0\r\n"
+    send(IP(dst=target)/TCP(dport=80, flags="PA")/Raw(load=payload), inter=5)

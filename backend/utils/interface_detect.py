@@ -24,7 +24,7 @@ def select_interface():
             desc = iface.description.lower()
             ip = iface.ip
 
-            if ('wi-fi' in desc or 'wireless' in desc or 'realtek' in desc or 'ethernet' in desc) \
+            if ('wi-fi' in desc or 'wireless' in desc or 'wlan0' in desc or 'realtek' in desc or 'ethernet' in desc) \
                and ip and ip != '0.0.0.0' and not is_apipa(ip):
                 print(f"Selected interface: {iface.description}")
                 print(f"IP: {iface.ip}\n")

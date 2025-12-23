@@ -47,10 +47,8 @@ first_byte = struct.unpack('!B', raw_buffer[0:1])[0]
 
 version = first_byte >> 4
 header_length = first_byte & 0x0F
-raw_stuff = first_byte >> 20
 
 print(f"Version: {version} | Header Length (32-bit words): {header_length}")
-print(f"Rawbuffer : {raw_stuff}")
 
 # Cleanup
 sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)

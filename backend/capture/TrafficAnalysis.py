@@ -96,7 +96,7 @@ class TrafficAnalysis:
                 tcp_fields = build_tcp_fields(packet)
                 
                 conn_key = build_flow_key(ip_fields, tcp_fields)
-                dst_key = build_dst_flow_key(ip_fields, tcp_fields)
+                dst_key = build_dst_flow_key(ip_fields, tcp_fields,timestamp=packet.time)
 
                 conn_flow = self.flow_stats[conn_key]
                 dst_flow = self.flow_stats_dst[dst_key]
