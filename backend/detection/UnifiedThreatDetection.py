@@ -54,7 +54,7 @@ class UnifiedThreatDetection:
                 prediction = self.ml_model.predict([micro])[0]
                 score = self.ml_model.anomaly_score([micro])[0]
                 
-                if prediction:
+                if prediction <= 0:
                     return {
                         "is_threat": True,
                         "risk_score": float(abs(score)),
