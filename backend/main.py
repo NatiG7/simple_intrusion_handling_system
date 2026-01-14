@@ -10,6 +10,7 @@ from scapy.layers.inet import IP
 from backend.capture.PacketCapture import PacketCapture
 from backend.capture.TrafficAnalysis import TrafficAnalysis
 from backend.detection.UnifiedThreatDetection import UnifiedThreatDetection
+from backend.database.DatabaseManager import DatabaseManager
 
 # Configure Logging
 logging.basicConfig(
@@ -28,6 +29,7 @@ def main():
     print("[*] Starting Packet Capture...")
     try:
         capture.start_capture()
+        db = DatabaseManager(uri="mongodb://localhost:27017/", db_name="ids_db")
     except Exception as e:
         print(f"[!] Failed to start capture: {e}")
         return
@@ -48,6 +50,16 @@ def main():
                     result = detector.detect(flow_features)
                     
                     if result["is_threat"]:
+                        alert_payload = {
+                            "src_ip": packet[IP].src,
+                            "dst_ip": packet[IP].dst,
+                            "threat_type": result['threat_type'],
+                            "risk_score": float(result['risk_score']), # Ensure native types
+                            "ml_score": float(result.get('ml_score', 0)),
+                            "timestamp": packet.time
+                        }
+                        db.log_alert(alert_payload)
+                        print(f"[!!!] Logged Alert: {result['threat_type']}")
                         print(f"\n[!!!] ALERT: {result['threat_type']}")
                         print(f"      Source: {packet[IP].src} -> Dest: {packet[IP].dst}")
                         print(f"      Risk Score: {result['risk_score']:.4f}")
