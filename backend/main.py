@@ -50,14 +50,15 @@ def main():
                     result = detector.detect(flow_features)
                     
                     if result["is_threat"]:
-                        alert_payload = {
-                            "src_ip": packet[IP].src,
-                            "dst_ip": packet[IP].dst,
-                            "threat_type": result['threat_type'],
-                            "risk_score": float(result['risk_score']), # Ensure native types
-                            "ml_score": float(result.get('ml_score', 0)),
-                            "timestamp": packet.time
-                        }
+                        # alert_payload = {
+                        #     "src_ip": packet[IP].src,
+                        #     "dst_ip": packet[IP].dst,
+                        #     "threat_type": result['threat_type'],
+                        #     "risk_score": float(result['risk_score']), # Ensure native types
+                        #     "ml_score": float(result.get('ml_score', 0)),
+                        #     "timestamp": packet.time
+                        # }
+                        alert_payload = flow_features
                         db.log_alert(alert_payload)
                         print(f"[!!!] Logged Alert: {result['threat_type']}")
                         print(f"\n[!!!] ALERT: {result['threat_type']}")
