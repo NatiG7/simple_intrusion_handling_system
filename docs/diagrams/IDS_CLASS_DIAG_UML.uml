@@ -11,13 +11,13 @@ class SystemController {
 }
 
 class DatabaseManager {
-    - connection: SQLiteConnection
-    - db_path: str
+    - connection: MongoDbConnection
+    - uri: str
     + connect()
-    + save_packet(packet: Packet)
     + log_alert(alert: dict)
-    + fetch_rules() : dict
     + log_flow_stats(stats: dict)
+    + log_system_event(type: str, severity: str, message: str)
+    + fetch_recent_alerts(limit: int): list<dict>
     + close()
 }
 
