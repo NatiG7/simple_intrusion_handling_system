@@ -7,11 +7,11 @@ import time
 import sys
 
 # Import our modules
-import TheAttacker as gen
-import TheEyes as sniffer
-import TheBrain as analyzer
-import ThePolice as detector
-import TheScreen as dash
+import testing.TheAttacker as gen
+import testing.TheEyes as sniffer
+import testing.TheBrain as analyzer
+import testing.ThePolice as detector
+import testing.TheScreen as dash
 
 # Global instances
 flow_engine = analyzer.FlowAnalyzer()
@@ -65,7 +65,7 @@ def main():
         run_sniffer_thread(callback_full_stack)
         time.sleep(2)
         print("\n[+] Launching SYN Flood Attack...")
-        gen.send_syn_flood(count=20)
+        gen.send_syn_flood(count=50)
         input("\nPress Enter to stop...")
 
     elif choice == "4":

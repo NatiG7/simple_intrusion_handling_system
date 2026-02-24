@@ -15,7 +15,7 @@ def parse_packet_fast(raw_data):
         
         # Only process IPv4 (0x0800)
         if eth_proto != 2048:
-            return None, None, None
+            return None, None, None, None
 
         # 2. IP Header
         # IP header starts at byte 14
@@ -47,7 +47,7 @@ def parse_packet_fast(raw_data):
 
         # Only process TCP (6)
         if protocol != 6:
-            return ip_fields, None, None
+            return ip_fields, None, None, 14
 
         # 3. TCP Header
         tcp_start = 14 + ip_header_len
@@ -78,4 +78,4 @@ def parse_packet_fast(raw_data):
 
     except Exception:
         # Packet too short or malformed
-        return None, None, None
+        return None, None, None, None

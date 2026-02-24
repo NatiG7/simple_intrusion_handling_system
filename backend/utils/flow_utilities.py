@@ -34,7 +34,7 @@ def build_flow_key(ip_fields: dict, tcp_fields: dict) -> tuple:
         "TCP",
     )
 
-def build_dst_flow_key(ip_fields: dict, tcp_fields: dict,timestamp:float, window: int = 1) -> tuple:
+def build_dst_flow_key(ip_fields: dict, tcp_fields: dict,timestamp:float, window: int = 60) -> tuple:
     """
     Aggregate traffic per destination in fixed time windows.
     """

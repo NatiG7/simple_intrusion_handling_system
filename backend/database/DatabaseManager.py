@@ -91,6 +91,17 @@ class DatabaseManager:
             self.db.alerts.insert_one(alert)
         except Exception as e:
             print(f"[DB-ERR] Failed to log alert: {e}")
+            
+    def log_alerts_batch(self, alerts: List[Dict])->None:
+        if not self.db:
+            return
+        try:
+            for alert in alerts:
+                if 'timestamp' not in alert:
+                    alert['timestamp'] = datetime.now().isoformat()
+            self.db.alerts.insert_many(alerts)
+        except Exception as e:
+            print(f"[DB-ERR] Batch insert failure : {e}")
 
     def log_flow(self, flow_data: Dict[str, Any]) -> None:
         """

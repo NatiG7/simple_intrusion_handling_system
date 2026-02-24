@@ -3,6 +3,7 @@ import logging
 from collections import deque
 import numpy as np
 MODEL_PATH = "models/baseline_model.pkl"
+THRESHOLD = 0.5500
 
 class UnifiedThreatDetection:
     
@@ -20,10 +21,16 @@ class UnifiedThreatDetection:
     
     def _load_signature_rules(self) -> dict:
         return {
-            "SYN_flood" : lambda f: f.get("syn_count") > 100 and f.get("packet_rate") > 50,
+            "SYN_flood" : lambda f: f.get("syn_count") > 80 and f.get("packet_rate") > 40,
             "SYN_flood_DST": lambda f:(f.get("syn_count") > 1000
                             and f.get("unique_src_ips") > 100 and f.get("ack_count",0) == 0),
-            "Slowloris" : lambda f: f.get("flow_duration") > 10 and f.get("packet_rate") < 5
+            "Slowloris" : lambda f: (
+                f.get("flow_duration") > 60
+                and f.get("packet_rate", 100) < 1
+                and f.get("syn_count",0) > 5
+                and f.get("ack_count",0) < f.get("syn_count", 0) // 2
+                and f.get("fin_count", 0) == 0
+            )
         }
         
     def detect(self, combined_features: dict) -> dict:
@@ -54,7 +61,7 @@ class UnifiedThreatDetection:
                 prediction = self.ml_model.predict([micro])[0]
                 score = self.ml_model.anomaly_score([micro])[0]
                 
-                if prediction <= 0:
+                if prediction <= 0 and float(abs(score)) > THRESHOLD:
                     return {
                         "is_threat": True,
                         "risk_score": float(abs(score)),
@@ -70,6 +77,6 @@ class UnifiedThreatDetection:
     def _check_concept_drift(self):
         if len(self.score_history) == self.score_history.maxlen:
             avg_score = np.mean(self.score_history)
-            if avg_score < -0.20 and not self.drift_alerted:
+            if avg_score < -0.20 and not self.drift_alert:
                 logging.warning(f"Drift Detected (Avg: {avg_score:.2f}). Retrain.")
-                self.drift_alerted = True
+                self.drift_alert = True

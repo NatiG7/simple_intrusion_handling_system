@@ -181,9 +181,14 @@ class TrafficAnalysis:
 
             # 4. Extract Features
             # Note: packet_obj will be None in Fast Mode.
-            # Your extract_features function ALREADY handles None gracefully.
-            micro_features = self.extract_features(packet_obj, conn_flow)
-            macro_features = self.extract_features(packet_obj, dst_flow)
+            duration = conn_flow["flow_duration"]
+            if duration and duration > 0.000001:
+                rates = {"packet_rate": conn_flow["packet_count"] / duration,
+                         "byte_rate": conn_flow["byte_count"] / duration}
+            else:
+                rates = {"packet_rate": 0.0, "byte_rate": 0.0}
+            micro_features = self.extract_features(packet_obj, conn_flow, cached_rates=rates)
+            macro_features = self.extract_features(packet_obj, dst_flow, cached_rates=rates)
 
             return {
                 "micro": micro_features,
@@ -194,7 +199,7 @@ class TrafficAnalysis:
             traceback.print_exc()
             return None
 
-    def extract_features(self, packet: Packet, stats):
+    def extract_features(self, packet: Packet, stats, cached_rates = None):
         """
         Extract statistical and protocol-based features from a network packet and its flow data.
 
@@ -204,6 +209,7 @@ class TrafficAnalysis:
         Parameters:
             packet (Packet): A Scapy Packet object containing IP and TCP layers.
             stats (dict): A dictionary containing current statistics for the corresponding flow.
+            cached_rates: optional dict with pre-calc rates to avoid redundancy
 
         Returns:
             dict: A dictionary of computed features for the given packet and flow.
@@ -213,12 +219,16 @@ class TrafficAnalysis:
         """
         try:
             duration = stats["flow_duration"]
-            if duration and duration > 0.000001:
-                packet_rate = stats["packet_count"] / duration
-                byte_rate = stats["byte_count"] / duration
+            if cached_rates:
+                packet_rate = cached_rates["packet_rate"]
+                byte_rate = cached_rates["byte_rate"]
             else:
-                packet_rate = 0.0
-                byte_rate = 0.0
+                if duration and duration > 0.000001:
+                    packet_rate = stats["packet_count"] / duration
+                    byte_rate = stats["byte_count"] / duration
+                else:
+                    packet_rate = 0.0
+                    byte_rate = 0.0
 
             iat_list = stats["iat"]
             len_iat = len(iat_list)
@@ -226,7 +236,7 @@ class TrafficAnalysis:
                 min_iat = min(iat_list)
                 max_iat = max(iat_list)
                 avg_iat = sum(iat_list) / len(iat_list)
-                std_iat = statistics.stdev(iat_list)
+                std_iat = statistics.stdev(iat_list) if len_iat > 1 else 0.0
             else:
                 min_iat = max_iat = avg_iat = std_iat = 0.0
             if packet:

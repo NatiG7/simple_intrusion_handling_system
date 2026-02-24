@@ -8,7 +8,7 @@ from scapy.all import send
 from scapy.layers.inet import IP, TCP, ICMP
 
 def send_syn_flood(target_ip="127.0.0.1", count=20):
-    print(f"[>] Sending {count} SYN packets to {target_ip}...")
+    print(f"[>] Sending {count} SYN packets to [{target_ip}]...")
     for _ in range(count):
         # Random source port for realism
         sport = random.randint(1024, 65535)
