@@ -10,6 +10,7 @@ OUTPUT_DIR = "backend/attacks"
 OUTPUT_FILE = f"attack_test_{FILECOUNT}.pcap"
 PACKET_COUNT = 5000
 SF = "S"
+BOT_COUNT = 10  # Number of distinct attackers in our simulated botnet
 
 def get_local_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -33,14 +34,21 @@ def generate_syn_flood():
     print(f"Generating {PACKET_COUNT} SYN flood packets with timestamps...")
     
     syn_packets = []
-    src_ips = [RandIP() for _ in range(50)]
+    
+    # 1. Create a "Botnet" of distinct machines (Fixed IP + Fixed Port per bot)
+    # We resolve RandIP() and RandShort() to strings/ints so they stay static across the loop
+    print(f"Initializing botnet with {BOT_COUNT} distinct bots...")
+    botnet = [(str(RandIP()), int(RandShort())) for _ in range(BOT_COUNT)]
     
     # start time
     base_time = time.time()
     
     for i in range(PACKET_COUNT):
-        ip_layer = IP(src=random.choice(src_ips), dst=target_ip)
-        tcp_layer = TCP(sport=RandShort(), dport=80, flags=SF)
+        # 2. Randomly pick a bot from our botnet to send the next packet
+        bot_ip, bot_port = random.choice(botnet)
+        
+        ip_layer = IP(src=bot_ip, dst=target_ip)
+        tcp_layer = TCP(sport=bot_port, dport=80, flags=SF)
         packet = ip_layer / tcp_layer
         
         # set timestamp

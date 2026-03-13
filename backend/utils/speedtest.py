@@ -104,7 +104,7 @@ def main():
     # (We need to extract features once to get a valid input for the ML model)
     # We access the internal flow stats to simulate a "ready" feature set
     last_conn_key = list(analyzer.flow_stats.keys())[0]
-    valid_features = analyzer.extract_features(None, analyzer.flow_stats[last_conn_key])
+    valid_features = analyzer.extract_features(len(raw_bytes),8192, analyzer.flow_stats[last_conn_key])
     boxed_features = {"micro": valid_features, "macro": {}}
     
     # 2. Test AI Brain

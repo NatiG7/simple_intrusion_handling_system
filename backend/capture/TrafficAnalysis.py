@@ -139,7 +139,7 @@ class TrafficAnalysis:
             conn_flow = self.flow_stats[conn_key]
             dst_flow = self.flow_stats_dst[dst_key]
             
-            is_chksum_valid = True
+            is_chksum_valid = validate_ip_checksum(raw_ip_bytes)
 
             # 2. Update Flows
             for flow_data in (conn_flow, dst_flow):
@@ -161,6 +161,11 @@ class TrafficAnalysis:
                 flow_data["destination_ip_count"][ip_fields["destination_ip"]] += 1
                 flow_data["source_port_count"][tcp_fields["source_port"]] += 1
                 flow_data["destination_port_count"][tcp_fields["destination_port"]] += 1
+                flow_data["sequence_numbers"].append(seq_num)
+                flow_data["window_sizes"].append(win_size)
+                flow_data["header_lengths"].append(ip_ihl_bytes)
+                flow_data["tcp_header_sizes"].append(tcp_dataofs_bytes)
+                flow_data["reserved_bits"].append(reserved)
                 
                 if not is_chksum_valid:
                     flow_data["checksum_errors"] += 1
@@ -172,13 +177,6 @@ class TrafficAnalysis:
                 if flags & 0x01: flow_data["tcp_flags_count"]["FIN"] += 1
                 if flags & 0x04: flow_data["tcp_flags_count"]["RST"] += 1
 
-            # 3. Micro-Only Updates (Using the variables we set in the Branches)
-            conn_flow["sequence_numbers"].append(seq_num)
-            conn_flow["window_sizes"].append(win_size)
-            conn_flow["header_lengths"].append(ip_ihl_bytes)
-            conn_flow["tcp_header_sizes"].append(tcp_dataofs_bytes)
-            conn_flow["reserved_bits"].append(reserved)
-
             # 4. Extract Features
             # Note: packet_obj will be None in Fast Mode.
             duration = conn_flow["flow_duration"]
@@ -187,8 +185,8 @@ class TrafficAnalysis:
                          "byte_rate": conn_flow["byte_count"] / duration}
             else:
                 rates = {"packet_rate": 0.0, "byte_rate": 0.0}
-            micro_features = self.extract_features(packet_obj, conn_flow, cached_rates=rates)
-            macro_features = self.extract_features(packet_obj, dst_flow, cached_rates=rates)
+            micro_features = self.extract_features(ip_fields["packet_length"], win_size, conn_flow, cached_rates=rates)
+            macro_features = self.extract_features(ip_fields["packet_length"], win_size, dst_flow, cached_rates=rates)
 
             return {
                 "micro": micro_features,
@@ -199,7 +197,7 @@ class TrafficAnalysis:
             traceback.print_exc()
             return None
 
-    def extract_features(self, packet: Packet, stats, cached_rates = None):
+    def extract_features(self, current_pkt_size: int, current_win_size: int, stats: dict, cached_rates: dict = None):
         """
         Extract statistical and protocol-based features from a network packet and its flow data.
 
@@ -239,12 +237,7 @@ class TrafficAnalysis:
                 std_iat = statistics.stdev(iat_list) if len_iat > 1 else 0.0
             else:
                 min_iat = max_iat = avg_iat = std_iat = 0.0
-            if packet:
-                current_pkt_size = len(packet)
-                current_win_size = packet[TCP].window if packet.haslayer(TCP) else 0
-            else:
-                current_pkt_size = stats["byte_count"] / stats["packet_count"] if stats["packet_count"] else 0
-                current_win_size = stats["window_sizes"][-1] if stats["window_sizes"] else 0
+
             def safe_avg(deque_obj):
                 return sum(deque_obj) / len(deque_obj) if deque_obj else 0
             features = {
